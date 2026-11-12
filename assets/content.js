@@ -31,11 +31,6 @@ window.REMI_DATA = {
       icon: 'home',
       
 photos: [
-
-  {
-    src: 'https://raw.githubusercontent.com/szulcmate-droid/remicharity/refs/heads/main/assets/zdjecia/DOm%20dziecka/858633618_1526989615903008_2236446215995712686_n.jfif,
-    alt: 'Pokój wychowanków'
-  },
   {
     src: 'https://raw.githubusercontent.com/szulcmate-droid/remicharity/refs/heads/main/assets/zdjecia/DOm%20dziecka/760566432_1062591859758006_2564987743596509551_n.jfif',
     alt: 'Przestrzeń wspólna'
