@@ -66,7 +66,7 @@ const places = await Promise.all(placeIds.map(async id => {
   const { gallery, ...place } = await readContent(id);
   return { ...place, id, gallery: (gallery ?? []).filter(item => item.approved === true).map(publishSlide) };
 }));
-const partners = (settings.partners ?? []).map(partner => ({
+const partners = (await readContent('partners')).map(partner => ({
   ...partner,
   logo: partner.logo ? mediaPath(partner.logo, imageExtensions) : '',
 }));

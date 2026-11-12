@@ -1,0 +1,11 @@
+{
+  "name": "remicharity",
+  "compatibility_date": "2025-09-09",
+  "build": {
+    "command": "node scripts/build.mjs"
+  },
+  "assets": {
+    "directory": "./dist"
+  },
+  "previews": {}
+}

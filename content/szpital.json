@@ -6,5 +6,54 @@
   "description": "Wspieramy kąciki zabaw i zajęcia dla małych pacjentów na trzech oddziałach, w oparciu o otrzymane listy potrzeb.",
   "icon": "sparkles",
   "confirmed": false,
-  "gallery": []
+  "gallery": [
+    {
+      "kind": "image",
+      "image": "/assets/media/szpital-dzieciecy-budynek.png",
+      "alt": "Budynek Wojewódzkiego Szpitala Dziecięcego w Bydgoszczy",
+      "approved": true
+    },
+    {
+      "kind": "video",
+      "video": "/assets/media/szpital-dzieciecy-film-o-oddziale.mp4",
+      "alt": "Film o oddziale chirurgii dziecięcej i jego świetlicy",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/szpital-dzieciecy-laurka.jpg",
+      "alt": "Dziecko przygotowuje laurkę na Dzień Babci i Dziadka",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/szpital-dzieciecy-lamiglowki.jpg",
+      "alt": "Osoby w kostiumach wręczają dziecku książkę z łamigłówkami",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/szpital-dzieciecy-maskotki.jpg",
+      "alt": "Dziecko przybija piątkę z dużą maskotką",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/szpital-dzieciecy-pluszowy-mis.jpg",
+      "alt": "Kobieta pokazuje dziecku pluszowego misia",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/szpital-dzieciecy-kolorowe-upominki.jpg",
+      "alt": "Dziecko ogląda kolorowe upominki",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/szpital-dzieciecy-odwiedziny.jpg",
+      "alt": "Odwiedziny w sali szpitalnej",
+      "approved": true
+    }
+  ]
 }
