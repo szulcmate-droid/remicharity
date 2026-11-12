@@ -8,15 +8,15 @@
   "confirmed": false,
   "gallery": [
     {
-      "kind": "image",
-      "image": "/assets/media/szpital-dzieciecy-budynek.png",
-      "alt": "Budynek Wojewódzkiego Szpitala Dziecięcego w Bydgoszczy",
-      "approved": true
-    },
-    {
       "kind": "video",
       "video": "/assets/media/szpital-dzieciecy-film-o-oddziale.mp4",
       "alt": "Film o oddziale chirurgii dziecięcej i jego świetlicy",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/szpital-dzieciecy-budynek.png",
+      "alt": "Budynek Wojewódzkiego Szpitala Dziecięcego w Bydgoszczy",
       "approved": true
     },
     {
