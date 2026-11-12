@@ -32,7 +32,7 @@ window.REMI_DATA = {
       
 photos: [
   {
-    src: 'https://github.com/szulcmate-droid/remicharity/blob/main/assets/zdjecia/DOm%20dziecka/737467769_1415478037054167_7439256937558137164_n.jpg?raw=true',
+    src: 'assets/zdjecia/DOm dziecka/858633618_1526989615903008_2236446215995712686_n.jfif,
     alt: 'Świetlica BZPOW'
   },
   {
