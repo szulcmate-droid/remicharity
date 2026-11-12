@@ -64,11 +64,6 @@ photoCreditUrl: '',
     caption: 'Poznaj BZPOW i potrzeby podopiecznych'
   }
 ],
-      photos: [
-        { src: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Bdg_Szpital_Dzieciecy_1_4-2015.jpg', alt: 'Budynek Wojewódzkiego Szpitala Dziecięcego w Bydgoszczy', caption: 'Szpital Dziecięcy, zdjęcie archiwalne (2015)' },
-      ],
-      photoCreditUrl: 'https://commons.wikimedia.org/wiki/File:Bdg_Szpital_Dzieciecy_1_4-2015.jpg',
-      confirmed: true
     },
     {
       id: 'hospicjum',
