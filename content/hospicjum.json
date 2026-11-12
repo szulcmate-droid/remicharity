@@ -1,0 +1,19 @@
+{
+  "short": "Hospicjum",
+  "full": "Hospicjum Pallmed Dom Sue Ryder",
+  "detail": "Bydgoszcz",
+  "eyebrow": "Troska i obecność",
+  "description": "Hospicjum jest trzecią placówką objętą inicjatywą. Konkretne potrzeby zostaną opublikowane po potwierdzeniu z placówką.",
+  "icon": "heart",
+  "confirmed": false,
+  "gallery": [
+    {
+      "kind": "image",
+      "externalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Bdg_DomSueRyder_1_5-2015.jpg",
+      "alt": "Budynek Domu Sue Ryder w Bydgoszczy",
+      "caption": "Dom Sue Ryder, zdjęcie archiwalne (2015)",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Bdg_DomSueRyder_1_5-2015.jpg",
+      "approved": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "short": "BZPOW",
+  "full": "Bydgoski Zespół Placówek Opiekuńczo-Wychowawczych",
+  "detail": "Traugutta 5 · Bydgoszcz",
+  "eyebrow": "Dom, codzienność, możliwości",
+  "description": "Pomagamy odpowiadać na konkretne potrzeby wychowanków: od tekstyliów i wyposażenia po czas na wspólne przeżycia.",
+  "icon": "home",
+  "confirmed": true,
+  "gallery": [
+    {
+      "kind": "image",
+      "externalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Bdg_sierociniecD_5_10-2013.jpg",
+      "alt": "Budynek BZPOW przy ul. Traugutta 5",
+      "caption": "BZPOW, zdjęcie archiwalne (2013)",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Bdg_sierociniecD_5_10-2013.jpg",
+      "approved": true
+    }
+  ]
+}

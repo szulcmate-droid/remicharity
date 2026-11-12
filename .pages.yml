@@ -1,0 +1,133 @@
+media:
+  input: assets/media
+  output: /assets/media
+  rename: safe
+  extensions: [jpg, jpeg, png, webp, avif, mp4, webm]
+
+content:
+  - name: bzpow
+    label: BZPOW
+    type: file
+    path: content/bzpow.json
+    format: json
+    fields: &place_fields
+      - { name: short, label: Krótka nazwa, type: string, required: true }
+      - { name: full, label: Pełna nazwa, type: string, required: true }
+      - { name: detail, label: Adres lub oddziały, type: string }
+      - { name: eyebrow, label: Hasło, type: string }
+      - { name: description, label: Opis, type: text, required: true }
+      - { name: icon, label: Ikona, type: string }
+      - { name: confirmed, label: Potrzeby potwierdzone przez placówkę, type: boolean }
+      - name: gallery
+        label: Galeria
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+        fields:
+          - name: kind
+            label: Rodzaj materiału
+            type: select
+            required: true
+            options:
+              values:
+                - { name: image, label: Zdjęcie }
+                - { name: video, label: Film }
+          - { name: image, label: Plik zdjęcia, type: image }
+          - name: video
+            label: Plik filmu
+            type: file
+            options:
+              extensions: [mp4, webm]
+          - name: externalUrl
+            label: Adres HTTPS pliku
+            type: string
+            description: Wypełnij przy materiale zewnętrznym. Wybierz jedno źródło.
+          - { name: youtubeId, label: Identyfikator filmu YouTube, type: string }
+          - { name: poster, label: Miniatura filmu, type: image }
+          - { name: alt, label: Opis alternatywny zdjęcia lub tytuł filmu, type: string, required: true }
+          - { name: caption, label: Podpis pod materiałem, type: string }
+          - { name: creditUrl, label: Adres strony źródłowej, type: string }
+          - name: approved
+            label: Dopuszczony do publikacji
+            type: boolean
+            default: false
+            description: Zweryfikuj zgody przed dodaniem pliku do publicznego repozytorium.
+  - name: szpital
+    label: Szpital Dziecięcy
+    type: file
+    path: content/szpital.json
+    format: json
+    fields: *place_fields
+  - name: hospicjum
+    label: Hospicjum Pallmed Dom Sue Ryder
+    type: file
+    path: content/hospicjum.json
+    format: json
+    fields: *place_fields
+  - name: needs
+    label: Listy potrzeb
+    type: file
+    path: content/needs.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: Identyfikator potrzeby, type: string, required: true }
+      - name: place
+        label: Placówka
+        type: select
+        required: true
+        options:
+          values:
+            - { name: bzpow, label: BZPOW }
+            - { name: szpital, label: Szpital Dziecięcy }
+            - { name: hospicjum, label: Hospicjum Pallmed Dom Sue Ryder }
+      - { name: group, label: Grupa lub oddział, type: string, required: true }
+      - { name: title, label: Nazwa potrzeby, type: string, required: true }
+      - { name: description, label: Opis, type: text, required: true }
+      - { name: icon, label: Ikona, type: string }
+      - { name: priority, label: Priorytet, type: boolean }
+      - { name: amount, label: Kwota, type: number }
+      - name: status
+        label: Status
+        type: select
+        required: true
+        options:
+          values:
+            - { name: potrzebne, label: Zgłoszona potrzeba }
+            - { name: do-uzgodnienia, label: Do uzgodnienia }
+            - { name: zarezerwowane, label: Zadeklarowane }
+            - { name: zrealizowane, label: Zrealizowane }
+  - name: settings
+    label: Kampania, partnerzy i formularz
+    type: file
+    path: content/settings.json
+    format: json
+    fields:
+      - { name: campaignName, label: Nazwa kampanii, type: string }
+      - { name: brandName, label: Nazwa inicjatywy, type: string }
+      - { name: organizer, label: Organizator, type: string }
+      - { name: contactEmail, label: E-mail kontaktowy, type: string }
+      - { name: fundraiserUrl, label: Adres zbiórki, type: string }
+      - { name: campaignDeadline, label: Termin kampanii, type: string }
+      - { name: amountRaised, label: Zebrana kwota (PLN), type: number }
+      - { name: targetAmount, label: Cel zbiórki (PLN), type: number }
+      - { name: operatorName, label: Operator zbiórki, type: string }
+      - { name: allocationText, label: Zasady podziału środków, type: text }
+      - name: formEndpoint
+        label: Adres formularza Formspree
+        type: string
+        description: Wklej pełny adres HTTPS z zakładki Integration w Formspree.
+      - name: partners
+        label: Partnerzy
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Nazwa firmy, type: string, required: true }
+          - { name: website, label: Adres strony, type: string }
+          - { name: logo, label: Logotyp, type: image }
+          - { name: description, label: Opis wsparcia, type: string }

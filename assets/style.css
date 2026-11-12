@@ -72,11 +72,20 @@
 .recipient-video-caption{font-size:13px;color:#45675d;padding:13px 16px;line-height:1.6}
 @media(max-width:760px){.recipient-videos{padding:24px 18px 27px}.recipient-videos-header h3{font-size:21px}.recipient-gallery-photo{flex-basis:38%;width:38%}}
 
-/* RemiCharity v4 — wiele fotografii w jednym oknie (karuzela) */
+/* Karuzele placówek */
+.recipient-gallery-wrap{display:flex;flex:1;flex-direction:column;min-width:0}
 .recipient-slideshow{position:relative;flex:1;min-height:340px;overflow:hidden;isolation:isolate;background:#193a38}
+.recipient-slideshow.has-multiple{touch-action:pan-y pinch-zoom}
 .recipient-slideshow .recipient-main-photo{position:absolute;inset:0;width:100%;height:100%;min-height:0;flex:none;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease}
 .recipient-slideshow .recipient-main-photo.is-active{opacity:1;visibility:visible;pointer-events:auto}
 .recipient-slideshow .recipient-main-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.recipient-slideshow .recipient-slide-video{display:grid;place-items:center;padding:0 0 42px}
+.recipient-slideshow.has-multiple .recipient-slide-video{padding:0 0 76px}
+.recipient-video,.recipient-embedded-video{display:block;width:100%;height:100%;min-height:0;border:0;background:#0c2530;object-fit:contain}
+.recipient-slide-video .recipient-photo-caption{bottom:8px}
+.recipient-slideshow.has-multiple .recipient-slide-video .recipient-photo-caption{bottom:36px}
+.recipient-play{color:#fff}
+.recipient-credits[hidden]{display:none}
 .recipient-slideshow.has-multiple .recipient-photo-caption{bottom:49px;max-width:calc(100% - 85px)}
 .recipient-slide-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;display:grid;place-items:center;width:40px;height:48px;border:1px solid rgba(255,255,255,.55);border-radius:13px;background:rgba(6,31,34,.62);color:#fff;font-size:34px;line-height:1;padding:0 0 5px;backdrop-filter:blur(7px);transition:background .2s}
 .recipient-slide-arrow:hover{background:rgba(6,31,34,.86)}
@@ -90,3 +99,7 @@
 .recipient-slideshow:focus-visible{outline:3px solid #1f9c83;outline-offset:-3px}
 @media(max-width:760px){.recipient-slideshow{min-height:280px}.recipient-slide-arrow{width:35px;height:43px;font-size:31px}.recipient-slide-prev{left:9px}.recipient-slide-next{right:9px}.recipient-slide-dots{bottom:13px}.recipient-slide-counter{bottom:12px;right:11px}}
 @media(prefers-reduced-motion:reduce){.recipient-slideshow .recipient-main-photo,.recipient-slide-arrow,.recipient-slide-dot{transition:none}}
+
+.form-submit:disabled{opacity:.6;cursor:default}
+.form-status{margin:10px 0 0;color:#3f625c;font-size:12px}
+.form-status:empty{margin:0}
