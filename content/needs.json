@@ -1,0 +1,145 @@
+[
+  {
+    "id": "b1",
+    "place": "bzpow",
+    "group": "Codzienność",
+    "title": "Pościel do siedmiu pokoi",
+    "description": "14 kompletów pościeli, po 2 jednakowe wzory do każdego pokoju (7 pokoi, po 2 łóżka); wskazany rozmiar 160 × 200 cm.",
+    "icon": "bed",
+    "priority": true,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "b2",
+    "place": "bzpow",
+    "group": "Codzienność",
+    "title": "Ręczniki i bielizna",
+    "description": "Ręczniki kąpielowe i do rąk, a także skarpetki i bielizna dla wychowanków w wieku 5–18 lat.",
+    "icon": "package",
+    "priority": false,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "b3",
+    "place": "bzpow",
+    "group": "Rozwój",
+    "title": "Dwie świetlice pełne możliwości",
+    "description": "2 stanowiska komputerowe i 2 stanowiska do grania z telewizorami — do dwóch świetlic.",
+    "icon": "monitor",
+    "priority": true,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "b4",
+    "place": "bzpow",
+    "group": "Przeżycia",
+    "title": "Kultura i atrakcje na cały rok",
+    "description": "Vouchery do kina, teatru, muzeów, sali zabaw, na koncerty i inne atrakcje z długim terminem wykorzystania.",
+    "icon": "ticket",
+    "priority": false,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "b5",
+    "place": "bzpow",
+    "group": "Wydarzenie",
+    "title": "Mikołajki dla 30 dzieci",
+    "description": "Animatorki, poczęstunek, paczuszki słodyczy oraz zabawki sensoryczne dla każdego dziecka.",
+    "icon": "gift",
+    "priority": true,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "b6",
+    "place": "bzpow",
+    "group": "Do rozważenia",
+    "title": "Dodatkowa odzież i karnawał",
+    "description": "Ubrania dla dzieci lub wydarzenie karnawałowe z animacjami, muzyką i poczęstunkiem — po dalszym ustaleniu.",
+    "icon": "star",
+    "priority": false,
+    "amount": null,
+    "status": "do-uzgodnienia"
+  },
+  {
+    "id": "s1",
+    "place": "szpital",
+    "group": "Chirurgia",
+    "title": "Kącik zabaw w gotowanie",
+    "description": "Drewniana kuchnia, zestawy kuchenne, zabawkowe owoce i warzywa oraz akcesoria do zabawy w sklep.",
+    "icon": "utensils",
+    "priority": true,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "s2",
+    "place": "szpital",
+    "group": "Chirurgia",
+    "title": "Lalka, kasa i zabawy tematyczne",
+    "description": "Lalka interaktywna, kasa fiskalna z akcesoriami i zestawy jedzenia do zabawy.",
+    "icon": "smile",
+    "priority": false,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "s3",
+    "place": "szpital",
+    "group": "Chirurgia",
+    "title": "Kreatywna świetlica",
+    "description": "Maszyna do przypinek, koraliki do prasowania, mulina, zestawy twórcze oraz gry logiczne i planszowe.",
+    "icon": "palette",
+    "priority": false,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "s4",
+    "place": "szpital",
+    "group": "Kardiologia",
+    "title": "Gry i przypinki",
+    "description": "Maszyna do przypinek 59 mm z komponentami oraz gry: Koty, Sen, Wsiąść do pociągu. Europa, Everdell.",
+    "icon": "puzzle",
+    "priority": true,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "s5",
+    "place": "szpital",
+    "group": "Kardiologia",
+    "title": "Materiały plastyczne",
+    "description": "Podobrazia, kleje, farby akrylowe oraz koraliki do bransoletek — zgodnie z listą oddziału.",
+    "icon": "brush",
+    "priority": false,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "s6",
+    "place": "szpital",
+    "group": "Endokrynologia",
+    "title": "Zabawki do odgrywania ról",
+    "description": "Lalka interaktywna, drewniane łóżeczko dla lalki, naczynia, zabawkowe warzywa i owoce oraz kasa fiskalna.",
+    "icon": "heart",
+    "priority": true,
+    "amount": null,
+    "status": "potrzebne"
+  },
+  {
+    "id": "s7",
+    "place": "szpital",
+    "group": "Do rozważenia",
+    "title": "Dodatkowe wyposażenie chirurgii",
+    "description": "Pojemniki na zabawki, konsola do gier lub fotel rozkładany — po ponownym potwierdzeniu potrzeb i parametrów.",
+    "icon": "monitor",
+    "priority": false,
+    "amount": null,
+    "status": "do-uzgodnienia"
+  }
+]

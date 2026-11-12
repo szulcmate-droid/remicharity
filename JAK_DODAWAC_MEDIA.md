@@ -1,5 +1,7 @@
 # RemiCharity — dodawanie zdjęć i filmów na GitHub
 
+Aktualny sposób dodawania mediów opisuje [instrukcja Pages CMS](README.md#edycja-w-pages-cms). Poniższa instrukcja dotyczy wersji archiwalnej.
+
 ## Ważne
 Ta wersja v3 uzupełnia galerię każdego z trzech beneficjentów o filmy MP4 i YouTube. Nie pokazuje pustych odtwarzaczy — film pojawi się dopiero po wpisaniu danych do `assets/content.js`.
 

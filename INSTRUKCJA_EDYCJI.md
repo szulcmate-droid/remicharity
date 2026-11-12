@@ -1,5 +1,7 @@
 # Jak edytować RemiCharity v2
 
+Aktualny sposób edycji opisuje [instrukcja Pages CMS](README.md#edycja-w-pages-cms). Poniższa instrukcja dotyczy wersji archiwalnej.
+
 **Najwygodniej:** GitHub połączony z Netlify — zmieniasz pojedynczy plik i klikasz Commit. Szczegóły w `GITHUB_NETLIFY_INSTRUKCJA.md`.
 
 ## Najczęściej edytowany plik — `assets/content.js`
