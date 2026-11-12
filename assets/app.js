@@ -31,6 +31,118 @@ function createPhoto(photo, place, isMain=false){
  if(photo.caption){const cap=el('figcaption','recipient-photo-caption',photo.caption);frame.appendChild(cap);}
  return frame;
 }
+// Karuzela zdjęć w głównym oknie każdej placówki.
+function buildPhotoCarousel(place, photos){
+ const slider=el('div','recipient-slideshow');
+ slider.setAttribute('role','region');
+ slider.setAttribute('aria-label','Galeria zdjęć: '+place.short);
+ const slides=photos.map((photo,i)=>{
+  const slide=createPhoto(photo,place,true);
+  slide.classList.add('recipient-slide');
+  if(i===0)slide.classList.add('is-active');
+  slide.setAttribute('aria-hidden',String(i!==0));
+  slider.appendChild(slide);
+  return slide;
+ });
+ if(photos.length===1)return slider;
+ slider.classList.add('has-multiple');
+ slider.tabIndex=0;
+ let current=0;
+ const dots=el('div','recipient-slide-dots');
+ dots.setAttribute('aria-label','Wybierz zdjęcie');
+ const dotButtons=photos.map((photo,i)=>{
+  const dot=el('button','recipient-slide-dot'+(i===0?' is-active':''));
+  dot.type='button';
+  dot.setAttribute('aria-label','Pokaż zdjęcie '+(i+1)+' z '+photos.length);
+  dot.setAttribute('aria-pressed',String(i===0));
+  dot.addEventListener('click',()=>show(i));
+  dots.appendChild(dot);
+  return dot;
+ });
+ const counter=el('span','recipient-slide-counter','1 / '+photos.length);
+ counter.setAttribute('aria-hidden','true');
+ function show(index){
+  current=(index+photos.length)%photos.length;
+  slides.forEach((slide,i)=>{
+   slide.classList.toggle('is-active',i===current);
+   slide.setAttribute('aria-hidden',String(i!==current));
+  });
+  dotButtons.forEach((dot,i)=>{
+   dot.classList.toggle('is-active',i===current);
+   dot.setAttribute('aria-pressed',String(i===current));
+  });
+  counter.textContent=(current+1)+' / '+photos.length;
+ }
+ const previous=el('button','recipient-slide-arrow recipient-slide-prev','‹');
+ previous.type='button';
+ previous.setAttribute('aria-label','Poprzednie zdjęcie');
+ previous.addEventListener('click',()=>show(current-1));
+ const next=el('button','recipient-slide-arrow recipient-slide-next','›');
+ next.type='button';
+ next.setAttribute('aria-label','Następne zdjęcie');
+ next.addEventListener('click',()=>show(current+1));
+ slider.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
+   e.preventDefault();show(current+(e.key==='ArrowRight'?1:-1));
+  }
+ });
+ let swipeStart=null;
+ slider.addEventListener('touchstart',e=>{if(e.touches.length===1)swipeStart=e.touches[0].clientX;},{passive:true});
+ slider.addEventListener('touchend',e=>{
+  if(swipeStart===null||!e.changedTouches.length)return;
+  const distance=e.changedTouches[0].clientX-swipeStart;
+  if(Math.abs(distance)>45)show(current+(distance<0?1:-1));
+  swipeStart=null;
+ },{passive:true});
+ slider.appendChild(previous);
+ slider.appendChild(next);
+ slider.appendChild(dots);
+ slider.appendChild(counter);
+ return slider;
+}
+// Filmy przypisane do konkretnej placówki: lokalne MP4 albo osadzenie YouTube.
+function buildVideos(place){
+ const videos=Array.isArray(place.videos)?place.videos.filter(v=>v&&(v.src||v.youtubeId)):[];
+ if(!videos.length)return null;
+ const section=el('section','recipient-videos');
+ const top=el('div','recipient-videos-header');
+ top.appendChild(el('h3','','Poznaj tę placówkę bliżej'));
+ top.appendChild(el('p','','Filmy udostępnione na potrzeby akcji charytatywnej.'));
+ section.appendChild(top);
+ const grid=el('div','recipient-videos-grid');
+ videos.forEach((item,i)=>{
+  const figure=el('figure','recipient-video-card');
+  const player=el('div','recipient-video-player');
+  if(item.youtubeId && /^[a-zA-Z0-9_-]{11}$/.test(item.youtubeId)){
+   const iframe=el('iframe');
+   iframe.src='https://www.youtube-nocookie.com/embed/'+item.youtubeId;
+   iframe.title=item.caption||'Film o placówce '+place.short;
+   iframe.setAttribute('loading','lazy');
+   iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+   iframe.setAttribute('allowfullscreen','');
+   iframe.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+   player.appendChild(iframe);
+  }else if(item.src){
+   const video=el('video');
+   video.controls=true;
+   video.preload='none';
+   video.playsInline=true;
+   video.setAttribute('aria-label',item.caption||'Film o placówce '+place.short);
+   if(item.poster)video.poster=item.poster;
+   const source=el('source');
+   source.src=item.src;
+   source.type=item.type||'video/mp4';
+   video.appendChild(source);
+   video.appendChild(document.createTextNode('Przeglądarka nie obsługuje odtwarzania tego filmu.'));
+   player.appendChild(video);
+  }else{return;}
+  figure.appendChild(player);
+  if(item.caption)figure.appendChild(el('figcaption','recipient-video-caption',item.caption));
+  grid.appendChild(figure);
+ });
+ section.appendChild(grid);
+ return section;
+}
 function createNeedCard(item){
  const card=el('article','need-card');
  const head=el('div','need-top'),ic=el('span','need-icon');
@@ -54,10 +166,9 @@ function buildRecipientSection(place,index){
  const media=el('div','recipient-media');
  const photos=Array.isArray(place.photos)?place.photos.filter(x=>x&&x.src):[];
  if(photos.length){
-  media.appendChild(createPhoto(photos[0],place,true));
-  if(photos.length>1){const gallery=el('div','recipient-gallery');photos.slice(1,4).forEach(photo=>gallery.appendChild(createPhoto(photo,place)));media.appendChild(gallery);}
+  media.appendChild(buildPhotoCarousel(place,photos));
   const credits=el('div','recipient-credits');
-  credits.appendChild(el('span','','Zdjęcie budynku placówki · archiwalne'));
+  credits.appendChild(el('span','',place.photoCreditUrl?'Zdjęcie budynku · archiwalne':'Zdjęcia udostępnione do kampanii'));
   if(place.photoCreditUrl){const link=el('a','','Źródło zdjęcia');link.href=place.photoCreditUrl;link.target='_blank';link.rel='noopener noreferrer';credits.appendChild(link);}
   media.appendChild(credits);
  }else{
@@ -76,6 +187,8 @@ function buildRecipientSection(place,index){
  const cta=el('a','btn btn-primary','Chcę pomóc tej placówce');cta.href='#partner';cta.appendChild(icon('arrow'));
  cta.addEventListener('click',()=>setPurpose(place.id));body.appendChild(cta);hero.appendChild(body);
  panel.appendChild(hero);
+ const videoSection=buildVideos(place);
+ if(videoSection)panel.appendChild(videoSection);
  const list=el('div','recipient-needs');
  const heading=el('div','recipient-needs-heading');heading.appendChild(el('h3','','Lista potrzeb'));
  heading.appendChild(el('p','',place.confirmed?'Potrzeby zgłoszone przez placówkę; aktualną dostępność potwierdzimy przy zgłoszeniu.':'Szczegóły uzupełnimy po uzgodnieniu z placówką.'));
