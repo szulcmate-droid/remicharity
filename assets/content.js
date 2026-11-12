@@ -32,7 +32,7 @@ window.REMI_DATA = {
       
 photos: [
   {
-    src: 'https://raw.githubusercontent.com/szulcmate-droid/remicharity/refs/heads/main/assets/zdjecia/DOm%20dziecka/760566432_1062591859758006_2564987743596509551_n.jfif',
+    src: 'https://github.com/szulcmate-droid/remicharity/blob/main/assets/zdjecia/DOm%20dziecka/Zrzut%20ekranu%202026-11-12%20131337.png?raw=true,
     alt: 'Przestrzeń wspólna'
   }
 ],
