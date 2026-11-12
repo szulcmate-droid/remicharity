@@ -30,7 +30,7 @@ window.REMI_DATA = {
       description: 'Pomagamy odpowiadać na konkretne potrzeby wychowanków: od tekstyliów i wyposażenia po czas na wspólne przeżycia.',
       icon: 'home',
       photos: [
-        { src: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/Bdg_sierociniecD_5_10-2013.jpg', alt: 'Budynek BZPOW przy ul. Traugutta 5 w Bydgoszczy', caption: 'Budynek BZPOW, zdjęcie archiwalne (2013)' },
+        { src: 'https://github.com/szulcmate-droid/remicharity/blob/main/assets/zdjecia/DOm%20dziecka/737467769_1415478037054167_7439256937558137164_n.jpg?raw=true', alt: 'Budynek BZPOW przy ul. Traugutta 5 w Bydgoszczy', caption: 'Budynek BZPOW, zdjęcie archiwalne (2013)' },
         // Możesz dodać zdjęcie lokalne: { src: 'assets/zdjecia/bzpow-pokoj.webp', alt: 'Pokój wychowanków', caption: 'Pokój placówki' },
       ],
       photoCreditUrl: 'https://commons.wikimedia.org/wiki/File:Bdg_sierociniecD_5_10-2013.jpg',
