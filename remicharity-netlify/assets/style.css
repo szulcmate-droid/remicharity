@@ -57,3 +57,36 @@
 .recipient-pending p{margin:10px auto 0;max-width:600px;font-size:13px;color:#6d827a}
 @media(max-width:1050px){.recipient-hero{grid-template-columns:1fr 1fr}.recipient-details{padding:27px}.recipient-main-photo{min-height:335px}.recipient-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.place-jump-image{height:170px}.recipient-sections{gap:21px;margin-top:29px}.recipient-panel{border-radius:20px;scroll-margin-top:78px}.recipient-hero{grid-template-columns:1fr}.recipient-main-photo{min-height:270px}.recipient-details{padding:27px 22px 31px}.recipient-details h3{font-size:28px}.recipient-credits{font-size:9px}.recipient-needs{padding:25px 18px 28px}.recipient-needs-heading{display:block}.recipient-needs-heading h3{font-size:23px}.recipient-needs-heading p{margin-top:8px}.recipient-needs-grid{grid-template-columns:1fr}.recipient-needs-grid .need-card{min-height:auto}.recipient-subheading{margin:23px 0 12px;padding-top:19px}.recipient-pending{padding:27px 18px}}
+
+/* RemiCharity v3 — fotografie i filmy placówek */
+.recipient-gallery{display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scroll-snap-type:x proximity;padding:6px;height:126px}
+.recipient-gallery-photo{flex:0 0 min(33%,155px);width:min(33%,155px);min-width:98px;scroll-snap-align:start}
+.recipient-videos{padding:30px 35px 34px;border-top:1px solid #e5eee9;background:#f8fbf9}
+.recipient-videos-header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:17px}
+.recipient-videos-header h3{font-size:24px;letter-spacing:-.04em;margin:0}
+.recipient-videos-header p{color:#728781;font-size:12px;margin:0}
+.recipient-videos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.recipient-video-card{margin:0;min-width:0;border:1px solid #dce9e4;background:#fff;border-radius:17px;overflow:hidden}
+.recipient-video-player{aspect-ratio:16/9;background:#102b39}
+.recipient-video-player video,.recipient-video-player iframe{width:100%;height:100%;display:block;border:0;object-fit:contain}
+.recipient-video-caption{font-size:13px;color:#45675d;padding:13px 16px;line-height:1.6}
+@media(max-width:760px){.recipient-videos{padding:24px 18px 27px}.recipient-videos-header h3{font-size:21px}.recipient-gallery-photo{flex-basis:38%;width:38%}}
+
+/* RemiCharity v4 — wiele fotografii w jednym oknie (karuzela) */
+.recipient-slideshow{position:relative;flex:1;min-height:340px;overflow:hidden;isolation:isolate;background:#193a38}
+.recipient-slideshow .recipient-main-photo{position:absolute;inset:0;width:100%;height:100%;min-height:0;flex:none;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease}
+.recipient-slideshow .recipient-main-photo.is-active{opacity:1;visibility:visible;pointer-events:auto}
+.recipient-slideshow .recipient-main-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.recipient-slideshow.has-multiple .recipient-photo-caption{bottom:49px;max-width:calc(100% - 85px)}
+.recipient-slide-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;display:grid;place-items:center;width:40px;height:48px;border:1px solid rgba(255,255,255,.55);border-radius:13px;background:rgba(6,31,34,.62);color:#fff;font-size:34px;line-height:1;padding:0 0 5px;backdrop-filter:blur(7px);transition:background .2s}
+.recipient-slide-arrow:hover{background:rgba(6,31,34,.86)}
+.recipient-slide-arrow:focus-visible,.recipient-slide-dot:focus-visible{outline:3px solid #a5ebd2;outline-offset:3px}
+.recipient-slide-prev{left:13px}
+.recipient-slide-next{right:13px}
+.recipient-slide-dots{position:absolute;z-index:4;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:8px;max-width:58%;padding:7px 9px;border-radius:20px;background:rgba(6,31,34,.57)}
+.recipient-slide-dot{display:block;width:9px;height:9px;min-width:9px;border:0;border-radius:50%;background:rgba(255,255,255,.54);padding:0;transition:background .2s,transform .2s}
+.recipient-slide-dot.is-active{background:#fff;transform:scale(1.25)}
+.recipient-slide-counter{position:absolute;z-index:4;right:14px;bottom:17px;color:#fff;font-size:11px;font-weight:800;background:rgba(6,31,34,.66);border-radius:13px;padding:5px 9px}
+.recipient-slideshow:focus-visible{outline:3px solid #1f9c83;outline-offset:-3px}
+@media(max-width:760px){.recipient-slideshow{min-height:280px}.recipient-slide-arrow{width:35px;height:43px;font-size:31px}.recipient-slide-prev{left:9px}.recipient-slide-next{right:9px}.recipient-slide-dots{bottom:13px}.recipient-slide-counter{bottom:12px;right:11px}}
+@media(prefers-reduced-motion:reduce){.recipient-slideshow .recipient-main-photo,.recipient-slide-arrow,.recipient-slide-dot{transition:none}}
