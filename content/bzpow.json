@@ -9,6 +9,60 @@
   "gallery": [
     {
       "kind": "image",
+      "image": "/assets/media/bzpow-wydarzenie-przed-budynkiem.png",
+      "alt": "Wydarzenie przed udekorowanym budynkiem BZPOW",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/bzpow-wycieczka-na-starowke.jpg",
+      "alt": "Grupa przy pomniku osiołka na starówce",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/bzpow-spotkanie-na-trybunach.jpg",
+      "alt": "Grupa na trybunach hali sportowej",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/bzpow-zajecia-na-stadionie.jpg",
+      "alt": "Zajęcia na bieżni stadionu",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/bzpow-wspolny-posilek.jpg",
+      "alt": "Uczestnicy wycieczki przy wspólnym stole",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/bzpow-wizyta-w-wolierze.jpg",
+      "alt": "Grupa obserwuje ptaki w wolierze",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/bzpow-pokaz-kostiumow.jpg",
+      "alt": "Pokaz przy wystawie historycznych kostiumów",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/bzpow-spacer-w-parku.jpg",
+      "alt": "Grupa pozuje przy dużym krześle w parku",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/bzpow-warsztaty-plastyczne.jpg",
+      "alt": "Uczestnicy malują podczas warsztatów plastycznych",
+      "approved": true
+    },
+    {
+      "kind": "image",
       "externalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Bdg_sierociniecD_5_10-2013.jpg",
       "alt": "Budynek BZPOW przy ul. Traugutta 5",
       "caption": "BZPOW, zdjęcie archiwalne (2013)",
