@@ -57,6 +57,13 @@ photoCreditUrl: '',
       eyebrow: 'Więcej uśmiechu podczas leczenia',
       description: 'Wspieramy kąciki zabaw i zajęcia dla małych pacjentów na trzech oddziałach, w oparciu o otrzymane listy potrzeb.',
       icon: 'sparkles',
+      videos: [
+  {
+    src: 'assets/zdjecia/Szpital/9b84f8ec-8ceb-459c-b1de-0fd2e17e6be4.mp4',
+    poster: 'assets/zdjecia/bzpow-swietlica.webp',
+    caption: 'Poznaj BZPOW i potrzeby podopiecznych'
+  }
+],
       photos: [
         { src: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Bdg_Szpital_Dzieciecy_1_4-2015.jpg', alt: 'Budynek Wojewódzkiego Szpitala Dziecięcego w Bydgoszczy', caption: 'Szpital Dziecięcy, zdjęcie archiwalne (2015)' },
       ],
