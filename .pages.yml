@@ -109,7 +109,10 @@ content:
       - { name: brandName, label: Nazwa inicjatywy, type: string }
       - { name: organizer, label: Organizator, type: string }
       - { name: contactEmail, label: E-mail kontaktowy, type: string }
-      - { name: fundraiserUrl, label: Adres zbiórki, type: string }
+      - name: fundraiserUrl
+        label: Adres wspólnej zbiórki
+        type: string
+        description: Wklej pełny adres zewnętrznej zbiórki. Przy pustym polu strona wyświetli „Zbiórka wkrótce”.
       - { name: campaignDeadline, label: Termin kampanii, type: string }
       - { name: amountRaised, label: Zebrana kwota (PLN), type: number }
       - { name: targetAmount, label: Cel zbiórki (PLN), type: number }

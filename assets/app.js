@@ -169,7 +169,17 @@ function createNeedCard(item){
  }
  card.appendChild(bot);return card;
 }
-function buildRecipientSection(place,index){
+const donateUrl = safeUrl(D.fundraiserUrl);
+function createDonationAction(variant) {
+  if (!donateUrl) return el('span', 'donation-status', 'Zbiórka wkrótce');
+  const link = el('a', 'btn ' + variant, 'Wpłać na zbiórkę');
+  link.href = donateUrl;
+  link.appendChild(icon('arrow'));
+  return link;
+}
+$('#hero-donation').replaceWith(createDonationAction('btn-primary'));
+
+function buildRecipientSection(place){
  const panel=el('article','recipient-panel recipient-'+place.id);
  panel.id='placowka-'+place.id;
  const hero=el('div','recipient-hero');
@@ -178,52 +188,42 @@ function buildRecipientSection(place,index){
    media.appendChild(buildGallery(place));
  }else{
    const blank=el('div','recipient-empty-photo');
-   blank.appendChild(icon(place.icon||'home'),el('span','','Materiały z tej placówki pojawią się tutaj.'));
+   blank.appendChild(icon(place.icon||'home'),el('span','','Galeria wkrótce'));
    media.appendChild(blank);
  }
  hero.appendChild(media);
  const body=el('div','recipient-details');
- const top=el('div','recipient-overline');top.appendChild(el('span','recipient-index',String(index+1).padStart(2,'0')+' / 03'));top.appendChild(el('span','recipient-tag',place.eyebrow));body.appendChild(top);
  body.appendChild(el('h3','',place.full));body.appendChild(el('p','recipient-detail',place.detail));body.appendChild(el('p','recipient-description',place.description));
- const stats=el('div','recipient-meta');
  const items=D.needs.filter(n=>n.place===place.id);
- stats.appendChild(icon('gift'));
- stats.appendChild(el('span','',items.length?`${items.length} opisanych potrzeb / pakietów`:'Lista potrzeb w przygotowaniu'));
- body.appendChild(stats);
- const cta=el('a','btn btn-primary','Chcę pomóc tej placówce');cta.href='#partner';cta.appendChild(icon('arrow'));
- cta.addEventListener('click',()=>setPurpose(place.id));body.appendChild(cta);hero.appendChild(body);
+ const actions = el('div', 'recipient-actions');
+ const cta=el('a','btn btn-outline','Chcę pomóc');cta.href='#partner';cta.appendChild(icon('arrow'));
+ cta.addEventListener('click',()=>setPurpose(place.id));
+ actions.append(createDonationAction('btn-primary'), cta);
+ body.appendChild(actions);hero.appendChild(body);
  panel.appendChild(hero);
  const list=el('div','recipient-needs');
  const heading=el('div','recipient-needs-heading');heading.appendChild(el('h3','','Lista potrzeb'));
- heading.appendChild(el('p','',place.confirmed?'Potrzeby zgłoszone przez placówkę; aktualną dostępność potwierdzimy przy zgłoszeniu.':'Szczegóły uzupełnimy po uzgodnieniu z placówką.'));
+ if (items.length && !place.confirmed) heading.appendChild(el('p', '', 'Do potwierdzenia z placówką.'));
  list.appendChild(heading);
  if(items.length){
-  // Oddziały Szpitala prezentujemy w osobnych grupach, aby lista była czytelna.
-  const groups=place.id==='szpital'?[...new Set(items.map(x=>x.group))]:['Wszystkie'];
-  groups.forEach(group=>{
-   const selected=place.id==='szpital'?items.filter(i=>i.group===group):items;
-   if(place.id==='szpital')list.appendChild(el('h4','recipient-subheading',group));
-   const grid=el('div','recipient-needs-grid');selected.forEach(item=>grid.appendChild(createNeedCard(item)));list.appendChild(grid);
-  });
+  const grid = el('div', 'recipient-needs-grid');
+  grid.append(...items.map(createNeedCard));
+  list.appendChild(grid);
  }else{
-  const empty=el('div','recipient-pending');
-  empty.appendChild(icon('heart'));
-  empty.appendChild(el('h4','','Ustalamy dokładne potrzeby hospicjum'));
-  empty.appendChild(el('p','','Nie chcemy publikować domysłów. Lista pojawi się tutaj po potwierdzeniu przez placówkę. Już teraz możesz zgłosić chęć pomocy.'));
-  list.appendChild(empty);
+  list.appendChild(el('p', 'recipient-pending', 'Lista w przygotowaniu.'));
  }
  panel.appendChild(list);
  return panel;
 }
-D.places.forEach((p,i)=>{
+D.places.forEach(p=>{
  const card=el('a','place-card place-jump');card.href='#placowka-'+p.id;
  const photo=p.gallery.find(item=>item.kind==='image');
  if(photo){const img=el('img','place-jump-image');img.src=photo.src;img.alt='';img.loading='lazy';img.addEventListener('error',()=>img.remove(),{once:true});card.appendChild(img);}
- const info=el('div','place-jump-content');const pi=el('div','place-icon');pi.appendChild(icon(p.icon));info.appendChild(pi);
- info.appendChild(el('span','place-label',p.eyebrow));info.appendChild(el('h3','',p.short));info.appendChild(el('p','',p.description));
+ const info=el('div','place-jump-content');
+ info.appendChild(el('h3','',p.short));
  const bottom=el('span','place-jump-action','Zobacz galerię i potrzeby');bottom.appendChild(icon('arrow'));info.appendChild(bottom);
  card.appendChild(info);placesGrid.appendChild(card);
- recipientSections.appendChild(buildRecipientSection(p,i));
+ recipientSections.appendChild(buildRecipientSection(p));
 });
 const partners = $('#partners-grid');
 if (D.partners.length) {
@@ -257,15 +257,8 @@ if (D.partners.length) {
   partners.replaceChildren(list);
 }
 function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:null;}catch{return null;}}
-const donateUrl=safeUrl(D.fundraiserUrl||'');
-$$('[data-donate]').forEach(a=>{if(donateUrl){a.href=donateUrl;a.target='_blank';a.rel='noopener noreferrer';}else{a.href='#';a.addEventListener('click',e=>{e.preventDefault();openDialog();});}});
-if(donateUrl){const hint=$('#donation-hint');if(hint)hint.textContent='Wpłata odbywa się na oficjalnej, zewnętrznej stronie zbiórki.';}
 const widget=$('#fundraise-widget');
 if(Number.isFinite(D.amountRaised)&&D.amountRaised>=0&&Number.isFinite(D.targetAmount)&&D.targetAmount>0){widget.hidden=false;$('#amount-raised').textContent=D.amountRaised.toLocaleString('pl-PL')+' zł';$('#target-amount').textContent='Cel: '+D.targetAmount.toLocaleString('pl-PL')+' zł';$('#fundraise-bar').style.width=Math.min(100,100*D.amountRaised/D.targetAmount)+'%';}
-const dialog=$('#link-dialog');let lastFocus=null;
-function openDialog(){lastFocus=document.activeElement;dialog.hidden=false;$('.dialog-close',dialog).focus();document.body.style.overflow='hidden';}
-function closeDialog(){dialog.hidden=true;document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus();}
-$('.dialog-close',dialog)?.addEventListener('click',closeDialog);dialog.addEventListener('click',e=>{if(e.target===dialog)closeDialog();});$('.dialog-action',dialog)?.addEventListener('click',closeDialog);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!dialog.hidden)closeDialog();});
 const allocation=$('#allocation-faq');if(D.allocationText&&D.operatorName)allocation.textContent=`Zbiórkę formalnie prowadzi ${D.operatorName}. ${D.allocationText}`;
 const contact=$('#contact-email-wrap');const email=(D.contactEmail||'').trim();if(email&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){contact.hidden=false;const a=$('#contact-email');a.textContent=email;a.href='mailto:'+email;}
 const source=$('#lead-source');if(source){const utm=new URLSearchParams(location.search).get('utm_source')||'';source.value=utm.slice(0,80).replace(/[^a-zA-Z0-9_.-]/g,'');}

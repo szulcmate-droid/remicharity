@@ -270,3 +270,43 @@ a.partner-card:hover { border-color: #73a993; }
   .benefits-grid.partner-benefits-more { grid-template-columns: minmax(0, 1fr); }
   .partner-card { padding: 12px; }
 }
+
+.hero { padding-bottom: 34px; }
+.hero-layout { min-height: 0; }
+.hero-actions, .recipient-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.recipient-actions { margin-top: 12px; }
+.donation-status { color: #386558; font-size: 14px; font-weight: 750; }
+.hero .fundraise-stats strong { color: var(--ink); }
+.hero .fundraise-stats span { color: var(--muted); }
+.hero .fundraise-track { background: var(--mint); }
+.hero .fundraise-track span { background: var(--teal); }
+.place-jump-image, .recipient-slideshow .recipient-main-photo img { object-fit: contain; }
+.place-jump-content { padding: 14px 17px; }
+.place-jump .place-jump-action { padding-top: 4px; }
+.recipient-needs { padding: clamp(14px, 2.5vw, 25px); }
+.recipient-needs-heading { margin-bottom: 10px; gap: 7px; }
+.recipient-needs-heading h3 { font-size: 21px; }
+.recipient-needs-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 218px), 1fr));
+  gap: 8px;
+}
+.recipient-needs-grid .need-card {
+  min-height: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+.recipient-needs-grid .need-top { justify-content: flex-start; }
+.recipient-needs-grid .need-icon { width: 26px; height: 26px; border-radius: 8px; flex: 0 0 26px; }
+.recipient-needs-grid .need-icon .icon { width: 15px; height: 15px; }
+.recipient-needs-grid .need-tag { padding: 3px 6px; }
+.recipient-needs-grid .need-card h4 { margin: 7px 0 4px; font-size: 14px; }
+.recipient-needs-grid .need-card p { font-size: 12px; line-height: 1.5; }
+.recipient-needs-grid .need-bottom { padding-top: 7px; gap: 6px; flex-wrap: wrap; }
+.recipient-needs-grid .need-bottom span { color: var(--muted); }
+.recipient-needs-grid .need-bottom a { min-height: 26px; }
+.recipient-pending { margin: 0; padding: 13px; font-size: 13px; }
+.form-head h3 { margin-bottom: 18px; }
+.empty-partners h3 { margin-bottom: 17px; }
+@media (max-width: 520px) {
+  .recipient-needs-grid .need-card p { font-size: 13px; }
+}

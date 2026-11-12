@@ -44,7 +44,6 @@
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
   </svg>
   <a class="skip" href="#main">Przejdź do treści</a>
-  <div class="announcement"><span class="announcement-dot"></span> Wspólna inicjatywa Remivision i firm, które chcą pomagać lokalnie <a href="#partner">Dołącz do nas <svg class="icon"><use href="#i-arrow"/></svg></a></div>
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a href="#top" class="brand" aria-label="RemiCharity — strona główna"><span class="brand-mark"><svg class="icon"><use href="#i-heart"/></svg></span><span>remi<span class="brand-light">charity</span><small>by Remivision</small></span></a>
@@ -60,59 +59,55 @@
       <div class="container hero-layout">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-line"></span> Razem dla Bydgoszczy</p>
-          <h1 id="hero-title">Wielka zmiana zaczyna się od <em>wspólnego działania.</em></h1>
-          <p class="hero-lede">Łączymy siły przedsiębiorców, żeby realizować <strong>konkretne potrzeby dzieci i pacjentów</strong> z trzech bydgoskich placówek.</p>
-          <div class="hero-actions"><a href="#partner" class="btn btn-primary">Moja firma chce pomóc <svg class="icon"><use href="#i-arrow"/></svg></a><a href="#potrzeby" class="btn btn-outline">Zobacz, czego potrzeba</a></div>
-          <div class="hero-proof"><div class="proof-icon"><svg class="icon"><use href="#i-shield"/></svg></div><p>Potrzeby ustalane bezpośrednio z placówkami. <strong>Transparentna pomoc, konkretny cel.</strong></p></div>
+          <h1 id="hero-title">Pomóż <em>bydgoskim placówkom.</em></h1>
+          <p class="hero-lede">Wspieramy dzieci i pacjentów w trzech bydgoskich placówkach.</p>
+          <div class="hero-actions" id="wesprzyj">
+            <span id="hero-donation" class="donation-status">Zbiórka wkrótce</span>
+            <a href="#potrzeby" class="btn btn-outline">Zobacz potrzeby</a>
+          </div>
+          <div class="fundraise-widget" id="fundraise-widget" hidden>
+            <div class="fundraise-stats"><strong id="amount-raised"></strong><span id="target-amount"></span></div>
+            <div class="fundraise-track"><span id="fundraise-bar"></span></div>
+          </div>
         </div>
         <div class="hero-art" aria-label="Trzy obszary pomocy: opieka, szpital i hospicjum">
           <div class="hero-glow"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
-          <div class="art-main"><div class="art-main-heading"><span class="mini-spark">✳</span><span>Dobro ma wiele wymiarów</span></div><div class="art-center"><span class="art-heart"><svg class="icon"><use href="#i-heart"/></svg></span><span>Trzy miejsca.<br><strong>Jeden wspólny cel.</strong></span></div><div class="art-divider"></div><div class="art-bottom"><span>Remivision</span><span class="art-plus">＋</span><span>lokalne firmy</span></div></div>
-          <div class="float-card float-one"><span class="float-icon peach"><svg class="icon"><use href="#i-home"/></svg></span><span><strong>BZPOW</strong><small>Codzienne potrzeby</small></span></div>
-          <div class="float-card float-two"><span class="float-icon mint"><svg class="icon"><use href="#i-sparkles"/></svg></span><span><strong>Szpital dziecięcy</strong><small>Uśmiech podczas leczenia</small></span></div>
-          <div class="float-card float-three"><span class="float-icon blue"><svg class="icon"><use href="#i-heart"/></svg></span><span><strong>Hospicjum</strong><small>Troska i obecność</small></span></div>
+          <div class="art-main"><div class="art-center"><span class="art-heart"><svg class="icon"><use href="#i-heart"/></svg></span><strong>Wspólna pomoc</strong></div><div class="art-divider"></div><div class="art-bottom"><span>Remivision</span><span class="art-plus">＋</span><span>lokalne firmy</span></div></div>
+          <div class="float-card float-one"><span class="float-icon peach"><svg class="icon"><use href="#i-home"/></svg></span><span><strong>BZPOW</strong></span></div>
+          <div class="float-card float-two"><span class="float-icon mint"><svg class="icon"><use href="#i-sparkles"/></svg></span><span><strong>Szpital dziecięcy</strong></span></div>
+          <div class="float-card float-three"><span class="float-icon blue"><svg class="icon"><use href="#i-heart"/></svg></span><span><strong>Hospicjum</strong></span></div>
         </div>
       </div>
-      <div class="container hero-stats"><div class="stat"><strong>3</strong><span>placówki objęte inicjatywą</span></div><div class="stat"><strong>1</strong><span>wspólna akcja</span></div><div class="stat"><strong>∞</strong><span>możliwości zaangażowania</span></div><div class="stat stat-link"><a href="#jak-dziala">Poznaj nasz plan <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
     </section>
     <section id="o-akcji" class="section intro-section">
       <div class="container">
         <div class="section-heading narrow">
-          <p class="eyebrow dark">Komu pomagamy?</p>
-          <h2>Trzy miejsca. <span>Trzy konkretne historie.</span></h2>
-          <p>Każda placówka ma własne potrzeby. Poznaj je, zobacz galerie miejsc objętych akcją i zdecyduj, gdzie Twoja firma może najlepiej pomóc.</p>
+          <h2>Komu pomagamy?</h2>
         </div>
         <div class="place-grid" id="places-grid" aria-label="Wybierz placówkę"></div>
       </div>
     </section>
-    <section class="quote-band"><div class="container"><span class="quote-mark">“</span><p>Jedna firma może pomóc. <strong>Wiele firm może zrobić coś naprawdę wyjątkowego.</strong></p><a href="#partner">Dołącz do akcji <svg class="icon"><use href="#i-arrow"/></svg></a></div></section>
     <section id="potrzeby" class="section needs-section">
       <div class="container">
         <div class="section-top">
           <div class="section-heading">
-            <p class="eyebrow dark">Poznaj konkretne potrzeby</p>
-            <h2>Każde miejsce ma <span>własną listę.</span></h2>
-            <p>Przejrzyj trzy niezależne sekcje. Zdjęcia przedstawiają budynki placówek; w przyszłości można je uzupełnić o własne materiały udostępnione za zgodą.</p>
+            <h2>Potrzeby placówek</h2>
           </div>
-          <p class="aside-note"><svg class="icon"><use href="#i-shield"/></svg> Przed zakupem rzeczy prosimy o kontakt, żeby potwierdzić dostępność potrzeby.</p>
+          <p class="aside-note"><svg class="icon"><use href="#i-shield"/></svg> Przed zakupem potwierdź potrzebę przez formularz.</p>
         </div>
         <div id="recipient-sections" class="recipient-sections"></div>
-        <div class="needs-bottom"><div><strong>Nie znalazłeś odpowiedniego sposobu pomocy?</strong><p>Możesz przekazać dowolną kwotę, zaoferować produkt lub usługę albo pomóc w promocji zbiórki.</p></div><a href="#partner" class="btn btn-dark">Porozmawiajmy o współpracy <svg class="icon"><use href="#i-arrow"/></svg></a></div>
       </div>
     </section>
     <section id="korzysci" class="section business-section" aria-labelledby="benefits-title">
       <div class="container">
         <div class="section-heading narrow">
-          <p class="eyebrow dark">Dlaczego warto do nas dołączyć?</p>
-          <h2 id="benefits-title">Twoja firma pomaga. <span>Razem pokazujemy, jak wiele możemy zmienić.</span></h2>
-          <p>Dołącz do inicjatywy łączącej bydgoskich przedsiębiorców, którzy wspólnie wspierają lokalne placówki. Każda zaangażowana firma staje się częścią naszej społeczności partnerów.</p>
+          <h2 id="benefits-title">Dlaczego warto dołączyć?</h2>
         </div>
         <div class="partner-benefits">
           <article class="partner-benefit partner-benefit-film">
             <span class="partner-benefit-icon play-symbol" aria-hidden="true"></span>
-            <h3>Profesjonalny film z całej akcji</h3>
-            <p>Po zakończeniu inicjatywy każda firma partnerska otrzyma gotowy film podsumowujący wspólnie zrealizowaną pomoc, zawierający logotypy wszystkich partnerów.</p>
-            <p>Materiał będzie przygotowany do wykorzystania na Facebooku, Instagramie, LinkedInie oraz stronie internetowej firmy.</p>
+            <h3>Film z całej akcji</h3>
+            <p>Każdy partner otrzyma film z logotypami wszystkich firm, gotowy do udostępnienia w internecie.</p>
             <figure class="film-credits">
               <div class="film-credits-board" aria-hidden="true">
                 <div class="film-credits-brand"><svg class="icon"><use href="#i-heart"/></svg> RemiCharity</div>
@@ -123,9 +118,8 @@
           </article>
           <article class="partner-benefit partner-benefit-web">
             <span class="partner-benefit-icon" aria-hidden="true"><svg class="icon"><use href="#i-building"/></svg></span>
-            <h3>Prezentacja firmy na stronie akcji</h3>
-            <p>Logo i nazwa firmy partnerskiej zostaną zaprezentowane na oficjalnej stronie akcji, w gronie innych bydgoskich przedsiębiorców.</p>
-            <p>Po kliknięciu w logo odwiedzający przejdą na stronę internetową partnera.</p>
+            <h3>Twoja firma na stronie</h3>
+            <p>Pokażemy nazwę i logo Twojej firmy z linkiem do jej strony.</p>
             <a class="partner-benefit-link" href="#partnerzy">
               <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
               <span>Zobacz firmy, które pomagają</span>
@@ -136,21 +130,9 @@
         <div class="partner-benefits-action">
           <a href="#partner" class="btn btn-primary">Zostań partnerem <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <div class="benefits-grid partner-benefits-more">
-          <article class="benefit"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span><h3>Wpływ blisko nas</h3><p>Pomagasz konkretnym bydgoskim placówkom, których potrzeby zostały już opisane.</p></article>
-          <article class="benefit"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><h3>Zaangażowany zespół</h3><p>Możesz zaprosić pracowników do współtworzenia inicjatywy i budowania relacji wokół wspólnego celu.</p></article>
-          <article class="benefit"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span><h3>Przejrzyste efekty</h3><p>Po akcji planujemy podsumować przekazane wsparcie i sposób realizacji potrzeb.</p></article>
-          <article class="benefit"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></span><h3>Podziękowanie dla firmy</h3><p>Za zgodą firmy podziękujemy jej w komunikacji akcji. Firma może też otrzymać imienne podziękowanie lub grafikę potwierdzającą udział.</p></article>
-        </div>
-        <p class="benefit-disclaimer">Udział ma charakter dobrowolny. Publikacja nazwy i logotypu wymaga zgody. Wpłata nie stanowi automatycznie zakupu reklamy ani gwarancji zasięgów.</p>
+        <p class="benefit-disclaimer">Nazwę i logo publikujemy za zgodą firmy.</p>
       </div>
     </section>
-    <section id="jak-dziala" class="section how-section"><div class="container"><div class="section-heading narrow"><p class="eyebrow dark">To naprawdę proste</p><h2>Trzy kroki do <span>wspólnego dobra.</span></h2></div><div class="steps">
-      <article class="step"><span class="step-index">01</span><h3>Wybierz formę pomocy</h3><p>Wpłata finansowa, produkty lub usługi, zaangażowanie pracowników, promocja zbiórki.</p></article>
-      <article class="step"><span class="step-index">02</span><h3>Skontaktuj się z nami</h3><p>Wypełnij krótki formularz. Uzgodnimy szczegóły i sprawdzimy aktualne potrzeby.</p></article>
-      <article class="step"><span class="step-index">03</span><h3>Zobacz efekt</h3><p>Po realizacji akcji pokażemy, co udało się przekazać dzięki wspólnemu zaangażowaniu.</p></article>
-      </div></div></section>
-    <section class="donation-section" id="wesprzyj"><div class="container donation-wrap"><div><p class="eyebrow soft">Każde wsparcie ma znaczenie</p><h2>Nie prowadzisz firmy?<br><em>Też możesz pomóc.</em></h2><p>Udostępnij akcję bliskim lub wesprzyj oficjalną zbiórkę dowolną kwotą. Wpłaty będą obsługiwane na zewnętrznej stronie zbiórki.</p><a href="#" class="btn btn-peach" data-donate>Przejdź do zbiórki <svg class="icon"><use href="#i-arrow"/></svg></a><p class="donation-hint" id="donation-hint">Link do zbiórki zostanie dodany po jej uruchomieniu.</p><div class="fundraise-widget" id="fundraise-widget" hidden><div class="fundraise-stats"><strong id="amount-raised"></strong><span id="target-amount"></span></div><div class="fundraise-track"><span id="fundraise-bar"></span></div><small>Kwoty aktualizowane ręcznie przez organizatora.</small></div></div><div class="donation-visual" aria-hidden="true"><span class="visual-ring ring-a"></span><span class="visual-ring ring-b"></span><span class="visual-heart"><svg class="icon"><use href="#i-heart"/></svg></span><span class="visual-tiny one">✳</span><span class="visual-tiny two">＋</span></div></div></section>
     <section id="partnerzy" class="section partners-section" aria-labelledby="partners-title">
       <div class="container">
         <div class="section-heading narrow"><h2 id="partners-title">Firmy, które <span>pomagają</span></h2></div>
@@ -158,14 +140,13 @@
           <div class="empty-partners">
             <span class="empty-partners-icon" aria-hidden="true"><svg class="icon"><use href="#i-users"/></svg></span>
             <h3>Dołącz do pierwszych partnerów akcji</h3>
-            <p>Zaproś swój zespół do wspólnego działania i pomóż bydgoskim placówkom odpowiedzieć na konkretne potrzeby.</p>
             <a href="#partner" class="btn btn-primary">Zostań partnerem <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
       </div>
     </section>
-    <section id="partner" class="section contact-section"><div class="container contact-grid"><div class="contact-copy"><p class="eyebrow soft">Dołącz do inicjatywy</p><h2>Porozmawiajmy o tym, <em>jak możecie pomóc.</em></h2><p>Wypełnienie formularza do niczego nie zobowiązuje. Powiedz nam, jaką formę wsparcia rozważacie — wrócimy do Was z informacją o możliwościach współpracy.</p><div class="contact-list"><div><svg class="icon"><use href="#i-check"/></svg><span>Bez minimalnej kwoty zaangażowania</span></div><div><svg class="icon"><use href="#i-check"/></svg><span>Wsparcie finansowe lub rzeczowe</span></div><div><svg class="icon"><use href="#i-check"/></svg><span>Kontakt bez zbędnych formalności</span></div></div><div class="contact-email" id="contact-email-wrap" hidden><svg class="icon"><use href="#i-mail"/></svg><a id="contact-email" href="#"></a></div></div>
-      <div class="form-card"><div class="form-head"><span>FORMULARZ DLA FIRM</span><h3>Zostań partnerem</h3><p>Odezwijmy się i ustalmy, co możemy zrobić razem.</p></div>
+    <section id="partner" class="section contact-section"><div class="container contact-grid"><div class="contact-copy"><h2>Zostań partnerem</h2><p>Zgłoś firmę i wybierz formę wsparcia.</p><div class="contact-email" id="contact-email-wrap" hidden><svg class="icon"><use href="#i-mail"/></svg><a id="contact-email" href="#"></a></div></div>
+      <div class="form-card"><div class="form-head"><h3>Zgłoszenie firmy</h3></div>
       <form name="partnerzy-remicharity" method="POST" id="partner-form">
         <input type="hidden" name="zrodlo" id="lead-source" value="" />
         <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off" />
@@ -180,9 +161,8 @@
         <p class="form-status" id="partner-form-status" role="status">Formularz jest chwilowo niedostępny.</p>
         <p class="form-footnote"><svg class="icon"><use href="#i-lock"/></svg> Nie przesyłaj w formularzu danych wrażliwych. Pola oznaczone * są obowiązkowe.</p>
       </form></div></div></section>
-    <section class="section faq-section"><div class="container faq-grid"><div class="section-heading"><p class="eyebrow dark">Warto wiedzieć</p><h2>Najczęstsze <span>pytania.</span></h2><p>Prosto i przejrzyście, żebyś wiedział(a), jak wygląda współpraca.</p></div><div class="faq-list"><details><summary>Czy firma musi wpłacić konkretną kwotę? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Liczy się każda forma wsparcia: finansowa, rzeczowa, usługowa czy promocyjna. Szczegóły uzgadniamy indywidualnie.</p></details><details><summary>Możemy przekazać produkty zamiast pieniędzy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Tak. Najpierw prosimy o kontakt przez formularz, aby potwierdzić aktualne potrzeby placówek i uniknąć duplikowania zakupów.</p></details><details><summary>Jak będą rozliczane wpłaty? <svg class="icon"><use href="#i-chevron"/></svg></summary><p id="allocation-faq">Formalny organizator zbiórki i zasady podziału środków zostaną opublikowane przed uruchomieniem wpłat. Nie deklarujemy automatycznie ulg podatkowych.</p></details><details><summary>Czy nasze logo znajdzie się na stronie? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Możemy pokazać nazwę i logotyp firmy w sekcji partnerów oraz podziękować za wsparcie — po uzyskaniu zgody.</p></details><details><summary>Czy udział zobowiązuje do dalszej współpracy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Udział w akcji jest dobrowolny i zakres zaangażowania ustalamy wspólnie.</p></details></div></div></section>
+    <section class="section faq-section"><div class="container faq-grid"><div class="section-heading"><h2>Najczęstsze pytania</h2></div><div class="faq-list"><details><summary>Czy firma musi wpłacić konkretną kwotę? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Możesz też zaoferować produkty, usługi lub promocję akcji.</p></details><details><summary>Możemy przekazać produkty zamiast pieniędzy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Tak. Zgłoś się przez formularz, żeby potwierdzić potrzebę.</p></details><details><summary>Jak będą rozliczane wpłaty? <svg class="icon"><use href="#i-chevron"/></svg></summary><p id="allocation-faq">Zasady rozliczania podamy przed uruchomieniem zbiórki.</p></details><details><summary>Czy udział zobowiązuje do dalszej współpracy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Zakres wsparcia ustalimy wspólnie.</p></details></div></div></section>
   </main>
-  <footer class="footer"><div class="container"><div class="footer-top"><div><a href="#top" class="brand footer-brand"><span class="brand-mark"><svg class="icon"><use href="#i-heart"/></svg></span><span>remi<span class="brand-light">charity</span><small>by Remivision</small></span></a><p>Małe gesty. Wspólna siła. Realna pomoc w Bydgoszczy.</p></div><div class="footer-links"><a href="#o-akcji">O akcji</a><a href="#potrzeby">Potrzeby</a><a href="#korzysci">Dla firm</a><a href="#partner">Kontakt</a><a href="polityka-prywatnosci.html">Prywatność</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> RemiCharity · Inicjatywa Remivision</span><span>Tworzymy dobro razem.</span></div></div></footer>
-  <div class="dialog-backdrop" id="link-dialog" hidden><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><button type="button" class="dialog-close" aria-label="Zamknij"><svg class="icon"><use href="#i-close"/></svg></button><span class="dialog-icon"><svg class="icon"><use href="#i-heart"/></svg></span><h2 id="dialog-title">Zbiórka już w przygotowaniu</h2><p>Przycisk wpłaty zostanie aktywowany, gdy dodamy zweryfikowany link do zbiórki. Na razie możesz zgłosić firmę jako partnera.</p><a href="#partner" class="btn btn-primary dialog-action">Zostań partnerem <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+  <footer class="footer"><div class="container"><div class="footer-top"><div><a href="#top" class="brand footer-brand"><span class="brand-mark"><svg class="icon"><use href="#i-heart"/></svg></span><span>remi<span class="brand-light">charity</span><small>by Remivision</small></span></a></div><div class="footer-links"><a href="#o-akcji">O akcji</a><a href="#potrzeby">Potrzeby</a><a href="#korzysci">Dla firm</a><a href="#partner">Kontakt</a><a href="polityka-prywatnosci.html">Prywatność</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> RemiCharity · Inicjatywa Remivision</span></div></div></footer>
 </body>
 </html>
