@@ -31,10 +31,7 @@ window.REMI_DATA = {
       icon: 'home',
       
 photos: [
-  {
-    src: 'https://raw.githubusercontent.com/szulcmate-droid/remicharity/refs/heads/main/assets/zdjecia/DOm%20dziecka/858633618_1526989615903008_2236446215995712686_n.jfif,
-    alt: 'Świetlica BZPOW'
-  },
+
   {
     src: 'https://github.com/szulcmate-droid/remicharity/blob/main/assets/zdjecia/DOm%20dziecka/739699241_1418021793466458_5608902691698508822_n.jpg?raw=true',
     alt: 'Pokój wychowanków'
