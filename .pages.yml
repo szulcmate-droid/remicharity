@@ -100,7 +100,7 @@ content:
             - { name: zarezerwowane, label: Zadeklarowane }
             - { name: zrealizowane, label: Zrealizowane }
   - name: settings
-    label: Kampania, partnerzy i formularz
+    label: Kampania i formularz
     type: file
     path: content/settings.json
     format: json
@@ -119,15 +119,18 @@ content:
         label: Adres formularza Formspree
         type: string
         description: Wklej pełny adres HTTPS z zakładki Integration w Formspree.
-      - name: partners
-        label: Partnerzy
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{name}"
-        fields:
-          - { name: name, label: Nazwa firmy, type: string, required: true }
-          - { name: website, label: Adres strony, type: string }
-          - { name: logo, label: Logotyp, type: image }
-          - { name: description, label: Opis wsparcia, type: string }
+  - name: partners
+    label: Partnerzy
+    type: file
+    path: content/partners.json
+    format: json
+    list: true
+    fields:
+      - { name: name, label: Nazwa firmy, type: string, required: true }
+      - { name: logo, label: Logo firmy, type: image, required: true }
+      - name: website
+        label: Adres strony internetowej
+        type: string
+        required: true
+        description: Wpisz pełny adres strony firmy, zaczynając od https:// lub http://.
+      - { name: description, label: Krótki opis, type: text }

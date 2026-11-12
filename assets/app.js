@@ -225,11 +225,36 @@ D.places.forEach((p,i)=>{
  card.appendChild(info);placesGrid.appendChild(card);
  recipientSections.appendChild(buildRecipientSection(p,i));
 });
-const partners=$('#partners-grid');
-if (!D.partners.length){const wrap=el('div','empty-partners');wrap.appendChild(icon('users'));wrap.appendChild(el('h3','','Pierwsi partnerzy? To może być Wasza firma.'));wrap.appendChild(el('p','','Zapraszamy przedsiębiorców do wspólnego działania. Logotypy i podziękowania pojawią się tutaj po potwierdzeniu współpracy oraz uzyskaniu zgody.'));const a=el('a','btn btn-primary','Porozmawiajmy o współpracy');a.href='#partner';wrap.appendChild(a);partners.appendChild(wrap);}else{
- const list=el('div','partner-list');D.partners.forEach(p=>{const a=el(p.website?'a':'div','partner-card');if(p.website){const u=safeUrl(p.website);if(u){a.href=u;a.target='_blank';a.rel='noopener noreferrer';}}
- if(p.logo&&p.logo.startsWith('assets/')){const img=el('img');img.src=p.logo;img.alt='Logo '+p.name;a.appendChild(img);}
- a.appendChild(el('strong','',p.name));if(p.description)a.appendChild(el('small','',p.description));list.appendChild(a);});partners.appendChild(list);
+const partners = $('#partners-grid');
+if (D.partners.length) {
+  const list = el('ul', 'partner-list');
+  list.setAttribute('role', 'list');
+  D.partners.forEach(partner => {
+    const website = safeUrl(partner.website);
+    const item = el('li');
+    const card = el(website ? 'a' : 'div', 'partner-card');
+    if (website) {
+      card.href = website;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+    }
+    if (partner.logo?.startsWith('assets/media/')) {
+      const logo = el('span', 'partner-card-logo');
+      const image = el('img');
+      image.alt = '';
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.addEventListener('error', () => logo.remove(), { once: true });
+      image.src = partner.logo;
+      logo.appendChild(image);
+      card.appendChild(logo);
+    }
+    card.appendChild(el('strong', '', partner.name));
+    if (partner.description) card.appendChild(el('small', '', partner.description));
+    item.appendChild(card);
+    list.appendChild(item);
+  });
+  partners.replaceChildren(list);
 }
 function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:null;}catch{return null;}}
 const donateUrl=safeUrl(D.fundraiserUrl||'');

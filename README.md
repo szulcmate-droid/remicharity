@@ -2,11 +2,12 @@
 
 ## Edycja w Pages CMS
 
-Zaloguj się do [Pages CMS](https://app.pagescms.org/), udziel aplikacji GitHub dostępu do repozytorium `szulcmate-droid/remicharity` i wybierz gałąź zawierającą `.pages.yml`. Na czas przeglądu wybierz `codex/galerie-pages-cms`. Zapis w CMS tworzy commit na wybranej gałęzi.
+Zaloguj się do [Pages CMS](https://app.pagescms.org/), udziel aplikacji GitHub dostępu do repozytorium `szulcmate-droid/remicharity` i wybierz gałąź zawierającą `.pages.yml`. Zapis w CMS tworzy commit na wybranej gałęzi.
 
 - Wybierz **BZPOW**, **Szpital Dziecięcy** lub **Hospicjum Pallmed Dom Sue Ryder**, aby edytować opis i kolejność zdjęć oraz filmów w galerii.
 - W **Listach potrzeb** zmienisz opisy, statusy i przypisanie do placówki lub oddziału.
-- W **Kampania, partnerzy i formularz** zmienisz adres zbiórki, kwoty, kontakt, listę partnerów i adres formularza.
+- W **Kampania i formularz** zmienisz adres zbiórki, kwoty, kontakt i adres formularza.
+- W **Partnerzy** dodasz, zmienisz lub usuniesz firmę. Podaj nazwę, prześlij logo i wpisz pełny adres strony. Krótki opis jest opcjonalny. Zapisz zmiany, żeby zaktualizować listę firm.
 
 Dodając materiał do galerii, wybierz rodzaj, podaj opis alternatywny zdjęcia lub tytuł filmu i wskaż jedno źródło. Możesz użyć pliku z biblioteki CMS, bezpośredniego adresu HTTPS albo identyfikatora filmu YouTube. Dla filmów z biblioteki używaj MP4 lub WebM. Podpis, miniatura filmu i link do strony źródłowej są opcjonalne.
 
