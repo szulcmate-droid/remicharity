@@ -29,10 +29,23 @@ window.REMI_DATA = {
       eyebrow: 'Dom, codzienność, możliwości',
       description: 'Pomagamy odpowiadać na konkretne potrzeby wychowanków: od tekstyliów i wyposażenia po czas na wspólne przeżycia.',
       icon: 'home',
-      photos: [
-        { src: 'https://github.com/szulcmate-droid/remicharity/blob/main/assets/zdjecia/DOm%20dziecka/737467769_1415478037054167_7439256937558137164_n.jpg?raw=true', alt: 'Budynek BZPOW przy ul. Traugutta 5 w Bydgoszczy', caption: 'Budynek BZPOW, zdjęcie archiwalne (2013)' },
-        // Możesz dodać zdjęcie lokalne: { src: 'assets/zdjecia/bzpow-pokoj.webp', alt: 'Pokój wychowanków', caption: 'Pokój placówki' },
-      ],
+      
+photos: [
+  {
+    src: 'https://github.com/szulcmate-droid/remicharity/blob/main/assets/zdjecia/DOm%20dziecka/737467769_1415478037054167_7439256937558137164_n.jpg?raw=true',
+    alt: 'Świetlica BZPOW'
+  },
+  {
+    src: 'https://github.com/szulcmate-droid/remicharity/blob/main/assets/zdjecia/DOm%20dziecka/739699241_1418021793466458_5608902691698508822_n.jpg?raw=true',
+    alt: 'Pokój wychowanków'
+  },
+  {
+    src: 'https://raw.githubusercontent.com/szulcmate-droid/remicharity/refs/heads/main/assets/zdjecia/DOm%20dziecka/760566432_1062591859758006_2564987743596509551_n.jfif',
+    alt: 'Przestrzeń wspólna'
+  }
+],
+photoCreditUrl: '',
+
       photoCreditUrl: 'https://commons.wikimedia.org/wiki/File:Bdg_sierociniecD_5_10-2013.jpg',
       confirmed: true
     },
