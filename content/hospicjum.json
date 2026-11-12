@@ -9,6 +9,48 @@
   "gallery": [
     {
       "kind": "image",
+      "image": "/assets/media/sue-ryder-budynek.png",
+      "alt": "Budynek Hospicjum Pallmed Dom Sue Ryder od strony wejścia",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/sue-ryder-kolorowe-ksztalty.jpg",
+      "alt": "Dziecko ogląda kolorowe kształty na podświetlanym blacie",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/sue-ryder-hamak.jpg",
+      "alt": "Zabawa w niebieskim hamaku nad matą",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/sue-ryder-kolorowe-chusty.jpg",
+      "alt": "Dziecko trzyma żółtą i niebieską chustę",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/sue-ryder-nasza-superbohaterka.jpg",
+      "alt": "Kolaż Stowarzyszenia im. Sue Ryder z napisem „Nasza gwiazda i superbohaterka”",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/sue-ryder-zajecia-przy-stoliku.jpg",
+      "alt": "Dziecko rysuje przy stoliku z książkami i kredkami",
+      "approved": true
+    },
+    {
+      "kind": "image",
+      "image": "/assets/media/sue-ryder-sala-cwiczen.jpg",
+      "alt": "Zajęcia z dzieckiem w sali ćwiczeń",
+      "approved": true
+    },
+    {
+      "kind": "image",
       "externalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Bdg_DomSueRyder_1_5-2015.jpg",
       "alt": "Budynek Domu Sue Ryder w Bydgoszczy",
       "caption": "Dom Sue Ryder, zdjęcie archiwalne (2015)",
