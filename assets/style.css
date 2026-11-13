@@ -360,6 +360,97 @@ a.partner-card:hover { border-color: var(--muted); }
 .footer-links, .footer-bottom, .footer-top p { color: var(--soft-text); }
 .footer-links a:hover { color: var(--brand-turquoise); }
 .footer-brand { color: var(--white); }
+
+.site-header .brand,
+.site-header .nav-toggle { color: var(--white); }
+.site-header :focus-visible { outline-color: var(--brand-turquoise); }
+.site-header .nav-links { font-size: 15px; }
+
+.btn,
+.aside-note,
+.place-jump .place-jump-action,
+.recipient-detail,
+.recipient-needs-heading p,
+.recipient-pending,
+.benefit-disclaimer,
+.film-credits figcaption,
+.footer-links,
+.footer-bottom { font-size: .875rem; }
+.recipient-description,
+.partner-benefit p,
+.faq-list details p,
+.legal-content p { font-size: 1rem; }
+.recipient-needs-grid .need-card h4 { font-size: 1rem; }
+.recipient-needs-grid .need-card p { font-size: .9375rem; line-height: 1.55; }
+.recipient-needs-grid .need-tag,
+.recipient-needs-grid .need-bottom { font-size: .8125rem; }
+.partner-card small { font-size: .875rem; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 32px; }
+.legal-content .legal-warning p { color: var(--ink); }
+
+.recipient-slide-arrow { min-width: 44px; min-height: 44px; background: var(--night); }
+.recipient-slide-counter {
+  inset: 12px auto auto 12px;
+  background: var(--night);
+  font-size: .8125rem;
+}
+.recipient-slide-dots {
+  max-width: calc(100% - 12px);
+  gap: 0;
+  padding: 2px 4px;
+  background: var(--night);
+}
+.recipient-slide-dot,
+.recipient-slide-dot.is-active {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 28px;
+  background: transparent;
+  transform: none;
+}
+.recipient-slide-dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--soft-text);
+  border-radius: 50%;
+}
+.recipient-slide-dot.is-active::before { background: var(--white); }
+.recipient-slideshow .recipient-slide-dot:focus-visible,
+.recipient-slideshow .recipient-slide-arrow:focus-visible {
+  outline: 2px solid var(--brand-turquoise);
+  outline-offset: -2px;
+}
+.recipient-photo-caption { font-size: .875rem; background: var(--night); }
+.recipient-credits { font-size: .8125rem; }
+.recipient-play { color: var(--night); }
+
+@media (min-width: 901px) {
+  .site-header .nav-links > a:not(.nav-cta) { color: var(--soft-text); }
+  .site-header .nav-links > a:not(.nav-cta):hover { color: var(--white); text-decoration: underline; }
+  .site-header .nav-links > .donation-status { color: var(--soft-text); }
+}
+@media (max-width: 900px) {
+  .nav-toggle { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
+  .site-header .nav-links {
+    display: none;
+    position: absolute;
+    inset: 100% 0 auto;
+    max-height: calc(100dvh - 80px);
+    overflow-y: auto;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 20px 16px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .site-header .nav-links.is-open { display: flex; }
+  .site-header .nav-links > a { padding: 12px 8px; }
+  .site-header .nav-links :focus-visible { outline-color: var(--brand-indigo); outline-offset: -2px; }
+}
 @media (max-width: 760px) {
   .campaign-mark { height: 35px; }
   .nav-wrap { gap: 12px; }

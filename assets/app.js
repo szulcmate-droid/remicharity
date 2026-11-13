@@ -180,7 +180,7 @@ function buildRecipientSection(place){
    media.appendChild(buildGallery(place));
  }else{
    const blank=el('div','recipient-empty-photo');
-   blank.appendChild(icon(place.icon||'home'),el('span','','Galeria wkrótce'));
+   blank.append(icon(place.icon||'home'),el('span','','Galeria wkrótce'));
    media.appendChild(blank);
  }
  hero.appendChild(media);
@@ -258,5 +258,19 @@ if (organizerEmail && /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(organizerEmail)) {
 }
 
 const year=$('#year');if(year)year.textContent=new Date().getFullYear();
-const navToggle=$('.nav-toggle'),nav=$('#main-nav');navToggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',String(open));navToggle.setAttribute('aria-label',open?'Zamknij menu':'Otwórz menu');});$$('a',nav).forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');navToggle.setAttribute('aria-expanded','false');}));
+const navToggle = $('.nav-toggle');
+const nav = $('#main-nav');
+function setMenuOpen(open) {
+  nav.classList.toggle('is-open', open);
+  navToggle.setAttribute('aria-expanded', String(open));
+  navToggle.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu');
+}
+navToggle.addEventListener('click', () => setMenuOpen(!nav.classList.contains('is-open')));
+$$('a', nav).forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+$('.site-header').addEventListener('keydown', event => {
+  if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+    setMenuOpen(false);
+    navToggle.focus();
+  }
+});
 })();
