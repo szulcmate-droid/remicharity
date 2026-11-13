@@ -108,6 +108,9 @@ content:
       - { name: campaignName, label: Nazwa kampanii, type: string }
       - { name: brandName, label: Nazwa inicjatywy, type: string }
       - { name: organizer, label: Organizator, type: string }
+      - { name: tagline, label: Hasło na pierwszym ekranie, type: string }
+      - { name: intro, label: Opis na pierwszym ekranie, type: text }
+      - { name: contactIntro, label: Opis w sekcji kontaktowej, type: text }
       - { name: contactEmail, label: E-mail organizatora, type: string }
       - { name: siteUrl, label: Publiczny adres witryny (HTTPS), type: string }
       - name: fundraiserUrl

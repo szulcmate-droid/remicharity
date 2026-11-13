@@ -63,11 +63,11 @@
       <div class="container hero-layout">
         <div class="hero-copy">
           <h1 id="hero-title">BYDGOSKI BIZNES <em>POMAGA</em></h1>
-          <p class="hero-tagline">Łączymy firmy. Zmieniamy życie.</p>
-          <p class="hero-lede">Wspieramy dzieci i pacjentów w trzech bydgoskich placówkach.</p>
+          <p class="hero-tagline" id="campaign-tagline">Łączymy firmy. Zmieniamy życie.</p>
+          <p class="hero-lede" id="campaign-intro">Wspieramy dzieci i pacjentów w trzech bydgoskich placówkach.</p>
           <div class="hero-actions" id="wesprzyj">
-            <a href="#partner" class="btn btn-primary">Dołącz jako firma</a>
-            <button class="btn btn-outline" type="button" disabled data-donation-action="btn btn-outline" aria-describedby="hero-fundraiser-status">Wesprzyj zbiórkę</button>
+            <a href="#partner" class="btn btn-primary" id="hero-company-action">Dołącz jako firma</a>
+            <button class="btn btn-outline" type="button" disabled data-donation-action="btn btn-primary" aria-describedby="hero-fundraiser-status">Wesprzyj zbiórkę</button>
             <span id="hero-fundraiser-status" class="donation-status">Zbiórka wkrótce</span>
           </div>
           <div class="fundraise-widget" id="fundraise-widget" hidden>
@@ -75,13 +75,7 @@
             <div class="fundraise-track"><span id="fundraise-bar"></span></div>
           </div>
         </div>
-        <div class="hero-art" aria-label="Trzy obszary pomocy: opieka, szpital i hospicjum">
-          <div class="hero-glow"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
-          <div class="art-main"><div class="art-center"><span class="art-heart"><img class="campaign-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" /></span><strong>Wspólna pomoc</strong></div><div class="art-divider"></div><div class="art-bottom"><span>Remivision</span><span class="art-plus">＋</span><span>lokalne firmy</span></div></div>
-          <div class="float-card float-one"><span class="float-icon peach"><svg class="icon"><use href="#i-home"/></svg></span><span><strong>BZPOW</strong></span></div>
-          <div class="float-card float-two"><span class="float-icon mint"><svg class="icon"><use href="#i-sparkles"/></svg></span><span><strong>Szpital dziecięcy</strong></span></div>
-          <div class="float-card float-three"><span class="float-icon blue"><svg class="icon"><use href="#i-heart"/></svg></span><span><strong>Hospicjum</strong></span></div>
-        </div>
+        <img class="hero-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" />
       </div>
     </section>
     <section id="o-akcji" class="section intro-section">
@@ -155,7 +149,7 @@
     <section id="partner" class="section donation-section donation-final" aria-labelledby="partner-cta-title">
       <div class="container section-heading">
         <h2 id="partner-cta-title">Twoja firma też może pomóc!</h2>
-        <p>Dołącz do bydgoskich przedsiębiorców, którzy wspólnie wspierają potrzebujących.</p>
+        <p id="campaign-contact-intro">Dołącz do bydgoskich przedsiębiorców, którzy wspólnie wspierają potrzebujących.</p>
         <a class="btn btn-primary" data-partner-email href="mailto:office@remivision.com?subject=Chc%C4%99%20do%C5%82%C4%85czy%C4%87%20do%20akcji%20Bydgoski%20Biznes%20Pomaga">Zostań partnerem akcji <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <div class="partner-contact"><a id="organizer-address" href="mailto:office@remivision.com">office@remivision.com</a><button type="button" class="btn btn-outline" id="copy-organizer-email" hidden>Kopiuj e-mail</button></div>
         <p id="copy-email-status" class="copy-email-status" role="status"></p>

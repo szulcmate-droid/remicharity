@@ -170,6 +170,18 @@ $$('[data-donation-action]').forEach(slot => {
   if (donateUrl) slot.replaceWith(createDonationAction(slot.dataset.donationAction));
 });
 $('#hero-fundraiser-status').hidden = Boolean(donateUrl);
+if (donateUrl) {
+  const companyAction = $('#hero-company-action');
+  companyAction.classList.replace('btn-primary', 'btn-outline');
+}
+
+for (const [selector, value] of [
+  ['#campaign-tagline', D.tagline],
+  ['#campaign-intro', D.intro],
+  ['#campaign-contact-intro', D.contactIntro],
+]) {
+  if (value?.trim()) $(selector).textContent = value.trim();
+}
 
 function buildRecipientSection(place){
  const panel=el('article','recipient-panel recipient-'+place.id);
@@ -287,7 +299,15 @@ if (D.partners.length) {
 function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:null;}catch{return null;}}
 const widget=$('#fundraise-widget');
 if(donateUrl&&Number.isFinite(D.amountRaised)&&D.amountRaised>=0&&Number.isFinite(D.targetAmount)&&D.targetAmount>0){widget.hidden=false;$('#amount-raised').textContent=D.amountRaised.toLocaleString('pl-PL')+' zł';$('#target-amount').textContent='Cel: '+D.targetAmount.toLocaleString('pl-PL')+' zł';$('#fundraise-bar').style.width=Math.min(100,100*D.amountRaised/D.targetAmount)+'%';}
-const allocation=$('#allocation-faq');if(D.allocationText&&D.operatorName)allocation.textContent=`Zbiórkę formalnie prowadzi ${D.operatorName}. ${D.allocationText}`;
+const allocation = $('#allocation-faq');
+const operator = D.operatorName?.trim();
+const allocationText = D.allocationText?.trim();
+if (operator || allocationText) {
+  allocation.textContent = [
+    operator && `Zbiórkę formalnie prowadzi ${operator}.`,
+    allocationText || 'Zasady rozliczania podamy przed uruchomieniem zbiórki.',
+  ].filter(Boolean).join(' ');
+}
 const partnerEmail = $('[data-partner-email]');
 const address = $('#organizer-address');
 const configuredEmail = D.contactEmail?.trim();

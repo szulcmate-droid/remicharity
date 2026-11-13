@@ -7,6 +7,7 @@ Zaloguj się do [Pages CMS](https://app.pagescms.org/), udziel aplikacji GitHub 
 - Wybierz **BZPOW**, **Szpital Dziecięcy** lub **Hospicjum Pallmed Dom Sue Ryder**, aby edytować opis i kolejność zdjęć oraz filmów w galerii.
 - W **Listach potrzeb** zmienisz opisy, statusy i przypisanie do placówki lub oddziału.
 - W **Kampania** wklej **Adres wspólnej zbiórki**. Wszystkie przyciski wpłat prowadzą pod ten adres. Przy pustym polu strona pokazuje „Zbiórka wkrótce”.
+- W **Kampania** edytujesz także hasło i opis pierwszego ekranu, tekst przy kontakcie oraz adres e-mail organizatora.
 - W **Partnerzy** dodasz, zmienisz lub usuniesz firmę. Podaj nazwę, prześlij logo i wpisz pełny adres strony. Krótki opis jest opcjonalny. Zapisz zmiany, żeby zaktualizować listę firm.
 - RemiVision pojawia się jako pierwszy partner niezależnie od kolejności w CMS. Dla pozostałych partnerów kolejność odpowiada liście w CMS.
 - Na liście potrzeb pole **Priorytet** wpływa na pierwsze trzy pozycje widoczne bez rozwijania.

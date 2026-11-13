@@ -428,6 +428,7 @@ a.partner-card:hover { border-color: var(--muted); }
 
 .hero-actions .donation-status { flex-basis: 100%; }
 .hero-actions button:disabled { cursor: default; color: var(--muted); transform: none; }
+.hero-mark { display: block; justify-self: center; width: clamp(110px, 16vw, 160px); height: auto; }
 .needs-toggle { margin-top: 12px; min-height: 44px; padding: 9px 16px; }
 .film-credits-board {
   display: grid;
@@ -462,7 +463,7 @@ a.partner-card:hover { border-color: var(--muted); }
 .donation-final .copy-email-status { margin: 8px 0 0; font-size: .875rem; }
 .copy-email-status:empty { display: none; }
 @media (max-width: 760px) {
-  .hero-art { display: none; }
+  .hero-mark { display: none; }
   .hero { padding-bottom: 22px; }
 }
 
