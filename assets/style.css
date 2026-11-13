@@ -310,3 +310,9 @@ a.partner-card:hover { border-color: #73a993; }
 @media (max-width: 520px) {
   .recipient-needs-grid .need-card p { font-size: 13px; }
 }
+
+.donation-final { text-align: center; padding-block: clamp(52px, 8vw, 96px); }
+.donation-final .section-heading { max-width: 720px; }
+.donation-final .donation-status { color: #f3c3a2; }
+.nav-links > .donation-status { padding: 11px 16px; }
+.footer-donation-status { color: inherit; font-size: inherit; }

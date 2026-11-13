@@ -50,7 +50,7 @@
       <button class="nav-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="main-nav"><svg class="icon"><use href="#i-menu"/></svg></button>
       <nav class="nav-links" id="main-nav" aria-label="Menu główne">
         <a href="#o-akcji">O akcji</a><a href="#potrzeby">Placówki i potrzeby</a><a href="#korzysci">Dla firm</a><a href="#partnerzy">Partnerzy</a>
-        <a href="#partner" class="nav-cta">Zostań partnerem <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <span class="donation-status" data-donation-action="nav-cta">Zbiórka wkrótce</span>
       </nav>
     </div>
   </header>
@@ -62,7 +62,7 @@
           <h1 id="hero-title">Pomóż <em>bydgoskim placówkom.</em></h1>
           <p class="hero-lede">Wspieramy dzieci i pacjentów w trzech bydgoskich placówkach.</p>
           <div class="hero-actions" id="wesprzyj">
-            <span id="hero-donation" class="donation-status">Zbiórka wkrótce</span>
+            <span data-donation-action="btn btn-primary" class="donation-status">Zbiórka wkrótce</span>
             <a href="#potrzeby" class="btn btn-outline">Zobacz potrzeby</a>
           </div>
           <div class="fundraise-widget" id="fundraise-widget" hidden>
@@ -93,7 +93,7 @@
           <div class="section-heading">
             <h2>Potrzeby placówek</h2>
           </div>
-          <p class="aside-note"><svg class="icon"><use href="#i-shield"/></svg> Przed zakupem potwierdź potrzebę przez formularz.</p>
+          <p class="aside-note"><svg class="icon"><use href="#i-shield"/></svg> Przed zakupem potwierdź potrzebę z placówką.</p>
         </div>
         <div id="recipient-sections" class="recipient-sections"></div>
       </div>
@@ -128,7 +128,7 @@
           </article>
         </div>
         <div class="partner-benefits-action">
-          <a href="#partner" class="btn btn-primary">Zostań partnerem <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <span class="donation-status" data-donation-action="btn btn-primary">Zbiórka wkrótce</span>
         </div>
         <p class="benefit-disclaimer">Nazwę i logo publikujemy za zgodą firmy.</p>
       </div>
@@ -140,29 +140,19 @@
           <div class="empty-partners">
             <span class="empty-partners-icon" aria-hidden="true"><svg class="icon"><use href="#i-users"/></svg></span>
             <h3>Dołącz do pierwszych partnerów akcji</h3>
-            <a href="#partner" class="btn btn-primary">Zostań partnerem <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <span class="donation-status" data-donation-action="btn btn-primary">Zbiórka wkrótce</span>
           </div>
         </div>
       </div>
     </section>
-    <section id="partner" class="section contact-section"><div class="container contact-grid"><div class="contact-copy"><h2>Zostań partnerem</h2><p>Zgłoś firmę i wybierz formę wsparcia.</p><div class="contact-email" id="contact-email-wrap" hidden><svg class="icon"><use href="#i-mail"/></svg><a id="contact-email" href="#"></a></div></div>
-      <div class="form-card"><div class="form-head"><h3>Zgłoszenie firmy</h3></div>
-      <form name="partnerzy-remicharity" method="POST" id="partner-form">
-        <input type="hidden" name="zrodlo" id="lead-source" value="" />
-        <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off" />
-        <label for="company">Nazwa firmy <span>*</span></label><input id="company" name="firma" type="text" required maxlength="160" placeholder="Jak nazywa się Twoja firma?" />
-        <div class="form-two"><div><label for="person">Osoba kontaktowa <span>*</span></label><input id="person" name="osoba" type="text" required maxlength="100" placeholder="Imię i nazwisko" /></div><div><label for="email">E-mail <span>*</span></label><input id="email" name="email" type="email" required maxlength="180" placeholder="kontakt@firma.pl" /></div></div>
-        <label for="phone">Telefon <span class="optional">(opcjonalnie)</span></label><input id="phone" name="telefon" type="tel" maxlength="40" placeholder="Numer telefonu" />
-        <label for="support">Jak chcesz się zaangażować? <span>*</span></label><select id="support" name="forma_pomocy" required><option value="" disabled selected>Wybierz formę wsparcia</option><option value="finansowo">Wpłata finansowa</option><option value="rzeczowo">Produkty lub usługi</option><option value="promocja">Promocja zbiórki</option><option value="pracownicy">Zaangażowanie pracowników</option><option value="porozmawiajmy">Chcę omówić możliwości</option></select>
-        <label for="purpose">Obszar pomocy</label><select id="purpose" name="obszar"><option value="dowolny">Dowolna potrzeba / bez preferencji</option><option value="bzpow">BZPOW – Traugutta 5</option><option value="szpital">Szpital Dziecięcy</option><option value="hospicjum">Hospicjum (potrzeby do potwierdzenia)</option></select>
-        <label for="note">Wiadomość <span class="optional">(opcjonalnie)</span></label><textarea id="note" name="wiadomosc" rows="3" maxlength="2500" placeholder="Jaką pomoc możecie zaoferować? Kilka słów wystarczy."></textarea>
-        <label class="consent"><input name="potwierdzenie_zapoznania" type="checkbox" required value="tak" /><span>Zapoznałem/am się z <a href="polityka-prywatnosci.html" target="_blank" rel="noopener">informacją o przetwarzaniu danych</a>. <strong>*</strong></span></label>
-        <button type="submit" class="btn btn-primary form-submit" disabled>Wyślij zgłoszenie <svg class="icon"><use href="#i-arrow"/></svg></button>
-        <p class="form-status" id="partner-form-status" role="status">Formularz jest chwilowo niedostępny.</p>
-        <p class="form-footnote"><svg class="icon"><use href="#i-lock"/></svg> Nie przesyłaj w formularzu danych wrażliwych. Pola oznaczone * są obowiązkowe.</p>
-      </form></div></div></section>
-    <section class="section faq-section"><div class="container faq-grid"><div class="section-heading"><h2>Najczęstsze pytania</h2></div><div class="faq-list"><details><summary>Czy firma musi wpłacić konkretną kwotę? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Możesz też zaoferować produkty, usługi lub promocję akcji.</p></details><details><summary>Możemy przekazać produkty zamiast pieniędzy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Tak. Zgłoś się przez formularz, żeby potwierdzić potrzebę.</p></details><details><summary>Jak będą rozliczane wpłaty? <svg class="icon"><use href="#i-chevron"/></svg></summary><p id="allocation-faq">Zasady rozliczania podamy przed uruchomieniem zbiórki.</p></details><details><summary>Czy udział zobowiązuje do dalszej współpracy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Zakres wsparcia ustalimy wspólnie.</p></details></div></div></section>
+    <section class="section faq-section"><div class="container faq-grid"><div class="section-heading"><h2>Najczęstsze pytania</h2></div><div class="faq-list"><details><summary>Czy firma musi wpłacić konkretną kwotę? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Możesz też zaoferować produkty, usługi lub promocję akcji.</p></details><details><summary>Możemy przekazać produkty zamiast pieniędzy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Tak. Skontaktuj się z placówką, żeby potwierdzić potrzebę.</p></details><details><summary>Jak będą rozliczane wpłaty? <svg class="icon"><use href="#i-chevron"/></svg></summary><p id="allocation-faq">Zasady rozliczania podamy przed uruchomieniem zbiórki.</p></details><details><summary>Czy udział zobowiązuje do dalszej współpracy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Zakres wsparcia ustalimy wspólnie.</p></details></div></div></section>
+    <section id="partner" class="section donation-section donation-final" aria-labelledby="donation-title">
+      <div class="container section-heading">
+        <h2 id="donation-title">Wesprzyj bydgoskie placówki</h2>
+        <span class="donation-status" data-donation-action="btn btn-peach">Zbiórka wkrótce</span>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="container"><div class="footer-top"><div><a href="#top" class="brand footer-brand"><span class="brand-mark"><svg class="icon"><use href="#i-heart"/></svg></span><span>remi<span class="brand-light">charity</span><small>by Remivision</small></span></a></div><div class="footer-links"><a href="#o-akcji">O akcji</a><a href="#potrzeby">Potrzeby</a><a href="#korzysci">Dla firm</a><a href="#partner">Kontakt</a><a href="polityka-prywatnosci.html">Prywatność</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> RemiCharity · Inicjatywa Remivision</span></div></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-top"><div><a href="#top" class="brand footer-brand"><span class="brand-mark"><svg class="icon"><use href="#i-heart"/></svg></span><span>remi<span class="brand-light">charity</span><small>by Remivision</small></span></a></div><div class="footer-links"><a href="#o-akcji">O akcji</a><a href="#potrzeby">Potrzeby</a><a href="#korzysci">Dla firm</a><span class="donation-status footer-donation-status" data-donation-action="">Zbiórka wkrótce</span><a href="polityka-prywatnosci.html">Prywatność</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> RemiCharity · Inicjatywa Remivision</span></div></div></footer>
 </body>
 </html>

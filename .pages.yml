@@ -100,7 +100,7 @@ content:
             - { name: zarezerwowane, label: Zadeklarowane }
             - { name: zrealizowane, label: Zrealizowane }
   - name: settings
-    label: Kampania i formularz
+    label: Kampania
     type: file
     path: content/settings.json
     format: json
@@ -118,10 +118,6 @@ content:
       - { name: targetAmount, label: Cel zbiórki (PLN), type: number }
       - { name: operatorName, label: Operator zbiórki, type: string }
       - { name: allocationText, label: Zasady podziału środków, type: text }
-      - name: formEndpoint
-        label: Adres formularza Formspree
-        type: string
-        description: Wklej pełny adres HTTPS z zakładki Integration w Formspree.
   - name: partners
     label: Partnerzy
     type: file

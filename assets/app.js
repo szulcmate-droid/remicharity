@@ -9,12 +9,6 @@ const icon = (name) => { const svg=document.createElementNS('http://www.w3.org/2
 // Każda placówka ma swoją osobną sekcję, galerię oraz listę potrzeb.
 const placesGrid=$('#places-grid');
 const recipientSections=$('#recipient-sections');
-function setPurpose(value){const e=$('#purpose');if(e)e.value=value;}
-function setNeedSelection(place,title){
- setPurpose(place);
- const note=$('#note');
- if(note)note.value=`Chcemy wesprzeć: ${title}.`;
-}
 function buildGallery(place) {
   const items = place.gallery;
   const slider = el('div', 'recipient-slideshow');
@@ -162,22 +156,20 @@ function createNeedCard(item){
  const bot=el('div','need-bottom');
  const statusLabel=item.status==='do-uzgodnienia'?'Do uzgodnienia':item.status==='zrealizowane'?'Zrealizowane':item.status==='zarezerwowane'?'Zadeklarowane':'Zgłoszona potrzeba';
  bot.appendChild(el('span','',statusLabel));
- if(item.status!=='zrealizowane'){
-   const link=el('a','','Chcę pomóc');link.href='#partner';link.appendChild(icon('arrow'));
-   link.addEventListener('click',()=>setNeedSelection(item.place,item.title));
-   bot.appendChild(link);
- }
+ if (donateUrl && item.status !== 'zrealizowane') bot.appendChild(createDonationAction());
  card.appendChild(bot);return card;
 }
 const donateUrl = safeUrl(D.fundraiserUrl);
 function createDonationAction(variant) {
   if (!donateUrl) return el('span', 'donation-status', 'Zbiórka wkrótce');
-  const link = el('a', 'btn ' + variant, 'Wpłać na zbiórkę');
+  const link = el('a', variant, 'Wpłać na zbiórkę');
   link.href = donateUrl;
   link.appendChild(icon('arrow'));
   return link;
 }
-$('#hero-donation').replaceWith(createDonationAction('btn-primary'));
+$$('[data-donation-action]').forEach(slot => {
+  if (donateUrl) slot.replaceWith(createDonationAction(slot.dataset.donationAction));
+});
 
 function buildRecipientSection(place){
  const panel=el('article','recipient-panel recipient-'+place.id);
@@ -196,9 +188,7 @@ function buildRecipientSection(place){
  body.appendChild(el('h3','',place.full));body.appendChild(el('p','recipient-detail',place.detail));body.appendChild(el('p','recipient-description',place.description));
  const items=D.needs.filter(n=>n.place===place.id);
  const actions = el('div', 'recipient-actions');
- const cta=el('a','btn btn-outline','Chcę pomóc');cta.href='#partner';cta.appendChild(icon('arrow'));
- cta.addEventListener('click',()=>setPurpose(place.id));
- actions.append(createDonationAction('btn-primary'), cta);
+ actions.appendChild(createDonationAction('btn btn-primary'));
  body.appendChild(actions);hero.appendChild(body);
  panel.appendChild(hero);
  const list=el('div','recipient-needs');
@@ -260,45 +250,6 @@ function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].include
 const widget=$('#fundraise-widget');
 if(Number.isFinite(D.amountRaised)&&D.amountRaised>=0&&Number.isFinite(D.targetAmount)&&D.targetAmount>0){widget.hidden=false;$('#amount-raised').textContent=D.amountRaised.toLocaleString('pl-PL')+' zł';$('#target-amount').textContent='Cel: '+D.targetAmount.toLocaleString('pl-PL')+' zł';$('#fundraise-bar').style.width=Math.min(100,100*D.amountRaised/D.targetAmount)+'%';}
 const allocation=$('#allocation-faq');if(D.allocationText&&D.operatorName)allocation.textContent=`Zbiórkę formalnie prowadzi ${D.operatorName}. ${D.allocationText}`;
-const contact=$('#contact-email-wrap');const email=(D.contactEmail||'').trim();if(email&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){contact.hidden=false;const a=$('#contact-email');a.textContent=email;a.href='mailto:'+email;}
-const source=$('#lead-source');if(source){const utm=new URLSearchParams(location.search).get('utm_source')||'';source.value=utm.slice(0,80).replace(/[^a-zA-Z0-9_.-]/g,'');}
-const form = $('#partner-form');
-const submit = $('.form-submit', form);
-const formStatus = $('#partner-form-status');
-const endpoint = (D.formEndpoint || '').trim();
-const canSubmit = /^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(endpoint);
-if (canSubmit) {
-  form.action = endpoint;
-  submit.disabled = false;
-  formStatus.textContent = '';
-}
-let submitting = false;
-form.addEventListener('submit', async event => {
-  event.preventDefault();
-  if (!canSubmit || submitting) return;
-  submitting = true;
-  submit.disabled = true;
-  formStatus.textContent = 'Wysyłamy zgłoszenie…';
-  try {
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' },
-    });
-    if (!response.ok) {
-      formStatus.textContent = response.status === 429
-        ? 'Zbyt wiele zgłoszeń. Odczekaj chwilę i spróbuj ponownie.'
-        : 'Nie udało się wysłać zgłoszenia. Sprawdź dane i spróbuj ponownie.';
-      return;
-    }
-    location.assign('dziekujemy.html');
-  } catch {
-    formStatus.textContent = 'Nie udało się wysłać zgłoszenia. Sprawdź połączenie i spróbuj ponownie.';
-  } finally {
-    submitting = false;
-    submit.disabled = false;
-  }
-});
 const year=$('#year');if(year)year.textContent=new Date().getFullYear();
 const navToggle=$('.nav-toggle'),nav=$('#main-nav');navToggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',String(open));navToggle.setAttribute('aria-label',open?'Zamknij menu':'Otwórz menu');});$$('a',nav).forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');navToggle.setAttribute('aria-expanded','false');}));
 })();
