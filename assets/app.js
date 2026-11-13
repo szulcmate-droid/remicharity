@@ -250,6 +250,13 @@ function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].include
 const widget=$('#fundraise-widget');
 if(Number.isFinite(D.amountRaised)&&D.amountRaised>=0&&Number.isFinite(D.targetAmount)&&D.targetAmount>0){widget.hidden=false;$('#amount-raised').textContent=D.amountRaised.toLocaleString('pl-PL')+' zł';$('#target-amount').textContent='Cel: '+D.targetAmount.toLocaleString('pl-PL')+' zł';$('#fundraise-bar').style.width=Math.min(100,100*D.amountRaised/D.targetAmount)+'%';}
 const allocation=$('#allocation-faq');if(D.allocationText&&D.operatorName)allocation.textContent=`Zbiórkę formalnie prowadzi ${D.operatorName}. ${D.allocationText}`;
+const partnerEmail = $('[data-partner-email]');
+const organizerEmail = D.contactEmail?.trim();
+if (organizerEmail && /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(organizerEmail)) {
+  const link = new URL(partnerEmail.href);
+  partnerEmail.href = 'mailto:' + encodeURIComponent(organizerEmail).replace('%40', '@') + link.search;
+}
+
 const year=$('#year');if(year)year.textContent=new Date().getFullYear();
 const navToggle=$('.nav-toggle'),nav=$('#main-nav');navToggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',String(open));navToggle.setAttribute('aria-label',open?'Zamknij menu':'Otwórz menu');});$$('a',nav).forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');navToggle.setAttribute('aria-expanded','false');}));
 })();
