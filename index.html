@@ -8,7 +8,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Bydgoski Biznes Pomaga" />
   <meta property="og:description" content="Łączymy firmy. Zmieniamy życie. Wspieramy trzy bydgoskie placówki." />
-  <meta property="og:image" content="/assets/logo-akcji.png" />
+  <meta property="og:image" content="/assets/bydgoski-biznes-pomaga-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Bydgoski Biznes Pomaga. Łączymy firmy. Zmieniamy życie." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/favicon-akcji.ico" />
   <link rel="stylesheet" href="assets/style.css" />
   <script src="assets/content.js" defer></script>
@@ -46,7 +50,7 @@
   <a class="skip" href="#main">Przejdź do treści</a>
   <header class="site-header" id="top">
     <div class="container nav-wrap">
-      <a href="#top" class="brand" aria-label="Bydgoski Biznes Pomaga — strona główna"><img class="campaign-mark" src="assets/logo-akcji.png" width="1039" height="1514" alt="" /><span class="brand-name">Bydgoski Biznes Pomaga</span></a>
+      <a href="#top" class="brand" aria-label="Bydgoski Biznes Pomaga — strona główna"><img class="campaign-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" /><span class="brand-name">Bydgoski Biznes Pomaga</span></a>
       <button class="nav-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="main-nav"><svg class="icon"><use href="#i-menu"/></svg></button>
       <nav class="nav-links" id="main-nav" aria-label="Menu główne">
         <a href="#o-akcji">O akcji</a><a href="#potrzeby">Placówki i potrzeby</a><a href="#korzysci">Dla firm</a><a href="#partnerzy">Partnerzy</a>
@@ -59,24 +63,19 @@
       <div class="container hero-layout">
         <div class="hero-copy">
           <h1 id="hero-title">BYDGOSKI BIZNES <em>POMAGA</em></h1>
-          <p class="hero-tagline">Łączymy firmy. Zmieniamy życie.</p>
-          <p class="hero-lede">Wspieramy dzieci i pacjentów w trzech bydgoskich placówkach.</p>
+          <p class="hero-tagline" id="campaign-tagline">Łączymy firmy. Zmieniamy życie.</p>
+          <p class="hero-lede" id="campaign-intro">Wspieramy dzieci i pacjentów w trzech bydgoskich placówkach.</p>
           <div class="hero-actions" id="wesprzyj">
-            <span data-donation-action="btn btn-primary" class="donation-status">Zbiórka wkrótce</span>
-            <a href="#potrzeby" class="btn btn-outline">Zobacz potrzeby</a>
+            <a href="#partner" class="btn btn-primary" id="hero-company-action">Dołącz jako firma</a>
+            <button class="btn btn-outline" type="button" disabled data-donation-action="btn btn-primary" aria-describedby="hero-fundraiser-status">Wesprzyj zbiórkę</button>
+            <span id="hero-fundraiser-status" class="donation-status">Zbiórka wkrótce</span>
           </div>
           <div class="fundraise-widget" id="fundraise-widget" hidden>
             <div class="fundraise-stats"><strong id="amount-raised"></strong><span id="target-amount"></span></div>
             <div class="fundraise-track"><span id="fundraise-bar"></span></div>
           </div>
         </div>
-        <div class="hero-art" aria-label="Trzy obszary pomocy: opieka, szpital i hospicjum">
-          <div class="hero-glow"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
-          <div class="art-main"><div class="art-center"><span class="art-heart"><img class="campaign-mark" src="assets/logo-akcji.png" width="1039" height="1514" alt="" /></span><strong>Wspólna pomoc</strong></div><div class="art-divider"></div><div class="art-bottom"><span>Remivision</span><span class="art-plus">＋</span><span>lokalne firmy</span></div></div>
-          <div class="float-card float-one"><span class="float-icon peach"><svg class="icon"><use href="#i-home"/></svg></span><span><strong>BZPOW</strong></span></div>
-          <div class="float-card float-two"><span class="float-icon mint"><svg class="icon"><use href="#i-sparkles"/></svg></span><span><strong>Szpital dziecięcy</strong></span></div>
-          <div class="float-card float-three"><span class="float-icon blue"><svg class="icon"><use href="#i-heart"/></svg></span><span><strong>Hospicjum</strong></span></div>
-        </div>
+        <img class="hero-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" />
       </div>
     </section>
     <section id="o-akcji" class="section intro-section">
@@ -85,17 +84,6 @@
           <h2>Komu pomagamy?</h2>
         </div>
         <div class="place-grid" id="places-grid" aria-label="Wybierz placówkę"></div>
-      </div>
-    </section>
-    <section id="potrzeby" class="section needs-section">
-      <div class="container">
-        <div class="section-top">
-          <div class="section-heading">
-            <h2>Potrzeby placówek</h2>
-          </div>
-          <p class="aside-note"><svg class="icon"><use href="#i-shield"/></svg> Przed zakupem potwierdź potrzebę z placówką.</p>
-        </div>
-        <div id="recipient-sections" class="recipient-sections"></div>
       </div>
     </section>
     <section id="korzysci" class="section business-section" aria-labelledby="benefits-title">
@@ -110,8 +98,9 @@
             <p>Każdy partner otrzyma film z logotypami wszystkich firm, gotowy do udostępnienia w internecie.</p>
             <figure class="film-credits">
               <div class="film-credits-board" aria-hidden="true">
-                <div class="film-credits-brand"><img class="campaign-mark" src="assets/logo-akcji.png" width="1039" height="1514" alt="" /> Bydgoski Biznes Pomaga</div>
-                <div class="film-credits-logos"><span>Logo</span><span>Logo</span><span>Logo</span></div>
+                <div class="film-credits-brand"><img class="campaign-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" /> Bydgoski Biznes Pomaga</div>
+                <p class="film-credits-thanks">Dziękujemy za wspólną pomoc</p>
+                <div class="film-credits-logos" id="film-partners"></div>
               </div>
               <figcaption>Przykładowa plansza z logotypami</figcaption>
             </figure>
@@ -128,7 +117,7 @@
           </article>
         </div>
         <div class="partner-benefits-action">
-          <a class="btn btn-primary" href="#partner">Zostań partnerem akcji</a>
+          <a class="btn btn-primary" href="#partner">Zostań partnerem</a>
         </div>
         <p class="benefit-disclaimer">Nazwę i logo publikujemy za zgodą firmy.</p>
       </div>
@@ -140,20 +129,33 @@
           <div class="empty-partners">
             <span class="empty-partners-icon" aria-hidden="true"><svg class="icon"><use href="#i-users"/></svg></span>
             <h3>Dołącz do pierwszych partnerów akcji</h3>
-            <a class="btn btn-primary" href="#partner">Zostań partnerem akcji</a>
+            <a class="btn btn-primary" href="#partner">Zostań partnerem</a>
           </div>
         </div>
       </div>
     </section>
-    <section class="section faq-section"><div class="container faq-grid"><div class="section-heading"><h2>Najczęstsze pytania</h2></div><div class="faq-list"><details><summary>Czy firma musi wpłacić konkretną kwotę? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Możesz też zaoferować produkty, usługi lub promocję akcji.</p></details><details><summary>Możemy przekazać produkty zamiast pieniędzy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Tak. Skontaktuj się z placówką, żeby potwierdzić potrzebę.</p></details><details><summary>Jak będą rozliczane wpłaty? <svg class="icon"><use href="#i-chevron"/></svg></summary><p id="allocation-faq">Zasady rozliczania podamy przed uruchomieniem zbiórki.</p></details><details><summary>Czy udział zobowiązuje do dalszej współpracy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Zakres wsparcia ustalimy wspólnie.</p></details></div></div></section>
+    <section id="potrzeby" class="section needs-section">
+      <div class="container">
+        <div class="section-top">
+          <div class="section-heading">
+            <h2>Potrzeby placówek</h2>
+          </div>
+          <p class="aside-note"><svg class="icon"><use href="#i-shield"/></svg> Przed zakupem potwierdź potrzebę z placówką.</p>
+        </div>
+        <div id="recipient-sections" class="recipient-sections"></div>
+      </div>
+    </section>
+    <section class="section faq-section"><div class="container faq-grid"><div class="section-heading"><h2>Transparentność i FAQ</h2></div><div class="faq-list"><details><summary>Czy firma musi wpłacić konkretną kwotę? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Możesz też zaoferować produkty, usługi lub promocję akcji.</p></details><details><summary>Możemy przekazać produkty zamiast pieniędzy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Tak. Skontaktuj się z placówką, żeby potwierdzić potrzebę.</p></details><details><summary>Jak będą rozliczane wpłaty? <svg class="icon"><use href="#i-chevron"/></svg></summary><p id="allocation-faq">Zasady rozliczania podamy przed uruchomieniem zbiórki.</p></details><details><summary>Czy udział zobowiązuje do dalszej współpracy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Zakres wsparcia ustalimy wspólnie.</p></details></div></div></section>
     <section id="partner" class="section donation-section donation-final" aria-labelledby="partner-cta-title">
       <div class="container section-heading">
         <h2 id="partner-cta-title">Twoja firma też może pomóc!</h2>
-        <p>Dołącz do bydgoskich przedsiębiorców, którzy wspólnie wspierają potrzebujących.</p>
+        <p id="campaign-contact-intro">Dołącz do bydgoskich przedsiębiorców, którzy wspólnie wspierają potrzebujących.</p>
         <a class="btn btn-primary" data-partner-email href="mailto:office@remivision.com?subject=Chc%C4%99%20do%C5%82%C4%85czy%C4%87%20do%20akcji%20Bydgoski%20Biznes%20Pomaga">Zostań partnerem akcji <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <div class="partner-contact"><a id="organizer-address" href="mailto:office@remivision.com">office@remivision.com</a><button type="button" class="btn btn-outline" id="copy-organizer-email" hidden>Kopiuj e-mail</button></div>
+        <p id="copy-email-status" class="copy-email-status" role="status"></p>
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="container"><div class="footer-top"><div><a href="#top" class="brand footer-brand"><img class="campaign-mark" src="assets/logo-akcji.png" width="1039" height="1514" alt="" /><span class="brand-name">Bydgoski Biznes Pomaga</span></a></div><div class="footer-links"><a href="#o-akcji">O akcji</a><a href="#potrzeby">Potrzeby</a><a href="#korzysci">Dla firm</a><span class="donation-status footer-donation-status" data-donation-action="">Zbiórka wkrótce</span><a href="polityka-prywatnosci.html">Prywatność</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> Bydgoski Biznes Pomaga · Inicjatywa Remivision</span></div></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-top"><div><a href="#top" class="brand footer-brand"><img class="campaign-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" /><span class="brand-name">Bydgoski Biznes Pomaga</span></a></div><div class="footer-links"><a href="#o-akcji">O akcji</a><a href="#potrzeby">Potrzeby</a><a href="#korzysci">Dla firm</a><span class="donation-status footer-donation-status" data-donation-action="">Zbiórka wkrótce</span><a href="polityka-prywatnosci.html">Prywatność</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> Bydgoski Biznes Pomaga · Inicjatywa Remivision</span></div></div></footer>
 </body>
 </html>
