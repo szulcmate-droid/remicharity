@@ -2,7 +2,7 @@ media:
   input: assets/media
   output: /assets/media
   rename: safe
-  extensions: [jpg, jpeg, png, webp, avif, mp4, webm]
+  extensions: [jpg, jpeg, png, webp, avif, svg, mp4, webm]
 
 content:
   - name: bzpow
@@ -109,6 +109,7 @@ content:
       - { name: brandName, label: Nazwa inicjatywy, type: string }
       - { name: organizer, label: Organizator, type: string }
       - { name: contactEmail, label: E-mail organizatora, type: string }
+      - { name: siteUrl, label: Publiczny adres witryny (HTTPS), type: string }
       - name: fundraiserUrl
         label: Adres wspólnej zbiórki
         type: string
@@ -126,7 +127,10 @@ content:
     list: true
     fields:
       - { name: name, label: Nazwa firmy, type: string, required: true }
-      - { name: logo, label: Logo firmy, type: image, required: true }
+      - name: logo
+        label: Logo firmy
+        type: image
+        description: Wybierz JPG, PNG, WebP lub AVIF. Oficjalny znak RemiVision jest dostępny jako SVG.
       - name: website
         label: Adres strony internetowej
         type: string

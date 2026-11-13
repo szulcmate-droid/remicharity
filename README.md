@@ -1,4 +1,4 @@
-# RemiCharity
+# Bydgoski Biznes Pomaga
 
 ## Edycja w Pages CMS
 
@@ -8,6 +8,12 @@ Zaloguj się do [Pages CMS](https://app.pagescms.org/), udziel aplikacji GitHub 
 - W **Listach potrzeb** zmienisz opisy, statusy i przypisanie do placówki lub oddziału.
 - W **Kampania** wklej **Adres wspólnej zbiórki**. Wszystkie przyciski wpłat prowadzą pod ten adres. Przy pustym polu strona pokazuje „Zbiórka wkrótce”.
 - W **Partnerzy** dodasz, zmienisz lub usuniesz firmę. Podaj nazwę, prześlij logo i wpisz pełny adres strony. Krótki opis jest opcjonalny. Zapisz zmiany, żeby zaktualizować listę firm.
+- RemiVision pojawia się jako pierwszy partner niezależnie od kolejności w CMS. Dla pozostałych partnerów kolejność odpowiada liście w CMS.
+- Na liście potrzeb pole **Priorytet** wpływa na pierwsze trzy pozycje widoczne bez rozwijania.
+
+## Przed publicznym startem
+
+Administrator akcji uzupełnia w **Kampania** adres wspólnej zbiórki, potwierdzoną nazwę operatora oraz zasady podziału i rozliczania środków. Kwotę zebraną i cel można wyświetlić po potwierdzeniu danych. W polu **Publiczny adres witryny (HTTPS)** wpisz docelowy adres, żeby grafika udostępniania dostała pełny URL. W pliku `polityka-prywatnosci.html` trzeba uzupełnić szablon informacji o przetwarzaniu danych, w tym dane administratora, podstawy i cele przetwarzania, odbiorców, okres przechowywania oraz kontakt w sprawach danych. Przed publikacją sprawdź również uprawnienia do wszystkich materiałów.
 
 Dodając materiał do galerii, wybierz rodzaj, podaj opis alternatywny zdjęcia lub tytuł filmu i wskaż jedno źródło. Możesz użyć pliku z biblioteki CMS, bezpośredniego adresu HTTPS albo identyfikatora filmu YouTube. Dla filmów z biblioteki używaj MP4 lub WebM. Podpis, miniatura filmu i link do strony źródłowej są opcjonalne.
 

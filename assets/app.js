@@ -56,7 +56,7 @@ function buildGallery(place) {
     } else if (isVideo) {
       const video = el('video', 'recipient-video');
       video.controls = true;
-      video.preload = 'metadata';
+      video.preload = item.poster ? 'none' : 'metadata';
       video.playsInline = true;
       video.setAttribute('aria-label', item.alt);
       if (item.poster) video.poster = item.poster;
@@ -156,13 +156,12 @@ function createNeedCard(item){
  const bot=el('div','need-bottom');
  const statusLabel=item.status==='do-uzgodnienia'?'Do uzgodnienia':item.status==='zrealizowane'?'Zrealizowane':item.status==='zarezerwowane'?'Zadeklarowane':'Zgłoszona potrzeba';
  bot.appendChild(el('span','',statusLabel));
- if (donateUrl && item.status !== 'zrealizowane') bot.appendChild(createDonationAction());
  card.appendChild(bot);return card;
 }
 const donateUrl = safeUrl(D.fundraiserUrl);
 function createDonationAction(variant) {
   if (!donateUrl) return el('span', 'donation-status', 'Zbiórka wkrótce');
-  const link = el('a', variant, 'Wpłać na zbiórkę');
+  const link = el('a', variant, 'Wesprzyj zbiórkę');
   link.href = donateUrl;
   link.appendChild(icon('arrow'));
   return link;
@@ -170,6 +169,7 @@ function createDonationAction(variant) {
 $$('[data-donation-action]').forEach(slot => {
   if (donateUrl) slot.replaceWith(createDonationAction(slot.dataset.donationAction));
 });
+$('#hero-fundraiser-status').hidden = Boolean(donateUrl);
 
 function buildRecipientSection(place){
  const panel=el('article','recipient-panel recipient-'+place.id);
@@ -186,7 +186,10 @@ function buildRecipientSection(place){
  hero.appendChild(media);
  const body=el('div','recipient-details');
  body.appendChild(el('h3','',place.full));body.appendChild(el('p','recipient-detail',place.detail));body.appendChild(el('p','recipient-description',place.description));
- const items=D.needs.filter(n=>n.place===place.id);
+ const items = D.needs.filter(need => need.place === place.id).sort((a, b) =>
+   Number(a.status === 'zrealizowane') - Number(b.status === 'zrealizowane') ||
+   Number(Boolean(b.priority)) - Number(Boolean(a.priority))
+ );
  const actions = el('div', 'recipient-actions');
  actions.appendChild(createDonationAction('btn btn-primary'));
  body.appendChild(actions);hero.appendChild(body);
@@ -197,8 +200,25 @@ function buildRecipientSection(place){
  list.appendChild(heading);
  if(items.length){
   const grid = el('div', 'recipient-needs-grid');
-  grid.append(...items.map(createNeedCard));
+  grid.id = 'potrzeby-' + place.id;
+  const cards = items.map(createNeedCard);
+  const remaining = cards.slice(3);
+  remaining.forEach(card => { card.hidden = true; });
+  grid.append(...cards);
   list.appendChild(grid);
+  if (remaining.length) {
+    const toggle = el('button', 'btn btn-outline needs-toggle', 'Pokaż wszystkie potrzeby');
+    toggle.type = 'button';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', grid.id);
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'false';
+      remaining.forEach(card => { card.hidden = !open; });
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Pokaż mniej potrzeb' : 'Pokaż wszystkie potrzeby';
+    });
+    list.appendChild(toggle);
+  }
  }else{
   list.appendChild(el('p', 'recipient-pending', 'Lista w przygotowaniu.'));
  }
@@ -219,7 +239,14 @@ const partners = $('#partners-grid');
 if (D.partners.length) {
   const list = el('ul', 'partner-list');
   list.setAttribute('role', 'list');
-  D.partners.forEach(partner => {
+  const isRemiVision = partner => {
+    const website = safeUrl(partner.website);
+    return partner.name?.trim().toLowerCase() === 'remivision' ||
+      (website && new URL(website).hostname.replace(/^www\./, '') === 'remivision.com');
+  };
+  const orderedPartners = [...D.partners].sort((a, b) => Number(Boolean(isRemiVision(b))) - Number(Boolean(isRemiVision(a))));
+  const filmPartners = $('#film-partners');
+  orderedPartners.forEach(partner => {
     const website = safeUrl(partner.website);
     const item = el('li');
     const card = el(website ? 'a' : 'div', 'partner-card');
@@ -243,19 +270,50 @@ if (D.partners.length) {
     if (partner.description) card.appendChild(el('small', '', partner.description));
     item.appendChild(card);
     list.appendChild(item);
+    if (filmPartners.children.length < 3) {
+      const credit = el('span', 'film-partner', partner.name);
+      if (partner.logo?.startsWith('assets/media/')) {
+        const mark = el('img');
+        mark.alt = partner.name;
+        mark.loading = 'lazy';
+        mark.addEventListener('load', () => credit.replaceChildren(mark), { once: true });
+        mark.src = partner.logo;
+      }
+      filmPartners.appendChild(credit);
+    }
   });
   partners.replaceChildren(list);
 }
 function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:null;}catch{return null;}}
 const widget=$('#fundraise-widget');
-if(Number.isFinite(D.amountRaised)&&D.amountRaised>=0&&Number.isFinite(D.targetAmount)&&D.targetAmount>0){widget.hidden=false;$('#amount-raised').textContent=D.amountRaised.toLocaleString('pl-PL')+' zł';$('#target-amount').textContent='Cel: '+D.targetAmount.toLocaleString('pl-PL')+' zł';$('#fundraise-bar').style.width=Math.min(100,100*D.amountRaised/D.targetAmount)+'%';}
+if(donateUrl&&Number.isFinite(D.amountRaised)&&D.amountRaised>=0&&Number.isFinite(D.targetAmount)&&D.targetAmount>0){widget.hidden=false;$('#amount-raised').textContent=D.amountRaised.toLocaleString('pl-PL')+' zł';$('#target-amount').textContent='Cel: '+D.targetAmount.toLocaleString('pl-PL')+' zł';$('#fundraise-bar').style.width=Math.min(100,100*D.amountRaised/D.targetAmount)+'%';}
 const allocation=$('#allocation-faq');if(D.allocationText&&D.operatorName)allocation.textContent=`Zbiórkę formalnie prowadzi ${D.operatorName}. ${D.allocationText}`;
 const partnerEmail = $('[data-partner-email]');
-const organizerEmail = D.contactEmail?.trim();
-if (organizerEmail && /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(organizerEmail)) {
+const address = $('#organizer-address');
+const configuredEmail = D.contactEmail?.trim();
+if (configuredEmail && /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(configuredEmail)) {
   const link = new URL(partnerEmail.href);
-  partnerEmail.href = 'mailto:' + encodeURIComponent(organizerEmail).replace('%40', '@') + link.search;
+  address.href = 'mailto:' + encodeURIComponent(configuredEmail).replace('%40', '@');
+  address.textContent = configuredEmail;
+  partnerEmail.href = address.href + link.search;
 }
+const copyEmail = $('#copy-organizer-email');
+const copyStatus = $('#copy-email-status');
+copyEmail.hidden = false;
+copyEmail.addEventListener('click', async () => {
+  copyStatus.textContent = '';
+  try {
+    await navigator.clipboard.writeText(address.textContent);
+    copyStatus.textContent = 'Adres e-mail skopiowany.';
+  } catch {
+    const range = document.createRange();
+    range.selectNodeContents(address);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    copyStatus.textContent = 'Adres został zaznaczony. Skopiuj go ręcznie.';
+  }
+});
 
 const year=$('#year');if(year)year.textContent=new Date().getFullYear();
 const navToggle = $('.nav-toggle');

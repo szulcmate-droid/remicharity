@@ -9,13 +9,13 @@
   "gallery": [
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-wydarzenie-przed-budynkiem.png",
+      "image": "/assets/media/bzpow-wydarzenie-przed-budynkiem.webp",
       "alt": "Wydarzenie przed udekorowanym budynkiem BZPOW",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-wycieczka-na-starowke.jpg",
+      "image": "/assets/media/bzpow-wycieczka-na-starowke.webp",
       "alt": "Grupa przy pomniku osiołka na starówce",
       "approved": true
     },
@@ -27,37 +27,37 @@
     },
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-zajecia-na-stadionie.jpg",
+      "image": "/assets/media/bzpow-zajecia-na-stadionie.webp",
       "alt": "Zajęcia na bieżni stadionu",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-wspolny-posilek.jpg",
+      "image": "/assets/media/bzpow-wspolny-posilek.webp",
       "alt": "Uczestnicy wycieczki przy wspólnym stole",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-wizyta-w-wolierze.jpg",
+      "image": "/assets/media/bzpow-wizyta-w-wolierze.webp",
       "alt": "Grupa obserwuje ptaki w wolierze",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-pokaz-kostiumow.jpg",
+      "image": "/assets/media/bzpow-pokaz-kostiumow.webp",
       "alt": "Pokaz przy wystawie historycznych kostiumów",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-spacer-w-parku.jpg",
+      "image": "/assets/media/bzpow-spacer-w-parku.webp",
       "alt": "Grupa pozuje przy dużym krześle w parku",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-warsztaty-plastyczne.jpg",
+      "image": "/assets/media/bzpow-warsztaty-plastyczne.webp",
       "alt": "Uczestnicy malują podczas warsztatów plastycznych",
       "approved": true
     },

@@ -9,13 +9,13 @@
   "gallery": [
     {
       "kind": "image",
-      "image": "/assets/media/sue-ryder-budynek.png",
+      "image": "/assets/media/sue-ryder-budynek.webp",
       "alt": "Budynek Hospicjum Pallmed Dom Sue Ryder od strony wejścia",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/sue-ryder-kolorowe-ksztalty.jpg",
+      "image": "/assets/media/sue-ryder-kolorowe-ksztalty.webp",
       "alt": "Dziecko ogląda kolorowe kształty na podświetlanym blacie",
       "approved": true
     },
@@ -33,7 +33,7 @@
     },
     {
       "kind": "image",
-      "image": "/assets/media/sue-ryder-nasza-superbohaterka.jpg",
+      "image": "/assets/media/sue-ryder-nasza-superbohaterka.webp",
       "alt": "Kolaż Stowarzyszenia im. Sue Ryder z napisem „Nasza gwiazda i superbohaterka”",
       "approved": true
     },

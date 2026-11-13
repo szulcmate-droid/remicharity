@@ -426,6 +426,46 @@ a.partner-card:hover { border-color: var(--muted); }
 .recipient-credits { font-size: .8125rem; }
 .recipient-play { color: var(--night); }
 
+.hero-actions .donation-status { flex-basis: 100%; }
+.hero-actions button:disabled { cursor: default; color: var(--muted); transform: none; }
+.needs-toggle { margin-top: 12px; min-height: 44px; padding: 9px 16px; }
+.film-credits-board {
+  display: grid;
+  align-content: center;
+  min-height: 180px;
+  border-color: var(--brand-blue);
+  background: linear-gradient(135deg, var(--night), var(--brand-indigo));
+}
+.film-credits-brand { margin-bottom: 8px; }
+.film-credits .film-credits-thanks { margin: 0 0 12px; color: var(--soft-text); font-size: .875rem; }
+.film-credits-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.film-credits-logos:empty { display: none; }
+.film-credits-logos .film-partner {
+  width: min(100%, 120px);
+  padding: 5px 8px;
+  background: var(--night);
+  border: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.film-partner img { width: 100%; height: 30px; object-fit: contain; }
+.partner-card-logo { background: var(--night); border-radius: 10px; padding: 12px; }
+.partner-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+.partner-contact a { color: var(--white); text-decoration: underline; overflow-wrap: anywhere; }
+.partner-contact .btn { min-height: 44px; padding: 10px 16px; }
+.donation-final .copy-email-status { margin: 8px 0 0; font-size: .875rem; }
+.copy-email-status:empty { display: none; }
+@media (max-width: 760px) {
+  .hero-art { display: none; }
+  .hero { padding-bottom: 22px; }
+}
+
 @media (min-width: 901px) {
   .site-header .nav-links > a:not(.nav-cta) { color: var(--soft-text); }
   .site-header .nav-links > a:not(.nav-cta):hover { color: var(--white); text-decoration: underline; }

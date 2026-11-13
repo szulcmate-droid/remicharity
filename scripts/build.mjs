@@ -7,7 +7,8 @@ const output = resolve(root, 'dist');
 const placeIds = ['bzpow', 'szpital', 'hospicjum'];
 const files = new Set([
   'index.html', '404.html', 'dziekujemy.html', 'polityka-prywatnosci.html', '_headers',
-  'assets/app.js', 'assets/style.css', 'assets/favicon-akcji.ico', 'assets/logo-akcji.png',
+  'assets/app.js', 'assets/style.css', 'assets/favicon-akcji.ico',
+  'assets/logo-akcji.webp', 'assets/bydgoski-biznes-pomaga-og.jpg',
 ]);
 const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
 const videoExtensions = ['.mp4', '.webm'];
@@ -68,7 +69,9 @@ const places = await Promise.all(placeIds.map(async id => {
 }));
 const partners = (await readContent('partners')).map(partner => ({
   ...partner,
-  logo: partner.logo ? mediaPath(partner.logo, imageExtensions) : '',
+  logo: partner.logo
+    ? mediaPath(partner.logo, partner.logo === '/assets/media/remivision-logo.svg' ? ['.svg'] : imageExtensions)
+    : '',
 }));
 
 for (const path of files) {
@@ -91,6 +94,16 @@ for (const path of files) {
   const destination = resolve(output, path);
   await mkdir(dirname(destination), { recursive: true });
   await copyFile(resolve(root, path), destination);
+}
+if (settings.siteUrl?.trim()) {
+  const siteUrl = httpsUrl(settings.siteUrl.trim());
+  const socialImageUrl = new URL('/assets/bydgoski-biznes-pomaga-og.jpg', siteUrl).href;
+  const homepage = await readFile(resolve(output, 'index.html'), 'utf8');
+  await writeFile(
+    resolve(output, 'index.html'),
+    homepage.replace('content="/assets/bydgoski-biznes-pomaga-og.jpg"', () =>
+      'content="' + socialImageUrl + '"'),
+  );
 }
 const data = { ...settings, places, needs, partners };
 await writeFile(resolve(output, 'assets/content.js'), 'window.REMI_DATA = ' + JSON.stringify(data) + ';\n');
