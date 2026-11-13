@@ -7,7 +7,7 @@ const output = resolve(root, 'dist');
 const placeIds = ['bzpow', 'szpital', 'hospicjum'];
 const files = new Set([
   'index.html', '404.html', 'dziekujemy.html', 'polityka-prywatnosci.html', '_headers',
-  'assets/app.js', 'assets/style.css', 'assets/favicon.svg', 'assets/og-image.png',
+  'assets/app.js', 'assets/style.css', 'assets/favicon-akcji.ico', 'assets/logo-akcji.png',
 ]);
 const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
 const videoExtensions = ['.mp4', '.webm'];
