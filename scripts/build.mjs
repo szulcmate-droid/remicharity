@@ -6,7 +6,7 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const output = resolve(root, 'dist');
 const placeIds = ['bzpow', 'szpital', 'hospicjum'];
 const files = new Set([
-  'index.html', '404.html', 'dziekujemy.html', 'polityka-prywatnosci.html', '_headers',
+  'index.html', '404.html', 'dziekujemy.html', 'regulamin.html', 'polityka-prywatnosci.html', '_headers',
   'assets/app.js', 'assets/style.css', 'assets/favicon-akcji.ico',
   'assets/logo-akcji.webp', 'assets/bydgoski-biznes-pomaga-og.jpg',
 ]);
