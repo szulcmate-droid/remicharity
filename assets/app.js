@@ -170,10 +170,7 @@ $$('[data-donation-action]').forEach(slot => {
   if (donateUrl) slot.replaceWith(createDonationAction(slot.dataset.donationAction));
 });
 $('#hero-fundraiser-status').hidden = Boolean(donateUrl);
-if (donateUrl) {
-  const companyAction = $('#hero-company-action');
-  companyAction.classList.replace('btn-primary', 'btn-outline');
-}
+$('#hero-company-action').hidden = Boolean(donateUrl);
 
 for (const [selector, value] of [
   ['#campaign-tagline', D.tagline],
@@ -304,8 +301,9 @@ const allocationText = D.allocationText?.trim();
 if (operator || allocationText) {
   allocation.textContent = [
     operator && `Zbiórkę formalnie prowadzi ${operator}.`,
-    allocationText || 'Zasady rozliczania podamy przed uruchomieniem zbiórki.',
+    allocationText,
   ].filter(Boolean).join(' ');
+  allocation.hidden = false;
 }
 const partnerEmail = $('[data-partner-email]');
 const configuredEmail = D.contactEmail?.trim();

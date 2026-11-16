@@ -67,7 +67,7 @@
           <p class="hero-lede" id="campaign-intro">Wspieramy dzieci i pacjentów w trzech bydgoskich placówkach.</p>
           <div class="hero-actions" id="wesprzyj">
             <a href="#partner" class="btn btn-primary" id="hero-company-action">Dołącz jako firma</a>
-            <button class="btn btn-outline" type="button" disabled data-donation-action="btn btn-primary" aria-describedby="hero-fundraiser-status">Wesprzyj zbiórkę</button>
+            <span data-donation-action="btn btn-primary" hidden></span>
             <span id="hero-fundraiser-status" class="donation-status">Zbiórka wkrótce</span>
           </div>
           <div class="fundraise-widget" id="fundraise-widget" hidden>
@@ -117,7 +117,7 @@
           </article>
         </div>
         <div class="partner-benefits-action">
-          <a class="btn btn-primary" href="#partner">Zostań partnerem</a>
+          <span class="donation-status" data-donation-action="btn btn-primary">Zbiórka wkrótce</span>
         </div>
         <p class="benefit-disclaimer">Nazwę i logo publikujemy za zgodą firmy.</p>
       </div>
@@ -129,7 +129,7 @@
           <div class="empty-partners">
             <span class="empty-partners-icon" aria-hidden="true"><svg class="icon"><use href="#i-users"/></svg></span>
             <h3>Dołącz do pierwszych partnerów akcji</h3>
-            <a class="btn btn-primary" href="#partner">Zostań partnerem</a>
+            <span class="donation-status" data-donation-action="btn btn-primary">Zbiórka wkrótce</span>
           </div>
         </div>
       </div>
@@ -144,12 +144,72 @@
         <div id="recipient-sections" class="recipient-sections"></div>
       </div>
     </section>
-    <section class="section faq-section"><div class="container faq-grid"><div class="section-heading"><h2>Transparentność i FAQ</h2></div><div class="faq-list"><details><summary>Czy firma musi wpłacić konkretną kwotę? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Możesz też zaoferować produkty, usługi lub promocję akcji.</p></details><details><summary>Możemy przekazać produkty zamiast pieniędzy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Tak. Skontaktuj się z placówką, żeby potwierdzić potrzebę.</p></details><details><summary>Jak będą rozliczane wpłaty? <svg class="icon"><use href="#i-chevron"/></svg></summary><p id="allocation-faq">Zasady rozliczania podamy przed uruchomieniem zbiórki.</p></details><details><summary>Czy udział zobowiązuje do dalszej współpracy? <svg class="icon"><use href="#i-chevron"/></svg></summary><p>Nie. Zakres wsparcia ustalimy wspólnie.</p></details></div></div></section>
+    <section class="section faq-section" aria-labelledby="help-process-title">
+      <div class="container">
+        <div class="section-heading"><h2 id="help-process-title">Jak działa nasza pomoc?</h2></div>
+        <ol class="help-process" role="list">
+          <li>
+            <svg class="icon help-process-icon" aria-hidden="true"><use href="#i-heart"/></svg>
+            <div>
+              <h3>1. Wspierasz akcję</h3>
+              <p>Przekazujesz dowolną kwotę lub oferujesz pomoc rzeczową.</p>
+            </div>
+          </li>
+          <li>
+            <svg class="icon help-process-icon" aria-hidden="true"><use href="#i-package"/></svg>
+            <div>
+              <h3>2. Realizujemy zakupy</h3>
+              <p>Organizatorzy kupują produkty, wyposażenie i bony zgodnie z potrzebami placówek.</p>
+            </div>
+          </li>
+          <li>
+            <svg class="icon help-process-icon" aria-hidden="true"><use href="#i-building"/></svg>
+            <div>
+              <h3>3. Przekazujemy pomoc</h3>
+              <p>Zakupione rzeczy i bony trafiają bezpośrednio do wspieranych placówek.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="faq-list">
+          <details>
+            <summary>Czy firma musi wpłacić określoną kwotę? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Nie. Nie ma minimalnej kwoty wsparcia. Każda pomoc ma znaczenie, niezależnie od jej wysokości.</p></div>
+          </details>
+          <details>
+            <summary>Czy możemy przekazać produkty zamiast pieniędzy? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Tak! Firmy mogą przekazywać produkty lub usługi. Wystarczy skontaktować się z organizatorami akcji, aby ustalić szczegóły i aktualne potrzeby placówek.</p></div>
+          </details>
+          <details>
+            <summary>Na co zostaną przeznaczone wpłaty? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Zebrane środki przeznaczymy na zakup produktów, wyposażenia i bonów odpowiadających potrzebom trzech wspieranych placówek.</p></div>
+          </details>
+          <details>
+            <summary>Czy placówki otrzymują pieniądze bezpośrednio? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>Nie. Zakupy oraz ich przekazanie koordynują organizatorzy akcji. Placówki otrzymują potrzebne produkty, wyposażenie i bony zamiast środków pieniężnych.</p></div>
+          </details>
+          <details>
+            <summary>Kto odpowiada za rozliczenie zbiórki? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer">
+              <p>Za organizację zakupów i rozliczenie wykorzystanych środków odpowiadają organizatorzy akcji.</p>
+              <p id="allocation-faq" hidden></p>
+            </div>
+          </details>
+          <details>
+            <summary>Jak moja firma może dołączyć do akcji? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer">
+              <p>Wystarczy skontaktować się z nami. Wspólnie ustalimy formę wsparcia — finansową, rzeczową lub usługową.</p>
+              <a href="#partner">Skontaktuj się z organizatorami</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
     <section id="partner" class="section donation-section donation-final" aria-labelledby="partner-cta-title">
       <div class="container section-heading">
         <h2 id="partner-cta-title">Twoja firma też może pomóc!</h2>
         <p id="campaign-contact-intro">Dołącz do bydgoskich przedsiębiorców, którzy wspólnie wspierają potrzebujących.</p>
-        <a class="btn btn-primary" data-partner-email href="mailto:office@remivision.com?subject=Chc%C4%99%20do%C5%82%C4%85czy%C4%87%20do%20akcji%20Bydgoski%20Biznes%20Pomaga">Zostań partnerem akcji <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <span class="donation-status" data-donation-action="btn btn-primary">Zbiórka wkrótce</span>
+        <a class="partner-contact-link" data-partner-email href="mailto:szulc.mate@gmail.com?subject=Chc%C4%99%20do%C5%82%C4%85czy%C4%87%20do%20akcji%20Bydgoski%20Biznes%20Pomaga">Napisz do organizatorów</a>
       </div>
       <!-- partner-photo -->
     </section>
