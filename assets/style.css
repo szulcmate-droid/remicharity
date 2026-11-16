@@ -454,6 +454,31 @@ a.partner-card:hover { border-color: var(--muted); }
 .hero-actions .donation-status { flex-basis: 100%; }
 .hero-actions button:disabled { cursor: default; color: var(--muted); transform: none; }
 .hero-mark { display: block; justify-self: center; width: clamp(110px, 16vw, 160px); height: auto; }
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center 77%;
+  border-radius: 18px;
+}
+@media (min-width: 901px) {
+  .hero:has(.hero-photo) { position: relative; }
+  .hero:has(.hero-photo) .hero-layout { min-height: 420px; }
+  .hero-photo {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 49%;
+    height: 100%;
+    border-radius: 0;
+    mask-image: linear-gradient(to right, transparent, #000 24%);
+  }
+}
+@media (max-width: 900px) {
+  .hero:has(.hero-photo) .hero-layout { grid-template-columns: minmax(0, 1fr); }
+  .hero-photo { max-height: 340px; }
+}
 .needs-toggle { margin-top: 12px; min-height: 44px; padding: 9px 16px; }
 .film-credits-board {
   display: grid;

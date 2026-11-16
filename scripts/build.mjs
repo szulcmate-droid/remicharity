@@ -97,7 +97,17 @@ for (const path of files) {
 }
 const homepagePath = resolve(output, 'index.html');
 let homepage = await readFile(homepagePath, 'utf8');
-const partnerPhoto = places.find(place => place.id === 'bzpow').gallery.find(
+const bzpowGallery = places.find(place => place.id === 'bzpow').gallery;
+const heroPhoto = bzpowGallery.find(
+  item => item.kind === 'image' && item.src === 'assets/media/bzpow-wydarzenie-przed-budynkiem.webp',
+);
+homepage = homepage.replace(
+  '<!-- hero-photo -->',
+  heroPhoto
+    ? '<img class="hero-photo" src="' + heroPhoto.src + '" width="908" height="1175" alt="Wydarzenie przed udekorowanym budynkiem BZPOW" fetchpriority="high" />'
+    : '<img class="hero-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" />',
+);
+const partnerPhoto = bzpowGallery.find(
   item => item.kind === 'image' && item.src === 'assets/media/bzpow-wizyta-w-wolierze.webp',
 );
 if (partnerPhoto) {
