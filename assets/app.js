@@ -208,7 +208,6 @@ function buildRecipientSection(place){
  panel.appendChild(hero);
  const list=el('div','recipient-needs');
  const heading=el('div','recipient-needs-heading');heading.appendChild(el('h3','','Lista potrzeb'));
- if (items.length && !place.confirmed) heading.appendChild(el('p', '', 'Do potwierdzenia z placówką.'));
  list.appendChild(heading);
  if(items.length){
   const grid = el('div', 'recipient-needs-grid');
@@ -309,31 +308,11 @@ if (operator || allocationText) {
   ].filter(Boolean).join(' ');
 }
 const partnerEmail = $('[data-partner-email]');
-const address = $('#organizer-address');
 const configuredEmail = D.contactEmail?.trim();
 if (configuredEmail && /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(configuredEmail)) {
-  const link = new URL(partnerEmail.href);
-  address.href = 'mailto:' + encodeURIComponent(configuredEmail).replace('%40', '@');
-  address.textContent = configuredEmail;
-  partnerEmail.href = address.href + link.search;
+  const subject = new URL(partnerEmail.href).search;
+  partnerEmail.href = 'mailto:' + encodeURIComponent(configuredEmail).replace('%40', '@') + subject;
 }
-const copyEmail = $('#copy-organizer-email');
-const copyStatus = $('#copy-email-status');
-copyEmail.hidden = false;
-copyEmail.addEventListener('click', async () => {
-  copyStatus.textContent = '';
-  try {
-    await navigator.clipboard.writeText(address.textContent);
-    copyStatus.textContent = 'Adres e-mail skopiowany.';
-  } catch {
-    const range = document.createRange();
-    range.selectNodeContents(address);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    copyStatus.textContent = 'Adres został zaznaczony. Skopiuj go ręcznie.';
-  }
-});
 
 const year=$('#year');if(year)year.textContent=new Date().getFullYear();
 const navToggle = $('.nav-toggle');
