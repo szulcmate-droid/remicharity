@@ -95,16 +95,24 @@ for (const path of files) {
   await mkdir(dirname(destination), { recursive: true });
   await copyFile(resolve(root, path), destination);
 }
+const homepagePath = resolve(output, 'index.html');
+let homepage = await readFile(homepagePath, 'utf8');
+const partnerPhoto = places.find(place => place.id === 'bzpow').gallery.find(
+  item => item.kind === 'image' && item.src === 'assets/media/bzpow-wizyta-w-wolierze.webp',
+);
+if (partnerPhoto) {
+  homepage = homepage.replace(
+    '<!-- partner-photo -->',
+    '<img class="partner-photo" src="' + partnerPhoto.src + '" width="1125" height="1500" alt="" loading="lazy" decoding="async" />',
+  );
+}
 if (settings.siteUrl?.trim()) {
   const siteUrl = httpsUrl(settings.siteUrl.trim());
   const socialImageUrl = new URL('/assets/bydgoski-biznes-pomaga-og.jpg', siteUrl).href;
-  const homepage = await readFile(resolve(output, 'index.html'), 'utf8');
-  await writeFile(
-    resolve(output, 'index.html'),
-    homepage.replace('content="/assets/bydgoski-biznes-pomaga-og.jpg"', () =>
-      'content="' + socialImageUrl + '"'),
-  );
+  homepage = homepage.replace('content="/assets/bydgoski-biznes-pomaga-og.jpg"', () =>
+    'content="' + socialImageUrl + '"');
 }
+await writeFile(homepagePath, homepage);
 const data = { ...settings, places, needs, partners };
 await writeFile(resolve(output, 'assets/content.js'), 'window.REMI_DATA = ' + JSON.stringify(data) + ';\n');
 console.log('Gotowy katalog publikacji: dist/');

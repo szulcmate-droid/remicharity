@@ -356,6 +356,32 @@ a.partner-card:hover { border-color: var(--muted); }
 .donation-final .section-heading p { color: var(--soft-text); margin-bottom: 24px; }
 .donation-final .btn-primary { background: var(--brand-turquoise); color: var(--brand-ink); }
 .donation-final .btn-primary:hover { background: var(--aqua-tint); }
+.partner-photo { display: block; width: 100%; height: auto; }
+.donation-final:has(.partner-photo) { display: flex; flex-direction: column; gap: 26px; padding-bottom: 0; }
+@media (min-width: 761px) {
+  .donation-final:has(.partner-photo) {
+    position: relative;
+    justify-content: center;
+    min-height: 380px;
+    padding-block: clamp(52px, 6vw, 88px);
+    text-align: left;
+  }
+  .donation-final .partner-photo {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 69%;
+    mask-image: linear-gradient(to right, transparent, #000 26%);
+  }
+  .donation-final:has(.partner-photo) .section-heading {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding-right: min(51%, 612px);
+  }
+}
 .footer { color: var(--soft-text); }
 .footer-links, .footer-bottom, .footer-top p { color: var(--soft-text); }
 .footer-links a:hover { color: var(--brand-turquoise); }
