@@ -3,19 +3,19 @@
   "full": "Hospicjum Pallmed Dom Sue Ryder",
   "detail": "Bydgoszcz",
   "eyebrow": "Troska i obecność",
-  "description": "Hospicjum jest trzecią placówką objętą inicjatywą. Konkretne potrzeby zostaną opublikowane po potwierdzeniu z placówką.",
+  "description": "Chcemy podarować dzieciom pod opieką hospicjum odrobinę radości i uśmiechu. Wspólnie przygotujemy paczki prezentowe dopasowane do wieku i indywidualnych potrzeb podopiecznych.",
   "icon": "heart",
   "confirmed": false,
   "gallery": [
     {
       "kind": "image",
-      "image": "/assets/media/sue-ryder-budynek.png",
+      "image": "/assets/media/sue-ryder-budynek.webp",
       "alt": "Budynek Hospicjum Pallmed Dom Sue Ryder od strony wejścia",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/sue-ryder-kolorowe-ksztalty.jpg",
+      "image": "/assets/media/sue-ryder-kolorowe-ksztalty.webp",
       "alt": "Dziecko ogląda kolorowe kształty na podświetlanym blacie",
       "approved": true
     },
@@ -33,7 +33,7 @@
     },
     {
       "kind": "image",
-      "image": "/assets/media/sue-ryder-nasza-superbohaterka.jpg",
+      "image": "/assets/media/sue-ryder-nasza-superbohaterka.webp",
       "alt": "Kolaż Stowarzyszenia im. Sue Ryder z napisem „Nasza gwiazda i superbohaterka”",
       "approved": true
     },
