@@ -170,7 +170,6 @@ $$('[data-donation-action]').forEach(slot => {
   if (donateUrl) slot.replaceWith(createDonationAction(slot.dataset.donationAction));
 });
 $('#hero-fundraiser-status').hidden = Boolean(donateUrl);
-$('#hero-company-action').hidden = Boolean(donateUrl);
 
 for (const [selector, value] of [
   ['#campaign-tagline', D.tagline],
@@ -238,7 +237,7 @@ D.places.forEach(p=>{
  const photo=p.gallery.find(item=>item.kind==='image');
  if(photo){const img=el('img','place-jump-image');img.src=photo.src;img.alt='';img.loading='lazy';img.addEventListener('error',()=>img.remove(),{once:true});card.appendChild(img);}
  const info=el('div','place-jump-content');
- info.appendChild(el('h3','',p.short));
+ info.append(el('h3','',p.full), el('p','',p.description));
  const bottom=el('span','place-jump-action','Zobacz galerię i potrzeby');bottom.appendChild(icon('arrow'));info.appendChild(bottom);
  card.appendChild(info);placesGrid.appendChild(card);
  recipientSections.appendChild(buildRecipientSection(p));
