@@ -9,6 +9,12 @@
   "gallery": [
     {
       "kind": "image",
+      "image": "/assets/media/sue-ryder-swiateczna-paka.jpg",
+      "alt": "Plakat Stowarzyszenia im. Sue Ryder „Świąteczna Paka dla hospicyjnego dzieciaka”, z dzieckiem przytulającym pluszowego misia.",
+      "approved": true
+    },
+    {
+      "kind": "image",
       "image": "/assets/media/sue-ryder-budynek.webp",
       "alt": "Budynek Hospicjum Pallmed Dom Sue Ryder od strony wejścia",
       "approved": true
