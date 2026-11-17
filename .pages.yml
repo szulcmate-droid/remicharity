@@ -117,7 +117,10 @@ content:
         label: Adres wspólnej zbiórki
         type: string
         description: Wklej pełny adres zewnętrznej zbiórki. Przy pustym polu strona wyświetli „Zbiórka wkrótce”.
-      - { name: campaignDeadline, label: Termin kampanii, type: string }
+      - name: campaignDeadline
+        label: Data i godzina zakończenia zbiórki
+        type: string
+        description: "Wpisz datę w formacie ISO 8601 z przesunięciem strefy czasowej, np. 2026-12-04T23:59:00+01:00. Pozostaw puste, aby ukryć licznik."
       - { name: amountRaised, label: Zebrana kwota (PLN), type: number }
       - { name: targetAmount, label: Cel zbiórki (PLN), type: number }
       - { name: operatorName, label: Operator zbiórki, type: string }

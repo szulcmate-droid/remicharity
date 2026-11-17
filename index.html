@@ -86,6 +86,31 @@
         <div class="place-grid" id="places-grid" aria-label="Wybierz placówkę"></div>
       </div>
     </section>
+    <section id="potrzeby" class="section needs-section">
+      <div class="container">
+        <div class="section-top">
+          <div class="section-heading">
+            <h2>Potrzeby placówek</h2>
+          </div>
+        </div>
+        <div id="recipient-sections" class="recipient-sections"></div>
+      </div>
+    </section>
+    <section id="fundraiser-countdown" class="fundraiser-countdown" aria-labelledby="fundraiser-countdown-title" hidden>
+      <div class="container">
+        <h2 id="fundraiser-countdown-title" aria-live="polite">Do końca zbiórki pozostało</h2>
+        <div id="fundraiser-countdown-active">
+          <div class="countdown-units" role="timer" aria-labelledby="fundraiser-countdown-title">
+            <div><span data-countdown-unit></span><span>DNI</span></div>
+            <div><span data-countdown-unit></span><span>GODZINY</span></div>
+            <div><span data-countdown-unit></span><span>MINUTY</span></div>
+            <div><span data-countdown-unit></span><span>SEKUNDY</span></div>
+          </div>
+          <p>Pomóż nam przygotować prezenty i potrzebne wyposażenie dla dzieci.</p>
+          <span class="donation-status" data-donation-action="btn btn-primary">Zbiórka wkrótce</span>
+        </div>
+      </div>
+    </section>
     <section id="korzysci" class="section business-section" aria-labelledby="benefits-title">
       <div class="container">
         <div class="section-heading narrow">
@@ -132,16 +157,6 @@
             <span class="donation-status" data-donation-action="btn btn-primary">Zbiórka wkrótce</span>
           </div>
         </div>
-      </div>
-    </section>
-    <section id="potrzeby" class="section needs-section">
-      <div class="container">
-        <div class="section-top">
-          <div class="section-heading">
-            <h2>Potrzeby placówek</h2>
-          </div>
-        </div>
-        <div id="recipient-sections" class="recipient-sections"></div>
       </div>
     </section>
     <section class="section faq-section" aria-labelledby="help-process-title">

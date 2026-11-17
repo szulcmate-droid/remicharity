@@ -428,6 +428,49 @@ a.partner-card:hover { border-color: var(--muted); }
 }
 
 .donation-final { text-align: center; padding-block: clamp(52px, 8vw, 96px); }
+.fundraiser-countdown {
+  padding-block: clamp(28px, 4.5vw, 54px);
+  background: var(--night);
+  color: var(--white);
+  text-align: center;
+}
+.fundraiser-countdown h2 {
+  max-width: 30ch;
+  margin: 0 auto;
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  line-height: 1.2;
+}
+.countdown-units {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(6px, 1.5vw, 12px);
+  max-width: 520px;
+  margin: 18px auto 12px;
+}
+.countdown-units > div {
+  display: grid;
+  gap: 5px;
+  padding: clamp(8px, 2vw, 16px) 2px;
+  border: 1px solid var(--brand-turquoise);
+  border-radius: 12px;
+  background: var(--night-deep);
+}
+.countdown-units [data-countdown-unit] {
+  font-size: clamp(1.375rem, 4vw, 2.5rem);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.countdown-units span:last-child {
+  color: var(--brand-turquoise);
+  font-size: clamp(.625rem, 1.4vw, .8125rem);
+  font-weight: 750;
+}
+.fundraiser-countdown p { margin: 0 0 14px; }
+.fundraiser-countdown .donation-status { color: var(--soft-text); }
+.fundraiser-countdown .btn-primary { background: var(--brand-turquoise); color: var(--night-deep); }
+.fundraiser-countdown .btn-primary:hover { background: var(--aqua-tint); }
+.fundraiser-countdown .btn:focus-visible { outline-color: var(--white); }
 .donation-final .section-heading { max-width: 720px; }
 .nav-links > .donation-status { padding: 11px 16px; }
 .footer-donation-status { color: inherit; font-size: inherit; }

@@ -171,6 +171,47 @@ $$('[data-donation-action]').forEach(slot => {
 });
 $('#hero-fundraiser-status').hidden = Boolean(donateUrl);
 
+function startFundraiserCountdown(value) {
+  const date = value?.trim();
+  if (!date || !/(Z|[+-]\d{2}:\d{2})$/.test(date)) return;
+  const deadline = Date.parse(date);
+  if (!Number.isFinite(deadline)) return;
+
+  const section = $('#fundraiser-countdown');
+  const active = $('#fundraiser-countdown-active', section);
+  const fields = $$('[data-countdown-unit]', section);
+
+  function update() {
+    const seconds = Math.ceil((deadline - Date.now()) / 1000);
+    if (seconds <= 0) {
+      active.hidden = true;
+      $('#fundraiser-countdown-title', section).textContent =
+        'Zbiórka dobiegła końca. Dziękujemy za wspólną pomoc!';
+      return false;
+    }
+    const values = [
+      Math.floor(seconds / 86400),
+      Math.floor(seconds / 3600) % 24,
+      Math.floor(seconds / 60) % 60,
+      seconds % 60,
+    ];
+    fields.forEach((field, index) => {
+      const text = String(values[index]).padStart(2, '0');
+      if (field.textContent !== text) field.textContent = text;
+    });
+    return true;
+  }
+
+  const isActive = update();
+  section.hidden = false;
+  if (isActive) {
+    const interval = setInterval(() => {
+      if (!update()) clearInterval(interval);
+    }, 1000);
+  }
+}
+startFundraiserCountdown(D.campaignDeadline);
+
 for (const [selector, value] of [
   ['#campaign-tagline', D.tagline],
   ['#campaign-intro', D.intro],
