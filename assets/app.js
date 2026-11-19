@@ -243,8 +243,9 @@ function showFundraiserSummary() {
   frame.loading = 'lazy';
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
   frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-top-navigation-by-user-activation');
-  const height = Number.parseInt(embed.getAttribute('height') || embed.style.height ||
-    embed.parentElement.style.height, 10);
+  const heightValue = [embed.getAttribute('height'), embed.style.height, embed.parentElement.style.height]
+    .find(value => /^\d+(?:px)?$/.test(value || ''));
+  const height = Number.parseInt(heightValue, 10);
   frame.style.height = Math.min(700, Math.max(220, height || 400)) + 'px';
   frame.src = url.href;
   frame.addEventListener('error', () => {
