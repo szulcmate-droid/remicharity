@@ -159,15 +159,15 @@ function createNeedCard(item){
  card.appendChild(bot);return card;
 }
 const donateUrl = safeUrl(D.fundraiserUrl);
-function createDonationAction(variant) {
+function createDonationAction(variant, label = 'Wesprzyj zbiórkę') {
   if (!donateUrl) return el('span', 'donation-status', 'Zbiórka wkrótce');
-  const link = el('a', variant, 'Wesprzyj zbiórkę');
+  const link = el('a', variant, label);
   link.href = donateUrl;
   link.appendChild(icon('arrow'));
   return link;
 }
 $$('[data-donation-action]').forEach(slot => {
-  if (donateUrl) slot.replaceWith(createDonationAction(slot.dataset.donationAction));
+  if (donateUrl) slot.replaceWith(createDonationAction(slot.dataset.donationAction, slot.dataset.donationLabel));
 });
 $('#hero-fundraiser-status').hidden = Boolean(donateUrl);
 
@@ -178,6 +178,7 @@ function startFundraiserCountdown(value) {
   if (!Number.isFinite(deadline)) return;
 
   const section = $('#fundraiser-countdown');
+  const time = $('#fundraiser-time', section);
   const active = $('#fundraiser-countdown-active', section);
   const fields = $$('[data-countdown-unit]', section);
 
@@ -203,7 +204,7 @@ function startFundraiserCountdown(value) {
   }
 
   const isActive = update();
-  section.hidden = false;
+  time.hidden = false;
   if (isActive) {
     const interval = setInterval(() => {
       if (!update()) clearInterval(interval);
@@ -211,6 +212,51 @@ function startFundraiserCountdown(value) {
   }
 }
 startFundraiserCountdown(D.campaignDeadline);
+
+function showFundraiserSummary() {
+  $('#fundraiser-countdown').hidden = false;
+  const sourceLink = $('[data-fundraiser-source]');
+  const fallback = $('#fundraiser-total-fallback');
+  if (!donateUrl) {
+    fallback.textContent = 'Zbiórka wkrótce';
+    return;
+  }
+  sourceLink.href = donateUrl;
+  sourceLink.hidden = false;
+  if (D.fundraiserOrganizerConfirmed !== true || !D.fundraiserWidgetCode?.trim()) return;
+
+  const document = new DOMParser().parseFromString(D.fundraiserWidgetCode, 'text/html');
+  const embed = document.querySelector('iframe');
+  if (!embed) return;
+  const address = safeUrl(embed.getAttribute('src'));
+  if (!address) return;
+  const url = new URL(address);
+  const fundraiser = new URL(donateUrl);
+  const fundraiserId = fundraiser.pathname.split('/').filter(Boolean).pop();
+  const widgetPath = url.pathname.match(/^\/([^/]+)\/widget\/(?:\d+|card\/view)\/?$/);
+  if (url.origin !== 'https://zrzutka.pl' || url.username || url.password ||
+      fundraiser.origin !== url.origin || !widgetPath ||
+      widgetPath[1] !== fundraiserId) return;
+
+  const frame = el('iframe', 'official-fundraiser-frame');
+  frame.title = 'Aktualna kwota i postęp zbiórki na Zrzutka.pl';
+  frame.loading = 'lazy';
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-top-navigation-by-user-activation');
+  const height = Number.parseInt(embed.getAttribute('height') || embed.style.height ||
+    embed.parentElement.style.height, 10);
+  frame.style.height = Math.min(700, Math.max(220, height || 400)) + 'px';
+  frame.src = url.href;
+  frame.addEventListener('error', () => {
+    $('#official-fundraiser-widget').hidden = true;
+    fallback.hidden = false;
+  }, { once: true });
+  const container = $('#official-fundraiser-widget');
+  container.appendChild(frame);
+  container.hidden = false;
+  fallback.hidden = true;
+}
+showFundraiserSummary();
 
 for (const [selector, value] of [
   ['#campaign-tagline', D.tagline],
@@ -333,8 +379,6 @@ if (D.partners.length) {
   partners.replaceChildren(list);
 }
 function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:null;}catch{return null;}}
-const widget=$('#fundraise-widget');
-if(donateUrl&&Number.isFinite(D.amountRaised)&&D.amountRaised>=0&&Number.isFinite(D.targetAmount)&&D.targetAmount>0){widget.hidden=false;$('#amount-raised').textContent=D.amountRaised.toLocaleString('pl-PL')+' zł';$('#target-amount').textContent='Cel: '+D.targetAmount.toLocaleString('pl-PL')+' zł';$('#fundraise-bar').style.width=Math.min(100,100*D.amountRaised/D.targetAmount)+'%';}
 const allocation = $('#allocation-faq');
 const operator = D.operatorName?.trim();
 const allocationText = D.allocationText?.trim();
@@ -345,11 +389,13 @@ if (operator || allocationText) {
   ].filter(Boolean).join(' ');
   allocation.hidden = false;
 }
-const partnerEmail = $('[data-partner-email]');
 const configuredEmail = D.contactEmail?.trim();
 if (configuredEmail && /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(configuredEmail)) {
-  const subject = new URL(partnerEmail.href).search;
-  partnerEmail.href = 'mailto:' + encodeURIComponent(configuredEmail).replace('%40', '@') + subject;
+  $$('[data-partner-email], [data-organizer-contact]').forEach(link => {
+    const subject = link.dataset.contactSubject || 'Chcę dołączyć do akcji Bydgoski Biznes Pomaga';
+    link.href = 'mailto:' + encodeURIComponent(configuredEmail).replace('%40', '@') +
+      '?subject=' + encodeURIComponent(subject);
+  });
 }
 
 const year=$('#year');if(year)year.textContent=new Date().getFullYear();

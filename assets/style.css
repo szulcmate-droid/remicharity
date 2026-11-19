@@ -479,6 +479,49 @@ a.partner-card:hover { border-color: var(--muted); }
 .brand-name { font-size: clamp(16px, 2.3vw, 23px); line-height: 1.2; letter-spacing: -.025em; }
 .hero h1 { font-size: clamp(38px, 5.1vw, 72px); color: var(--dark-accent); margin-bottom: 16px; }
 .hero-campaign-name { font-size: clamp(1rem, 2vw, 1.375rem); font-weight: 750; margin: 0 0 9px; }
+.hero-organizer {
+  margin-top: 20px;
+  padding-left: 16px;
+  border-left: 3px solid var(--brand-turquoise);
+  max-width: 530px;
+}
+.hero-organizer p { margin: 0 0 8px; font-size: .9375rem; line-height: 1.6; }
+.hero-organizer .hero-promise { font-size: clamp(1.0625rem, 1.8vw, 1.25rem); font-weight: 750; line-height: 1.4; }
+.hero-organizer strong { color: var(--dark-accent); }
+.hero-organizer a { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; color: var(--dark-accent); font-size: .875rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.support-section { background: var(--paper); }
+.support-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+.support-card { display: flex; flex-direction: column; min-width: 0; padding: clamp(20px, 2.3vw, 28px); background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
+.support-card h3 { margin: 18px 0 10px; font-size: clamp(1.125rem, 2vw, 1.4rem); line-height: 1.3; letter-spacing: -.025em; }
+.support-card p { margin: 0 0 18px; font-size: 1rem; line-height: 1.6; color: var(--muted); }
+.support-card .support-note { font-size: .875rem; }
+.support-card .btn, .support-card > .donation-status { margin-top: auto; }
+.support-card .btn { padding-inline: 14px; text-align: center; white-space: normal; }
+.support-illustration { display: grid; place-items: center; min-height: 112px; border-radius: 14px; background: var(--blue-tint); color: var(--dark-accent); }
+.support-illustration svg { width: 160px; max-width: 100%; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.support-icon-fill { fill: var(--aqua-tint); stroke: none; }
+.support-icon-heart { fill: var(--brand-turquoise); stroke: var(--dark-accent); }
+.fundraiser-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: 36px; margin-bottom: 22px; }
+.fundraiser-summary > div { min-width: 0; }
+.fundraiser-summary h2 { font-size: clamp(1.25rem, 2.3vw, 1.75rem); }
+.fundraiser-total { padding: 22px; border: 1px solid var(--brand-turquoise); border-radius: 16px; }
+.fundraiser-total h2 { margin-bottom: 14px; }
+.fundraiser-source { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 44px; font-size: .875rem; text-decoration: underline; text-underline-offset: 3px; }
+.official-fundraiser-frame { display: block; width: 100%; border: 0; background: var(--white); border-radius: 12px; }
+@media (max-width: 760px) {
+  .support-options, .fundraiser-summary { grid-template-columns: minmax(0, 1fr); }
+  .support-options { gap: 14px; }
+  .support-card { padding: 20px; }
+  .support-illustration { min-height: 96px; }
+  .support-illustration svg { height: 90px; }
+  .fundraiser-summary { gap: 24px; }
+  .fundraiser-total { padding: 18px 12px; }
+}
+@media (min-width: 901px) and (max-width: 1150px) {
+  .site-header .brand-name { font-size: 18px; }
+  .site-header .nav-links { gap: 14px; font-size: 13px; }
+  .site-header .nav-wrap { gap: 16px; }
+}
 .art-heart .campaign-mark { height: 52px; }
 .film-credits-brand .campaign-mark { height: 28px; }
 .btn-primary { background: var(--brand-indigo); color: var(--white); }

@@ -121,6 +121,14 @@ content:
         label: Data i godzina zakończenia zbiórki
         type: string
         description: "Wpisz datę w formacie ISO 8601 z przesunięciem strefy czasowej, np. 2026-12-04T23:59:00+01:00. Pozostaw puste, aby ukryć licznik."
+      - name: fundraiserWidgetCode
+        label: Kod oficjalnego widgetu Zrzutka.pl
+        type: text
+        description: "Na stronie właściwej zbiórki wybierz …Więcej → Stwórz widget. Wybierz wariant z kwotą i celem, jeśli go ustalono. Wklej kod iframe. Jako adres wspólnej zbiórki wpisz kanoniczny adres z jej ID, zgodnym z ID w kodzie widgetu. Przy zmianie zbiórki wymień oba pola. Skrypty nie są wykonywane."
+      - name: fundraiserOrganizerConfirmed
+        label: Potwierdzono firmową zbiórkę Remivision
+        type: boolean
+        description: "Włącz po sprawdzeniu danych organizatora zbiórki na Zrzutka.pl i uzupełnieniu właściwego adresu oraz widgetu. Do tego czasu wyświetlany jest odnośnik do wyniku na Zrzutka.pl."
       - { name: amountRaised, label: Zebrana kwota (PLN), type: number }
       - { name: targetAmount, label: Cel zbiórki (PLN), type: number }
       - { name: operatorName, label: Operator zbiórki, type: string }
@@ -136,7 +144,7 @@ content:
       - name: logo
         label: Logo firmy
         type: image
-        description: Wybierz JPG, PNG, WebP lub AVIF. Oficjalny znak RemiVision jest dostępny jako SVG.
+        description: Wybierz JPG, PNG, WebP lub AVIF. Oficjalny znak Remivision jest dostępny jako SVG.
       - name: website
         label: Adres strony internetowej
         type: string
