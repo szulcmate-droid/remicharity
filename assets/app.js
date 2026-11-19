@@ -223,7 +223,7 @@ function showFundraiserSummary() {
   }
   sourceLink.href = donateUrl;
   sourceLink.hidden = false;
-  if (D.fundraiserOrganizerConfirmed !== true || !D.fundraiserWidgetCode?.trim()) return;
+  if (D.fundraiserWidgetEnabled !== true || !D.fundraiserWidgetCode?.trim()) return;
 
   const document = new DOMParser().parseFromString(D.fundraiserWidgetCode, 'text/html');
   const embed = document.querySelector('iframe');

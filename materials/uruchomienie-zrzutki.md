@@ -4,9 +4,9 @@ Zmiany przygotowano do przeglądu 19 listopada 2026 r. Wersja produkcyjna wymaga
 
 ## Stan integracji
 
-Na stronie pozostaje dotychczasowy adres zapisany w `content/settings.json`. Nie wpisano nowego, niepotwierdzonego adresu.
+Na prośbę administratora w podglądzie włączono oficjalny widget obecnej zbiórki. Dotychczasowy alias `https://zrzutka.pl/z/BydgoskiBiznesPomaga` prowadzi do `https://zrzutka.pl/thac88`. W konfiguracji zapisano ten kanoniczny adres tej samej zbiórki.
 
-Publiczna zbiórka „BYDGOSKI BIZNES POMAGA” pod adresem https://zrzutka.pl/thac88 wskazuje Mateusza Szulca jako organizatora. Nie potwierdzono firmowego organizatora obecnego adresu z konfiguracji. Przed publikacją należy sprawdzić docelową zbiórkę i spójność jej danych z regulaminem akcji.
+Publiczna zbiórka „BYDGOSKI BIZNES POMAGA” pod adresem https://zrzutka.pl/thac88 wskazuje Mateusza Szulca jako organizatora. Administrator potwierdził wykorzystanie jej widgetu w podglądzie. Przed publikacją należy sprawdzić spójność danych organizatora zbiórki z regulaminem akcji, który wskazuje firmę.
 
 Kwota i pasek postępu mogą pochodzić z oficjalnego widgetu Zrzutka.pl. Bez widgetu strona odsyła do aktualnego wyniku na platformie. Wcześniejsze ręczne pola kwoty i celu pozostają w danych, ale nie wyświetlają się jako aktualny wynik.
 
@@ -29,10 +29,10 @@ W zakładce „Kampania”:
 1. W polu „Adres wspólnej zbiórki” wpisz kanoniczny adres firmowej zbiórki z jej ID, np. adres widoczny po otwarciu zbiórki bez własnego aliasu. Wszystkie przyciski wpłat korzystają z tego jednego pola.
 2. Na stronie tej samej zbiórki wybierz „…Więcej” → „Stwórz widget”. Wybierz wariant pokazujący zebraną kwotę i postęp do celu, jeśli cel określono.
 3. Skopiuj kod do pola „Kod oficjalnego widgetu Zrzutka.pl”. Obsługiwany jest iframe z adresem HTTPS w domenie `zrzutka.pl` i ścieżką `/ID/widget/NUMER` lub `/ID/widget/card/view`. ID musi odpowiadać adresowi wspólnej zbiórki. Kod zawierający sam skrypt wymaga wybrania wariantu iframe.
-4. Zaznacz „Potwierdzono firmową zbiórkę Remivision” dopiero po sprawdzeniu organizatora i zgodności obu adresów.
+4. Zaznacz „Włącz oficjalny widget bieżącej zbiórki” po sprawdzeniu zgodności obu adresów. To ustawienie włącza widget i nie zmienia danych organizatora w Zrzutka.pl.
 5. Sprawdź podgląd na telefonie i komputerze. Jeśli widget nie wyświetli się, odnośnik do wyniku pozostaje dostępny. Strona nie oblicza kwoty z niedostępnych danych.
 
-Kwotę i pasek postępu renderuje platforma w swoim widżecie. Strona akcji nie odpytuje nieoficjalnych API i nie odczytuje danych przez scraping. Nie można jeszcze potwierdzić działania widgetu docelowej firmowej zbiórki, ponieważ nie udostępniono jej adresu i kodu.
+Kwotę i pasek postępu renderuje platforma w swoim widżecie. Strona akcji nie odpytuje nieoficjalnych API i nie odczytuje danych przez scraping. Kod bieżącej zbiórki pobrano z jej oficjalnego kreatora. Przy przejściu na konto firmowe trzeba wymienić adres i widget oraz sprawdzić je ponownie.
 
 ## Nazwa prawna i rozliczenie
 
