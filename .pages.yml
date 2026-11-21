@@ -107,10 +107,19 @@ content:
     fields:
       - { name: campaignName, label: Nazwa kampanii, type: string }
       - { name: brandName, label: Nazwa inicjatywy, type: string }
-      - { name: organizer, label: Organizator, type: string }
+      - { name: organizer, label: Organizator akcji, type: string }
       - { name: tagline, label: Hasło na pierwszym ekranie, type: string }
       - { name: intro, label: Opis na pierwszym ekranie, type: text }
       - { name: contactIntro, label: Opis w sekcji kontaktowej, type: text }
+      - { name: supportTimeTitle, label: Hasło zachęcające do pierwszego kroku, type: string }
+      - { name: supportTimeIntro, label: Opis pierwszego kroku, type: text }
+      - { name: moneyboxIntro, label: Opis skarbonki firmowej, type: text }
+      - { name: inKindSupportTitle, label: Nagłówek pomocy rzeczowej lub usługowej, type: string }
+      - { name: inKindSupportIntro, label: Opis pomocy rzeczowej lub usługowej, type: text }
+      - { name: companyContactName, label: Imię i nazwisko osoby kontaktowej dla firm, type: string }
+      - { name: companyContactRole, label: Opis roli osoby kontaktowej dla firm, type: text }
+      - { name: leaderBenefitTitle, label: Nagłówek wyróżnienia dla lidera, type: string }
+      - { name: leaderBenefitIntro, label: Opis wyróżnienia dla lidera, type: text }
       - { name: contactEmail, label: E-mail organizatora, type: string }
       - { name: siteUrl, label: Publiczny adres witryny (HTTPS), type: string }
       - name: fundraiserUrl
@@ -131,7 +140,10 @@ content:
         description: "Włącz po sprawdzeniu, że kod widgetu dotyczy zbiórki z pola adresu. Dane organizatora są określane na Zrzutka.pl. Wyłączenie widgetu pozostawia odnośnik do aktualnego wyniku."
       - { name: amountRaised, label: Zebrana kwota (PLN), type: number }
       - { name: targetAmount, label: Cel zbiórki (PLN), type: number }
-      - { name: operatorName, label: Operator zbiórki, type: string }
+      - name: operatorName
+        label: Dane osoby prowadzącej zbiórkę na Zrzutka.pl
+        type: string
+        description: Wpisz imię i nazwisko w dopełniaczu (np. Mateusza Szulca). Ta informacja pojawia się w regulaminie i FAQ.
       - { name: allocationText, label: Zasady podziału środków, type: text }
   - name: partners
     label: Partnerzy

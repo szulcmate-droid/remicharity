@@ -62,6 +62,14 @@ function publishSlide(item) {
 }
 
 const settings = await readContent('settings');
+const fundraiserOrganizer = settings.operatorName?.trim();
+const organizerNotice = [
+  fundraiserOrganizer && `Zbiórka prowadzona na platformie zrzutka.pl jest zarejestrowana na dane ${fundraiserOrganizer}.`,
+  'Akcja Bydgoski Biznes Pomaga realizowana jest we współpracy z Remivision, które koordynuje organizację pomocy, zakupy oraz przekazanie darów wspieranym placówkom.',
+].filter(Boolean).join(' ');
+const escapedOrganizerNotice = organizerNotice.replace(/[&<>]/g, character => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;',
+})[character]);
 const needs = await readContent('needs');
 const places = await Promise.all(placeIds.map(async id => {
   const { gallery, ...place } = await readContent(id);
@@ -93,7 +101,12 @@ if (previousOutput) {
 for (const path of files) {
   const destination = resolve(output, path);
   await mkdir(dirname(destination), { recursive: true });
-  await copyFile(resolve(root, path), destination);
+  if (path === 'index.html' || path === 'regulamin.html') {
+    const template = await readFile(resolve(root, path), 'utf8');
+    await writeFile(destination, template.replace('<!-- fundraiser-organizer-notice -->', () => escapedOrganizerNotice));
+  } else {
+    await copyFile(resolve(root, path), destination);
+  }
 }
 const homepagePath = resolve(output, 'index.html');
 let homepage = await readFile(homepagePath, 'utf8');

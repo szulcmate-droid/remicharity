@@ -263,6 +263,15 @@ for (const [selector, value] of [
   ['#campaign-tagline', D.tagline],
   ['#campaign-intro', D.intro],
   ['#campaign-contact-intro', D.contactIntro],
+  ['#support-time-title', D.supportTimeTitle],
+  ['#support-time-intro', D.supportTimeIntro],
+  ['#moneybox-intro', D.moneyboxIntro],
+  ['#in-kind-support-title', D.inKindSupportTitle],
+  ['#in-kind-support-intro', D.inKindSupportIntro],
+  ['#company-contact-name', D.companyContactName],
+  ['#company-contact-role', D.companyContactRole],
+  ['#leader-benefit-title', D.leaderBenefitTitle],
+  ['#leader-benefit-intro', D.leaderBenefitIntro],
 ]) {
   if (value?.trim()) $(selector).textContent = value.trim();
 }
@@ -381,13 +390,9 @@ if (D.partners.length) {
 }
 function safeUrl(url){try{const u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:null;}catch{return null;}}
 const allocation = $('#allocation-faq');
-const operator = D.operatorName?.trim();
 const allocationText = D.allocationText?.trim();
-if (operator || allocationText) {
-  allocation.textContent = [
-    operator && `Zbiórkę formalnie prowadzi ${operator}.`,
-    allocationText,
-  ].filter(Boolean).join(' ');
+if (allocationText) {
+  allocation.textContent = allocationText;
   allocation.hidden = false;
 }
 const configuredEmail = D.contactEmail?.trim();
