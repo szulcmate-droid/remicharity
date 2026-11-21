@@ -116,8 +116,8 @@ content:
       - { name: moneyboxIntro, label: Opis skarbonki firmowej, type: text }
       - { name: inKindSupportTitle, label: Nagłówek pomocy rzeczowej lub usługowej, type: string }
       - { name: inKindSupportIntro, label: Opis pomocy rzeczowej lub usługowej, type: text }
-      - { name: companyContactName, label: Imię i nazwisko osoby kontaktowej dla firm, type: string }
-      - { name: companyContactRole, label: Opis roli osoby kontaktowej dla firm, type: text }
+      - { name: companyContactName, label: Imię i nazwisko osoby kontaktowej dla firm w regulaminie, type: string }
+      - { name: companyContactRole, label: Opis roli osoby kontaktowej dla firm w regulaminie, type: text }
       - { name: leaderBenefitTitle, label: Nagłówek wyróżnienia dla lidera, type: string }
       - { name: leaderBenefitIntro, label: Opis wyróżnienia dla lidera, type: text }
       - { name: contactEmail, label: E-mail organizatora, type: string }

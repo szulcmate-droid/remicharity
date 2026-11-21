@@ -547,16 +547,6 @@ a.partner-card:hover { border-color: var(--muted); }
   text-decoration: underline;
   text-underline-offset: .2em;
 }
-.company-contact {
-  max-width: 42ch;
-  margin: 22px auto 0;
-  padding-top: 14px;
-  border-top: 1px solid rgb(from var(--white) r g b / .3);
-  color: var(--white);
-}
-.company-contact h3 { margin: 0 0 4px; color: var(--soft-text); font-size: .875rem; }
-.donation-final .company-contact p { margin: 0; font-size: .875rem; }
-.company-contact strong { color: var(--white); font-size: 1.125rem; }
 .partner-photo { display: block; width: 100%; height: auto; }
 .donation-final:has(.partner-photo) { display: flex; flex-direction: column; gap: 26px; padding-bottom: 0; }
 @media (min-width: 761px) {
@@ -582,7 +572,6 @@ a.partner-card:hover { border-color: var(--muted); }
     max-width: 1200px;
     padding-right: min(51%, 612px);
   }
-  .donation-final:has(.partner-photo) .company-contact { margin-inline: 0; }
 }
 .footer { color: var(--soft-text); }
 .footer-links, .footer-bottom, .footer-top p { color: var(--soft-text); }

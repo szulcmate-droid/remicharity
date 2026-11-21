@@ -14,6 +14,10 @@ const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
 const videoExtensions = ['.mp4', '.webm'];
 const maxAssetSize = 25 * 1024 * 1024;
 
+function escapeHtml(text) {
+  return text.replace(/[&<>]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[character]);
+}
+
 async function readContent(name) {
   return JSON.parse(await readFile(resolve(root, 'content', name + '.json'), 'utf8'));
 }
@@ -61,15 +65,20 @@ function publishSlide(item) {
   };
 }
 
-const settings = await readContent('settings');
+const { companyContactName, companyContactRole, ...settings } = await readContent('settings');
 const fundraiserOrganizer = settings.operatorName?.trim();
 const organizerNotice = [
   fundraiserOrganizer && `Zbiórka prowadzona na platformie zrzutka.pl jest zarejestrowana na dane ${fundraiserOrganizer}.`,
   'Akcja Bydgoski Biznes Pomaga realizowana jest we współpracy z Remivision, które koordynuje organizację pomocy, zakupy oraz przekazanie darów wspieranym placówkom.',
 ].filter(Boolean).join(' ');
-const escapedOrganizerNotice = organizerNotice.replace(/[&<>]/g, character => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;',
-})[character]);
+const contactName = companyContactName?.trim();
+const contactRole = companyContactRole?.trim();
+const companyContact = contactName ? [
+  '<section id="kontakt-z-firmami" aria-labelledby="kontakt-z-firmami-title">',
+  '  <h2 id="kontakt-z-firmami-title">Kontakt z firmami</h2>',
+  `  <p><strong>${escapeHtml(contactName)}</strong>${contactRole ? `<br />${escapeHtml(contactRole)}` : ''}</p>`,
+  '</section>',
+].join('\n    ') : '';
 const needs = await readContent('needs');
 const places = await Promise.all(placeIds.map(async id => {
   const { gallery, ...place } = await readContent(id);
@@ -103,7 +112,9 @@ for (const path of files) {
   await mkdir(dirname(destination), { recursive: true });
   if (path === 'index.html' || path === 'regulamin.html') {
     const template = await readFile(resolve(root, path), 'utf8');
-    await writeFile(destination, template.replace('<!-- fundraiser-organizer-notice -->', () => escapedOrganizerNotice));
+    await writeFile(destination, template
+      .replace('<!-- fundraiser-organizer-notice -->', () => escapeHtml(organizerNotice))
+      .replace('<!-- company-contact -->', () => companyContact));
   } else {
     await copyFile(resolve(root, path), destination);
   }
