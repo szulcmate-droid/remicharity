@@ -268,8 +268,6 @@ for (const [selector, value] of [
   ['#moneybox-intro', D.moneyboxIntro],
   ['#in-kind-support-title', D.inKindSupportTitle],
   ['#in-kind-support-intro', D.inKindSupportIntro],
-  ['#company-contact-name', D.companyContactName],
-  ['#company-contact-role', D.companyContactRole],
   ['#leader-benefit-title', D.leaderBenefitTitle],
   ['#leader-benefit-intro', D.leaderBenefitIntro],
 ]) {
