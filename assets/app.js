@@ -395,7 +395,7 @@ if (allocationText) {
 }
 const configuredEmail = D.contactEmail?.trim();
 if (configuredEmail && /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(configuredEmail)) {
-  $$('[data-partner-email], [data-organizer-contact]').forEach(link => {
+  $$('[data-organizer-contact]').forEach(link => {
     const subject = link.dataset.contactSubject || 'Chcę dołączyć do akcji Bydgoski Biznes Pomaga';
     link.href = 'mailto:' + encodeURIComponent(configuredEmail).replace('%40', '@') +
       '?subject=' + encodeURIComponent(subject);
