@@ -26,7 +26,7 @@
     "place": "bzpow",
     "group": "Rozwój",
     "title": "Dwie świetlice pełne możliwości",
-    "description": "2 stanowiska komputerowe i 2 stanowiska do grania z telewizorami — do dwóch świetlic.",
+    "description": "2 stanowiska komputerowe i 2 stanowiska do grania z telewizorami - do dwóch świetlic.",
     "icon": "monitor",
     "priority": true,
     "amount": null,
@@ -59,7 +59,7 @@
     "place": "bzpow",
     "group": "Do rozważenia",
     "title": "Dodatkowa odzież i karnawał",
-    "description": "Ubrania dla dzieci lub wydarzenie karnawałowe z animacjami, muzyką i poczęstunkiem — po dalszym ustaleniu.",
+    "description": "Ubrania dla dzieci lub wydarzenie karnawałowe z animacjami, muzyką i poczęstunkiem - po dalszym ustaleniu.",
     "icon": "star",
     "priority": false,
     "amount": null,
@@ -114,7 +114,7 @@
     "place": "szpital",
     "group": "Kardiologia",
     "title": "Materiały plastyczne",
-    "description": "Podobrazia, kleje, farby akrylowe oraz koraliki do bransoletek — zgodnie z listą oddziału.",
+    "description": "Podobrazia, kleje, farby akrylowe oraz koraliki do bransoletek - zgodnie z listą oddziału.",
     "icon": "brush",
     "priority": false,
     "amount": null,
@@ -136,7 +136,7 @@
     "place": "szpital",
     "group": "Do rozważenia",
     "title": "Dodatkowe wyposażenie chirurgii",
-    "description": "Pojemniki na zabawki, konsola do gier lub fotel rozkładany — po ponownym potwierdzeniu potrzeb i parametrów.",
+    "description": "Pojemniki na zabawki, konsola do gier lub fotel rozkładany - po ponownym potwierdzeniu potrzeb i parametrów.",
     "icon": "monitor",
     "priority": false,
     "amount": null,
@@ -151,6 +151,6 @@
     "icon": "gift",
     "priority": false,
     "amount": null,
-    "status": "do-uzgodnienia"
+    "status": "potrzebne"
   }
 ]
