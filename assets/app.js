@@ -177,6 +177,15 @@ function startFundraiserCountdown(value) {
   const deadline = Date.parse(date);
   if (!Number.isFinite(deadline)) return;
 
+  const timeZone = 'Europe/Warsaw';
+  const dayLabel = new Intl.DateTimeFormat('pl-PL', { timeZone, day: 'numeric', month: 'long', year: 'numeric' }).format(deadline);
+  const clockLabel = new Intl.DateTimeFormat('pl-PL', { timeZone, hour: '2-digit', minute: '2-digit' }).format(deadline);
+  $$('[data-fundraiser-deadline]').forEach(field => {
+    field.dateTime = date;
+    field.textContent = `${dayLabel}, godz. ${clockLabel}`;
+  });
+  $('#fundraiser-deadline').hidden = false;
+
   const section = $('#fundraiser-countdown');
   const time = $('#fundraiser-time', section);
   const active = $('#fundraiser-countdown-active', section);
@@ -186,6 +195,7 @@ function startFundraiserCountdown(value) {
     const seconds = Math.ceil((deadline - Date.now()) / 1000);
     if (seconds <= 0) {
       active.hidden = true;
+      $('#hero-deadline').hidden = true;
       $('#fundraiser-countdown-title', section).textContent =
         'Zbiórka dobiegła końca. Dziękujemy za wspólną pomoc!';
       return false;
@@ -204,6 +214,7 @@ function startFundraiserCountdown(value) {
   }
 
   const isActive = update();
+  $('#hero-deadline').hidden = !isActive;
   time.hidden = false;
   if (isActive) {
     const interval = setInterval(() => {
@@ -215,6 +226,21 @@ startFundraiserCountdown(D.campaignDeadline);
 
 function showFundraiserSummary() {
   $('#fundraiser-countdown').hidden = false;
+  const money = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN', minimumFractionDigits: 0 });
+  if (Number.isFinite(D.targetAmount) && D.targetAmount > 0) {
+    $('#fundraiser-goal-amount').textContent = money.format(D.targetAmount);
+    $('#fundraiser-goal').hidden = false;
+  }
+  const date = D.amountRaisedAsOf?.trim();
+  if (Number.isFinite(D.amountRaised) && D.amountRaised >= 0 && /^\d{4}-\d{2}-\d{2}$/.test(date || '')) {
+    const checkedOn = new Date(date + 'T00:00:00Z');
+    if (Number.isFinite(checkedOn.getTime()) && checkedOn.toISOString().slice(0, 10) === date) {
+      $('#fundraiser-raised-amount').textContent = money.format(D.amountRaised);
+      const label = new Intl.DateTimeFormat('pl-PL', { timeZone: 'UTC', day: 'numeric', month: 'long' }).format(checkedOn);
+      $('#fundraiser-amount-date').textContent = `stan z ${label}`;
+      $('#fundraiser-raised').hidden = false;
+    }
+  }
   const sourceLink = $('[data-fundraiser-source]');
   const fallback = $('#fundraiser-total-fallback');
   if (!donateUrl) {
@@ -275,8 +301,20 @@ for (const [selector, value] of [
 }
 
 function buildRecipientSection(place){
- const panel=el('article','recipient-panel recipient-'+place.id);
+ const panel=el('details','recipient-panel recipient-'+place.id);
  panel.id='placowka-'+place.id;
+ const preview = el('summary', 'recipient-preview');
+ const previewCopy = el('span', 'recipient-preview-copy');
+ previewCopy.append(el('strong', '', place.full), el('span', '', place.summary || place.description));
+ const previewAction = el('span', 'recipient-preview-action');
+ previewAction.append(
+   el('span', 'recipient-preview-open', 'Zobacz wszystkie potrzeby'),
+   el('span', 'recipient-preview-close', 'Zwiń potrzeby'),
+   icon('chevron')
+ );
+ preview.append(previewCopy, previewAction);
+ panel.appendChild(preview);
+
  const hero=el('div','recipient-hero');
  const media=el('div','recipient-media');
  if(place.gallery.length){
@@ -303,40 +341,42 @@ function buildRecipientSection(place){
  if(items.length){
   const grid = el('div', 'recipient-needs-grid');
   grid.id = 'potrzeby-' + place.id;
-  const cards = items.map(createNeedCard);
-  const remaining = cards.slice(3);
-  remaining.forEach(card => { card.hidden = true; });
-  grid.append(...cards);
+  grid.append(...items.map(createNeedCard));
   list.appendChild(grid);
-  if (remaining.length) {
-    const toggle = el('button', 'btn btn-outline needs-toggle', 'Pokaż wszystkie potrzeby');
-    toggle.type = 'button';
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-controls', grid.id);
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') === 'false';
-      remaining.forEach(card => { card.hidden = !open; });
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.textContent = open ? 'Pokaż mniej potrzeb' : 'Pokaż wszystkie potrzeby';
-    });
-    list.appendChild(toggle);
-  }
  }else{
   list.appendChild(el('p', 'recipient-pending', 'Lista w przygotowaniu.'));
  }
  panel.appendChild(list);
+ panel.addEventListener('toggle', () => {
+   if (!panel.open) {
+     panel.querySelector('video')?.pause();
+     if (panel.querySelector('.recipient-embedded-video')) media.replaceChildren(buildGallery(place));
+   }
+ });
  return panel;
 }
 D.places.forEach(p=>{
  const card=el('a','place-card place-jump');card.href='#placowka-'+p.id;
- const photo=p.gallery.find(item=>item.kind==='image');
+ const photo=p.gallery.find(item=>item.cardCover) || p.gallery.find(item=>item.kind==='image');
  if(photo){const img=el('img','place-jump-image');img.src=photo.src;img.alt='';img.loading='lazy';img.addEventListener('error',()=>img.remove(),{once:true});card.appendChild(img);}
  const info=el('div','place-jump-content');
- info.append(el('h3','',p.full), el('p','',p.description));
+ info.append(el('h3','',p.full), el('p','',p.summary || p.description));
  const bottom=el('span','place-jump-action','Zobacz galerię i potrzeby');bottom.appendChild(icon('arrow'));info.appendChild(bottom);
  card.appendChild(info);placesGrid.appendChild(card);
  recipientSections.appendChild(buildRecipientSection(p));
+ card.addEventListener('click', () => {
+   if (location.hash === card.hash) openLinkedRecipient();
+ });
 });
+function openLinkedRecipient() {
+  const target = document.getElementById(location.hash.slice(1));
+  const panel = target?.closest('details.recipient-panel');
+  if (!panel) return;
+  panel.open = true;
+  target.scrollIntoView();
+}
+window.addEventListener('hashchange', openLinkedRecipient);
+openLinkedRecipient();
 const partners = $('#partners-grid');
 if (D.partners.length) {
   const list = el('ul', 'partner-list');

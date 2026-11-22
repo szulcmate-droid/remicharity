@@ -15,6 +15,7 @@ content:
       - { name: full, label: Pełna nazwa, type: string, required: true }
       - { name: detail, label: Adres lub oddziały, type: string }
       - { name: eyebrow, label: Hasło, type: string }
+      - { name: summary, label: Krótki opis potrzeb w kafelku, type: text }
       - { name: description, label: Opis, type: text, required: true }
       - { name: icon, label: Ikona, type: string }
       - { name: confirmed, label: Potrzeby potwierdzone przez placówkę, type: boolean }
@@ -54,6 +55,7 @@ content:
             type: boolean
             default: false
             description: Zweryfikuj zgody przed dodaniem pliku do publicznego repozytorium.
+          - { name: cardCover, label: Użyj zdjęcia w kafelku placówki, type: boolean }
   - name: szpital
     label: Szpital Dziecięcy
     type: file
@@ -139,6 +141,10 @@ content:
         type: boolean
         description: "Włącz po sprawdzeniu, że kod widgetu dotyczy zbiórki z pola adresu. Dane organizatora są określane na Zrzutka.pl. Wyłączenie widgetu pozostawia odnośnik do aktualnego wyniku."
       - { name: amountRaised, label: Zebrana kwota (PLN), type: number }
+      - name: amountRaisedAsOf
+        label: Data sprawdzenia zebranej kwoty
+        type: string
+        description: Wpisz datę w formacie RRRR-MM-DD. Kwota jest pokazywana z tą datą, a aktualny wynik jest dostępny w oficjalnym widgecie.
       - { name: targetAmount, label: Cel zbiórki (PLN), type: number }
       - name: operatorName
         label: Dane osoby prowadzącej zbiórkę na Zrzutka.pl
