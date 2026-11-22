@@ -58,6 +58,7 @@ function publishSlide(item) {
     kind,
     alt,
     caption,
+    cardCover: !isVideo && item.cardCover === true ? true : undefined,
     creditUrl: httpsUrl(creditUrl),
     src: file ? mediaPath(file, isVideo ? videoExtensions : imageExtensions) : httpsUrl(externalUrl),
     youtubeId,

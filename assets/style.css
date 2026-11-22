@@ -325,7 +325,8 @@
 .partner-benefit-link .icon { width: 18px; height: 18px; flex: 0 0 18px; }
 .partner-benefit-link .icon:last-child { margin-left: auto; }
 .partner-benefit-link:hover { border-color: var(--muted); }
-.partner-benefits-action { margin-top: 24px; }
+.business-section { padding-bottom: 0; }
+.business-section > .donation-final { margin-top: clamp(24px, 4vw, 44px); }
 .benefits-grid.partner-benefits-more {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 32px;
@@ -390,6 +391,8 @@ a.partner-card:hover { border-color: var(--muted); }
 .hero { padding-bottom: 34px; }
 .hero-layout { min-height: 0; }
 .hero-actions, .recipient-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.hero-actions:has(+ .hero-deadline:not([hidden])) { margin-bottom: 10px; }
+.hero-deadline { margin: 0 0 24px; color: var(--muted); font-size: .875rem; }
 .recipient-actions { margin-top: 12px; }
 .donation-status { color: var(--dark-accent); font-size: 14px; font-weight: 750; }
 .hero .fundraise-stats strong { color: var(--ink); }
@@ -402,6 +405,28 @@ a.partner-card:hover { border-color: var(--muted); }
 .place-jump-content p { margin-bottom: 8px; font-size: .875rem; line-height: 1.55; }
 .place-jump-content h3, .recipient-details h3 { overflow-wrap: anywhere; }
 .place-jump .place-jump-action { padding-top: 4px; }
+.recipient-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(16px, 3vw, 28px);
+  list-style: none;
+  cursor: pointer;
+}
+.recipient-preview::-webkit-details-marker { display: none; }
+.recipient-preview:focus-visible { outline-offset: -4px; }
+.recipient-preview-copy { display: grid; gap: 4px; min-width: 0; }
+.recipient-preview-copy strong { font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.35; }
+.recipient-preview-copy > span { color: var(--muted); font-size: .875rem; }
+.recipient-preview-action { display: flex; align-items: center; gap: 8px; color: var(--dark-accent); font-size: .875rem; font-weight: 750; }
+.recipient-preview-action .icon { width: 18px; height: 18px; }
+.recipient-preview-close, .recipient-panel[open] .recipient-preview-open { display: none; }
+.recipient-panel[open] .recipient-preview-close { display: inline; }
+.recipient-panel[open] .recipient-preview-action .icon { transform: rotate(180deg); }
+.recipient-panel[open] .recipient-preview { border-bottom: 1px solid var(--line); }
+.recipient-needs-grid { scroll-margin-top: 110px; }
+.faq-donation { margin-top: 24px; }
 .recipient-needs { padding: clamp(14px, 2.5vw, 25px); }
 .recipient-needs-heading { margin-bottom: 10px; gap: 7px; }
 .recipient-needs-heading h3 { font-size: 21px; }
@@ -432,17 +457,27 @@ a.partner-card:hover { border-color: var(--muted); }
 
 .donation-final { text-align: center; padding-block: clamp(52px, 8vw, 96px); }
 .fundraiser-countdown {
-  padding-block: clamp(28px, 4.5vw, 54px);
+  padding-block: 18px;
   background: var(--night);
   color: var(--white);
   text-align: center;
 }
-.fundraiser-countdown h2 {
+.fundraiser-countdown h2, .fundraiser-countdown h3 {
   max-width: 30ch;
   margin: 0 auto;
   font-size: clamp(1.4rem, 3vw, 2.25rem);
   line-height: 1.2;
 }
+.fundraiser-strip { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px 24px; text-align: left; }
+.fundraiser-strip h2 { max-width: none; margin: 0; font-size: clamp(1.125rem, 2vw, 1.5rem); }
+.fundraiser-metrics { display: flex; flex-wrap: wrap; align-items: center; gap: 8px clamp(14px, 3vw, 36px); margin: 0; }
+.fundraiser-metrics dt { color: var(--soft-text); font-size: .8125rem; }
+.fundraiser-metrics dd { margin: 0; font-size: .9375rem; }
+.fundraiser-metrics strong { font-variant-numeric: tabular-nums; }
+.fundraiser-metrics small { color: var(--soft-text); white-space: nowrap; }
+.fundraiser-disclosure { text-align: left; }
+.fundraiser-disclosure > summary { width: fit-content; padding: 7px 0; color: var(--soft-text); cursor: pointer; font-size: .875rem; text-decoration: underline; text-underline-offset: .2em; }
+.fundraiser-disclosure > summary:focus-visible { outline-color: var(--white); }
 .countdown-units {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -506,19 +541,22 @@ a.partner-card:hover { border-color: var(--muted); }
 .support-illustration svg { width: 160px; max-width: 100%; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .support-icon-fill { fill: var(--aqua-tint); stroke: none; }
 .support-icon-heart { fill: var(--brand-turquoise); stroke: var(--dark-accent); }
-.fundraiser-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: 36px; margin-bottom: 22px; }
+.fundraiser-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: 24px; margin-top: 12px; text-align: center; }
+.fundraiser-summary:has(.fundraiser-time[hidden]) { grid-template-columns: minmax(0, 1fr); }
 .fundraiser-summary > div { min-width: 0; }
-.fundraiser-summary h2 { font-size: clamp(1.25rem, 2.3vw, 1.75rem); }
+.fundraiser-summary h3 { font-size: clamp(1.25rem, 2.3vw, 1.75rem); }
 .fundraiser-total { padding: 22px; border: 1px solid var(--brand-turquoise); border-radius: 16px; }
-.fundraiser-total h2 { margin-bottom: 14px; }
 .fundraiser-source { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 44px; font-size: .875rem; text-decoration: underline; text-underline-offset: 3px; }
 .official-fundraiser-frame { display: block; width: 100%; border: 0; background: var(--white); border-radius: 12px; }
 @media (max-width: 760px) {
   .support-options, .fundraiser-summary { grid-template-columns: minmax(0, 1fr); }
   .support-options { gap: 14px; }
-  .support-card { padding: 20px; }
-  .support-illustration { min-height: 96px; }
-  .support-illustration svg { height: 90px; }
+  .support-card { display: grid; grid-template-columns: 60px minmax(0, 1fr); align-items: center; gap: 10px 12px; padding: 16px; }
+  .support-card h3 { margin: 0; }
+  .support-card p, .support-card .btn, .support-card > .donation-status { grid-column: 1 / -1; margin: 0; }
+  .support-illustration { min-height: 52px; border-radius: 9px; }
+  .support-illustration svg { height: 44px; }
+  .recipient-preview { flex-direction: column; align-items: flex-start; gap: 8px; }
   .fundraiser-summary { gap: 24px; }
   .fundraiser-total { padding: 18px 12px; }
 }
@@ -534,7 +572,7 @@ a.partner-card:hover { border-color: var(--muted); }
 :is(a, button, summary):focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 4px; }
 .nav-links .nav-cta { color: var(--brand-indigo); }
 .donation-final { background: var(--night); }
-.donation-final h2 { color: var(--white); }
+.donation-final h3 { margin: 0 0 10px; color: var(--white); font-size: clamp(1.5rem, 3vw, 2rem); }
 .donation-final .section-heading p { color: var(--soft-text); margin-bottom: 24px; }
 .donation-final .btn-primary { background: var(--brand-turquoise); color: var(--brand-ink); }
 .donation-final .btn-primary:hover { background: var(--aqua-tint); }

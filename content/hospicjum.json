@@ -3,6 +3,7 @@
   "full": "Hospicjum Domowe dla Dzieci – Pallmed / Dom Sue Ryder",
   "detail": "Bydgoszcz",
   "eyebrow": "Troska i obecność",
+  "summary": "Paczki prezentowe dla dzieci pod opieką hospicjum domowego.",
   "description": "Przygotowujemy paczki prezentowe dla dzieci objętych opieką hospicyjną, by podarować im trochę radości.",
   "icon": "heart",
   "confirmed": false,
@@ -17,6 +18,7 @@
       "kind": "image",
       "image": "/assets/media/sue-ryder-budynek.webp",
       "alt": "Budynek Hospicjum Pallmed Dom Sue Ryder od strony wejścia",
+      "cardCover": true,
       "approved": true
     },
     {
