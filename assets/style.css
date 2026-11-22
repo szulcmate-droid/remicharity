@@ -563,6 +563,16 @@ a.partner-card:hover { border-color: var(--muted); }
   text-underline-offset: .2em;
 }
 .partner-contact-toggle::-webkit-details-marker { display: none; }
+.support-contact {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: auto 0 0;
+}
+.support-contact .partner-contact-toggle {
+  display: flex;
+  color: var(--night);
+  text-decoration: none;
+}
 .partner-contact-close,
 .partner-contact[open] .partner-contact-open { display: none; }
 .partner-contact[open] .partner-contact-close { display: inline; }
