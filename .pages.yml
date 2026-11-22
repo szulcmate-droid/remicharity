@@ -141,10 +141,6 @@ content:
         type: boolean
         description: "Włącz po sprawdzeniu, że kod widgetu dotyczy zbiórki z pola adresu. Dane organizatora są określane na Zrzutka.pl. Wyłączenie widgetu pozostawia odnośnik do aktualnego wyniku."
       - { name: amountRaised, label: Zebrana kwota (PLN), type: number }
-      - name: amountRaisedAsOf
-        label: Data sprawdzenia zebranej kwoty
-        type: string
-        description: Wpisz datę w formacie RRRR-MM-DD. Kwota jest pokazywana z tą datą, a aktualny wynik jest dostępny w oficjalnym widgecie.
       - { name: targetAmount, label: Cel zbiórki (PLN), type: number }
       - name: operatorName
         label: Dane osoby prowadzącej zbiórkę na Zrzutka.pl

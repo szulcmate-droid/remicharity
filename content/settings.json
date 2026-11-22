@@ -20,9 +20,8 @@
   "fundraiserWidgetEnabled": true,
   "contactEmail": "dokumenty.remivision@gmail.com",
   "campaignDeadline": "2026-12-04T23:59:00+01:00",
-  "amountRaised": 0,
-  "amountRaisedAsOf": "2026-11-22",
-  "targetAmount": 10000,
+  "amountRaised": null,
+  "targetAmount": null,
   "allocationText": "",
   "operatorName": "Mateusza Szulca"
 }

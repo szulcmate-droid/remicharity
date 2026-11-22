@@ -14,9 +14,9 @@
   <meta property="og:image:alt" content="Bydgoski Biznes Pomaga. Łączymy firmy. Zmieniamy życie." />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/favicon-akcji.ico?v=serce" />
-  <link rel="stylesheet" href="assets/style.css?v=uklad" />
-  <script src="assets/content.js?v=uklad" defer></script>
-  <script src="assets/app.js?v=uklad" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=widoczne-sekcje" />
+  <script src="assets/content.js?v=widoczne-sekcje" defer></script>
+  <script src="assets/app.js?v=widoczne-sekcje" defer></script>
   <title>Bydgoski Biznes Pomaga | Razem dla dzieci</title>
 </head>
 <body>
@@ -80,44 +80,25 @@
     </section>
     <section id="fundraiser-countdown" class="fundraiser-countdown" aria-labelledby="fundraiser-progress-title" hidden>
       <div class="container">
-        <div class="fundraiser-strip">
-          <h2 id="fundraiser-progress-title">Postęp zbiórki</h2>
-          <dl class="fundraiser-metrics">
-            <div id="fundraiser-raised" hidden>
-              <dt>Zebrano</dt>
-              <dd><strong id="fundraiser-raised-amount"></strong> <small id="fundraiser-amount-date"></small></dd>
-            </div>
-            <div id="fundraiser-goal" hidden>
-              <dt>Cel</dt>
-              <dd><strong id="fundraiser-goal-amount"></strong></dd>
-            </div>
-            <div id="fundraiser-deadline" hidden>
-              <dt>Koniec zbiórki</dt>
-              <dd><time data-fundraiser-deadline></time></dd>
-            </div>
-          </dl>
-        </div>
-        <details class="fundraiser-disclosure">
-          <summary>Sprawdź szczegóły zbiórki</summary>
-          <div class="fundraiser-summary">
-            <div class="fundraiser-time" id="fundraiser-time" hidden>
-              <h3 id="fundraiser-countdown-title" aria-live="polite">Do końca zbiórki pozostało</h3>
-              <div id="fundraiser-countdown-active">
-                <div class="countdown-units" role="timer" aria-labelledby="fundraiser-countdown-title">
-                  <div><span data-countdown-unit></span><span>DNI</span></div>
-                  <div><span data-countdown-unit></span><span>GODZINY</span></div>
-                  <div><span data-countdown-unit></span><span>MINUTY</span></div>
-                  <div><span data-countdown-unit></span><span>SEKUNDY</span></div>
-                </div>
+        <h2 id="fundraiser-progress-title">Postęp zbiórki</h2>
+        <div class="fundraiser-summary">
+          <div class="fundraiser-time" id="fundraiser-time" hidden>
+            <h3 id="fundraiser-countdown-title" aria-live="polite">Do końca zbiórki pozostało</h3>
+            <div id="fundraiser-countdown-active">
+              <div class="countdown-units" role="timer" aria-labelledby="fundraiser-countdown-title">
+                <div><span data-countdown-unit></span><span>DNI</span></div>
+                <div><span data-countdown-unit></span><span>GODZINY</span></div>
+                <div><span data-countdown-unit></span><span>MINUTY</span></div>
+                <div><span data-countdown-unit></span><span>SEKUNDY</span></div>
               </div>
             </div>
-            <div class="fundraiser-total">
-              <div id="official-fundraiser-widget" hidden></div>
-              <p id="fundraiser-total-fallback">Aktualną kwotę sprawdzisz na Zrzutka.pl.</p>
-              <a class="fundraiser-source" data-fundraiser-source hidden>Sprawdź aktualny wynik na Zrzutka.pl <span aria-hidden="true">↗</span></a>
-            </div>
           </div>
-        </details>
+          <div class="fundraiser-total">
+            <div id="official-fundraiser-widget" hidden></div>
+            <p id="fundraiser-total-fallback">Aktualną kwotę sprawdzisz na Zrzutka.pl.</p>
+            <a class="fundraiser-source" data-fundraiser-source hidden>Sprawdź aktualny wynik na Zrzutka.pl <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
       </div>
     </section>
     <section id="o-akcji" class="section intro-section">

@@ -180,11 +180,9 @@ function startFundraiserCountdown(value) {
   const timeZone = 'Europe/Warsaw';
   const dayLabel = new Intl.DateTimeFormat('pl-PL', { timeZone, day: 'numeric', month: 'long', year: 'numeric' }).format(deadline);
   const clockLabel = new Intl.DateTimeFormat('pl-PL', { timeZone, hour: '2-digit', minute: '2-digit' }).format(deadline);
-  $$('[data-fundraiser-deadline]').forEach(field => {
-    field.dateTime = date;
-    field.textContent = `${dayLabel}, godz. ${clockLabel}`;
-  });
-  $('#fundraiser-deadline').hidden = false;
+  const deadlineField = $('[data-fundraiser-deadline]');
+  deadlineField.dateTime = date;
+  deadlineField.textContent = `${dayLabel}, godz. ${clockLabel}`;
 
   const section = $('#fundraiser-countdown');
   const time = $('#fundraiser-time', section);
@@ -226,21 +224,6 @@ startFundraiserCountdown(D.campaignDeadline);
 
 function showFundraiserSummary() {
   $('#fundraiser-countdown').hidden = false;
-  const money = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN', minimumFractionDigits: 0 });
-  if (Number.isFinite(D.targetAmount) && D.targetAmount > 0) {
-    $('#fundraiser-goal-amount').textContent = money.format(D.targetAmount);
-    $('#fundraiser-goal').hidden = false;
-  }
-  const date = D.amountRaisedAsOf?.trim();
-  if (Number.isFinite(D.amountRaised) && D.amountRaised >= 0 && /^\d{4}-\d{2}-\d{2}$/.test(date || '')) {
-    const checkedOn = new Date(date + 'T00:00:00Z');
-    if (Number.isFinite(checkedOn.getTime()) && checkedOn.toISOString().slice(0, 10) === date) {
-      $('#fundraiser-raised-amount').textContent = money.format(D.amountRaised);
-      const label = new Intl.DateTimeFormat('pl-PL', { timeZone: 'UTC', day: 'numeric', month: 'long' }).format(checkedOn);
-      $('#fundraiser-amount-date').textContent = `stan z ${label}`;
-      $('#fundraiser-raised').hidden = false;
-    }
-  }
   const sourceLink = $('[data-fundraiser-source]');
   const fallback = $('#fundraiser-total-fallback');
   if (!donateUrl) {
@@ -301,19 +284,8 @@ for (const [selector, value] of [
 }
 
 function buildRecipientSection(place){
- const panel=el('details','recipient-panel recipient-'+place.id);
+ const panel=el('article','recipient-panel recipient-'+place.id);
  panel.id='placowka-'+place.id;
- const preview = el('summary', 'recipient-preview');
- const previewCopy = el('span', 'recipient-preview-copy');
- previewCopy.append(el('strong', '', place.full), el('span', '', place.summary || place.description));
- const previewAction = el('span', 'recipient-preview-action');
- previewAction.append(
-   el('span', 'recipient-preview-open', 'Zobacz wszystkie potrzeby'),
-   el('span', 'recipient-preview-close', 'Zwiń potrzeby'),
-   icon('chevron')
- );
- preview.append(previewCopy, previewAction);
- panel.appendChild(preview);
 
  const hero=el('div','recipient-hero');
  const media=el('div','recipient-media');
@@ -347,12 +319,6 @@ function buildRecipientSection(place){
   list.appendChild(el('p', 'recipient-pending', 'Lista w przygotowaniu.'));
  }
  panel.appendChild(list);
- panel.addEventListener('toggle', () => {
-   if (!panel.open) {
-     panel.querySelector('video')?.pause();
-     if (panel.querySelector('.recipient-embedded-video')) media.replaceChildren(buildGallery(place));
-   }
- });
  return panel;
 }
 D.places.forEach(p=>{
@@ -364,19 +330,9 @@ D.places.forEach(p=>{
  const bottom=el('span','place-jump-action','Zobacz galerię i potrzeby');bottom.appendChild(icon('arrow'));info.appendChild(bottom);
  card.appendChild(info);placesGrid.appendChild(card);
  recipientSections.appendChild(buildRecipientSection(p));
- card.addEventListener('click', () => {
-   if (location.hash === card.hash) openLinkedRecipient();
- });
 });
-function openLinkedRecipient() {
-  const target = document.getElementById(location.hash.slice(1));
-  const panel = target?.closest('details.recipient-panel');
-  if (!panel) return;
-  panel.open = true;
-  target.scrollIntoView();
-}
-window.addEventListener('hashchange', openLinkedRecipient);
-openLinkedRecipient();
+const linkedRecipient = document.getElementById(location.hash.slice(1));
+if (linkedRecipient && recipientSections.contains(linkedRecipient)) linkedRecipient.scrollIntoView();
 const partners = $('#partners-grid');
 if (D.partners.length) {
   const list = el('ul', 'partner-list');

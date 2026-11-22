@@ -405,26 +405,6 @@ a.partner-card:hover { border-color: var(--muted); }
 .place-jump-content p { margin-bottom: 8px; font-size: .875rem; line-height: 1.55; }
 .place-jump-content h3, .recipient-details h3 { overflow-wrap: anywhere; }
 .place-jump .place-jump-action { padding-top: 4px; }
-.recipient-preview {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: clamp(16px, 3vw, 28px);
-  list-style: none;
-  cursor: pointer;
-}
-.recipient-preview::-webkit-details-marker { display: none; }
-.recipient-preview:focus-visible { outline-offset: -4px; }
-.recipient-preview-copy { display: grid; gap: 4px; min-width: 0; }
-.recipient-preview-copy strong { font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.35; }
-.recipient-preview-copy > span { color: var(--muted); font-size: .875rem; }
-.recipient-preview-action { display: flex; align-items: center; gap: 8px; color: var(--dark-accent); font-size: .875rem; font-weight: 750; }
-.recipient-preview-action .icon { width: 18px; height: 18px; }
-.recipient-preview-close, .recipient-panel[open] .recipient-preview-open { display: none; }
-.recipient-panel[open] .recipient-preview-close { display: inline; }
-.recipient-panel[open] .recipient-preview-action .icon { transform: rotate(180deg); }
-.recipient-panel[open] .recipient-preview { border-bottom: 1px solid var(--line); }
 .recipient-needs-grid { scroll-margin-top: 110px; }
 .faq-donation { margin-top: 24px; }
 .recipient-needs { padding: clamp(14px, 2.5vw, 25px); }
@@ -468,16 +448,7 @@ a.partner-card:hover { border-color: var(--muted); }
   font-size: clamp(1.4rem, 3vw, 2.25rem);
   line-height: 1.2;
 }
-.fundraiser-strip { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px 24px; text-align: left; }
-.fundraiser-strip h2 { max-width: none; margin: 0; font-size: clamp(1.125rem, 2vw, 1.5rem); }
-.fundraiser-metrics { display: flex; flex-wrap: wrap; align-items: center; gap: 8px clamp(14px, 3vw, 36px); margin: 0; }
-.fundraiser-metrics dt { color: var(--soft-text); font-size: .8125rem; }
-.fundraiser-metrics dd { margin: 0; font-size: .9375rem; }
-.fundraiser-metrics strong { font-variant-numeric: tabular-nums; }
-.fundraiser-metrics small { color: var(--soft-text); white-space: nowrap; }
-.fundraiser-disclosure { text-align: left; }
-.fundraiser-disclosure > summary { width: fit-content; padding: 7px 0; color: var(--soft-text); cursor: pointer; font-size: .875rem; text-decoration: underline; text-underline-offset: .2em; }
-.fundraiser-disclosure > summary:focus-visible { outline-color: var(--white); }
+.fundraiser-countdown h2 { max-width: none; margin: 0; font-size: clamp(1.125rem, 2vw, 1.5rem); text-align: left; }
 .countdown-units {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -556,7 +527,6 @@ a.partner-card:hover { border-color: var(--muted); }
   .support-card p, .support-card .btn, .support-card > .donation-status { grid-column: 1 / -1; margin: 0; }
   .support-illustration { min-height: 52px; border-radius: 9px; }
   .support-illustration svg { height: 44px; }
-  .recipient-preview { flex-direction: column; align-items: flex-start; gap: 8px; }
   .fundraiser-summary { gap: 24px; }
   .fundraiser-total { padding: 18px 12px; }
 }
