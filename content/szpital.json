@@ -8,50 +8,51 @@
   "confirmed": false,
   "gallery": [
     {
-      "kind": "video",
-      "video": "/assets/media/szpital-dzieciecy-film-o-oddziale.mp4",
-      "alt": "Film o oddziale chirurgii dziecięcej i jego świetlicy",
-      "approved": true
-    },
-    {
       "kind": "image",
-      "image": "/assets/media/szpital-dzieciecy-budynek.png",
+      "image": "/assets/media/szpital-dzieciecy-budynek.webp",
       "alt": "Budynek Wojewódzkiego Szpitala Dziecięcego w Bydgoszczy",
       "approved": true
     },
     {
+      "kind": "video",
+      "video": "/assets/media/szpital-dzieciecy-film-o-oddziale.mp4",
+      "alt": "Film o oddziale chirurgii dziecięcej i jego świetlicy",
+      "approved": true,
+      "poster": "/assets/media/szpital-dzieciecy-okladka.webp"
+    },
+    {
       "kind": "image",
-      "image": "/assets/media/szpital-dzieciecy-laurka.jpg",
+      "image": "/assets/media/szpital-dzieciecy-laurka.webp",
       "alt": "Dziecko przygotowuje laurkę na Dzień Babci i Dziadka",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/szpital-dzieciecy-lamiglowki.jpg",
+      "image": "/assets/media/szpital-dzieciecy-lamiglowki.webp",
       "alt": "Osoby w kostiumach wręczają dziecku książkę z łamigłówkami",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/szpital-dzieciecy-maskotki.jpg",
+      "image": "/assets/media/szpital-dzieciecy-maskotki.webp",
       "alt": "Dziecko przybija piątkę z dużą maskotką",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/szpital-dzieciecy-pluszowy-mis.jpg",
+      "image": "/assets/media/szpital-dzieciecy-pluszowy-mis.webp",
       "alt": "Kobieta pokazuje dziecku pluszowego misia",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/szpital-dzieciecy-kolorowe-upominki.jpg",
+      "image": "/assets/media/szpital-dzieciecy-kolorowe-upominki.webp",
       "alt": "Dziecko ogląda kolorowe upominki",
       "approved": true
     },
     {
       "kind": "image",
-      "image": "/assets/media/szpital-dzieciecy-odwiedziny.jpg",
+      "image": "/assets/media/szpital-dzieciecy-odwiedziny.webp",
       "alt": "Odwiedziny w sali szpitalnej",
       "approved": true
     }

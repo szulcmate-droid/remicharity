@@ -6,8 +6,9 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const output = resolve(root, 'dist');
 const placeIds = ['bzpow', 'szpital', 'hospicjum'];
 const files = new Set([
-  'index.html', '404.html', 'dziekujemy.html', 'polityka-prywatnosci.html', '_headers',
-  'assets/app.js', 'assets/style.css', 'assets/favicon-akcji.ico', 'assets/logo-akcji.png',
+  'index.html', '404.html', 'dziekujemy.html', 'regulamin.html', 'polityka-prywatnosci.html', '_headers',
+  'assets/app.js', 'assets/style.css', 'assets/favicon-akcji.ico',
+  'assets/logo-akcji.webp', 'assets/bydgoski-biznes-pomaga-og.jpg',
 ]);
 const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
 const videoExtensions = ['.mp4', '.webm'];
@@ -68,7 +69,9 @@ const places = await Promise.all(placeIds.map(async id => {
 }));
 const partners = (await readContent('partners')).map(partner => ({
   ...partner,
-  logo: partner.logo ? mediaPath(partner.logo, imageExtensions) : '',
+  logo: partner.logo
+    ? mediaPath(partner.logo, partner.logo === '/assets/media/remivision-logo.svg' ? ['.svg'] : imageExtensions)
+    : '',
 }));
 
 for (const path of files) {
@@ -92,6 +95,34 @@ for (const path of files) {
   await mkdir(dirname(destination), { recursive: true });
   await copyFile(resolve(root, path), destination);
 }
+const homepagePath = resolve(output, 'index.html');
+let homepage = await readFile(homepagePath, 'utf8');
+const bzpowGallery = places.find(place => place.id === 'bzpow').gallery;
+const heroPhoto = bzpowGallery.find(
+  item => item.kind === 'image' && item.src === 'assets/media/bzpow-wydarzenie-przed-budynkiem.webp',
+);
+homepage = homepage.replace(
+  '<!-- hero-photo -->',
+  heroPhoto
+    ? '<img class="hero-photo" src="' + heroPhoto.src + '" width="908" height="1175" alt="Wydarzenie przed udekorowanym budynkiem BZPOW" fetchpriority="high" />'
+    : '<img class="hero-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" />',
+);
+const partnerPhoto = bzpowGallery.find(
+  item => item.kind === 'image' && item.src === 'assets/media/bzpow-wizyta-w-wolierze.webp',
+);
+if (partnerPhoto) {
+  homepage = homepage.replace(
+    '<!-- partner-photo -->',
+    '<img class="partner-photo" src="' + partnerPhoto.src + '" width="1125" height="1500" alt="" loading="lazy" decoding="async" />',
+  );
+}
+if (settings.siteUrl?.trim()) {
+  const siteUrl = httpsUrl(settings.siteUrl.trim());
+  const socialImageUrl = new URL('/assets/bydgoski-biznes-pomaga-og.jpg', siteUrl).href;
+  homepage = homepage.replace('content="/assets/bydgoski-biznes-pomaga-og.jpg"', () =>
+    'content="' + socialImageUrl + '"');
+}
+await writeFile(homepagePath, homepage);
 const data = { ...settings, places, needs, partners };
 await writeFile(resolve(output, 'assets/content.js'), 'window.REMI_DATA = ' + JSON.stringify(data) + ';\n');
 console.log('Gotowy katalog publikacji: dist/');

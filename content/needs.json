@@ -141,5 +141,16 @@
     "priority": false,
     "amount": null,
     "status": "do-uzgodnienia"
+  },
+  {
+    "id": "h1",
+    "place": "hospicjum",
+    "group": "Prezenty dla dzieci",
+    "title": "Paczki prezentowe dla dzieci",
+    "description": "Upominki i niespodzianki, które sprawią dzieciom radość. Zawartość paczek ustalimy z hospicjum, uwzględniając potrzeby jego podopiecznych.",
+    "icon": "gift",
+    "priority": false,
+    "amount": null,
+    "status": "do-uzgodnienia"
   }
 ]
