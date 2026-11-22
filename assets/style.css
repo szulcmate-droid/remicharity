@@ -519,6 +519,32 @@ a.partner-card:hover { border-color: var(--muted); }
 .fundraiser-total { padding: 22px; border: 1px solid var(--brand-turquoise); border-radius: 16px; }
 .fundraiser-source { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 44px; font-size: .875rem; text-decoration: underline; text-underline-offset: 3px; }
 .official-fundraiser-frame { display: block; width: 100%; border: 0; background: var(--white); border-radius: 12px; }
+.campaign-social {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(10px, 2vw, 18px);
+  margin-top: 18px;
+  padding: clamp(12px, 2vw, 18px);
+  border: 1px solid var(--brand-turquoise);
+  border-radius: 16px;
+  background: var(--night-deep);
+  text-align: left;
+}
+.campaign-social:hover { background: var(--dark-accent); border-color: var(--white); }
+.campaign-social:focus-visible { outline-color: var(--white); }
+.campaign-social-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--brand-turquoise);
+  color: var(--night-deep);
+}
+.campaign-social-copy { display: grid; gap: 2px; line-height: 1.35; }
+.campaign-social-copy > span { color: var(--soft-text); font-size: .875rem; }
+.campaign-social > .icon { color: var(--brand-turquoise); }
 @media (max-width: 760px) {
   .support-options, .fundraiser-summary { grid-template-columns: minmax(0, 1fr); }
   .support-options { gap: 14px; }
