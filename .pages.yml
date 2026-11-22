@@ -118,8 +118,9 @@ content:
       - { name: moneyboxIntro, label: Opis skarbonki firmowej, type: text }
       - { name: inKindSupportTitle, label: Nagłówek pomocy rzeczowej lub usługowej, type: string }
       - { name: inKindSupportIntro, label: Opis pomocy rzeczowej lub usługowej, type: text }
-      - { name: companyContactName, label: Imię i nazwisko osoby kontaktowej dla firm w regulaminie, type: string }
-      - { name: companyContactRole, label: Opis roli osoby kontaktowej dla firm w regulaminie, type: text }
+      - { name: companyLeadContactName, label: Pierwsza osoba kontaktowa, type: string }
+      - { name: companyContactName, label: Druga osoba kontaktowa, type: string }
+      - { name: companyContactRole, label: Opis osób kontaktowych na stronie i w regulaminie, type: text }
       - { name: leaderBenefitTitle, label: Nagłówek wyróżnienia dla lidera, type: string }
       - { name: leaderBenefitIntro, label: Opis wyróżnienia dla lidera, type: text }
       - { name: contactEmail, label: E-mail organizatora, type: string }
@@ -158,7 +159,7 @@ content:
       - name: logo
         label: Logo firmy
         type: image
-        description: Wybierz JPG, PNG, WebP lub AVIF. Oficjalny znak Remivision jest dostępny jako SVG.
+        description: Wybierz JPG, PNG, WebP lub AVIF. Oficjalny znak Remi Vision jest dostępny jako SVG.
       - name: website
         label: Adres strony internetowej
         type: string
