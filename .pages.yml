@@ -63,7 +63,7 @@ content:
     format: json
     fields: *place_fields
   - name: hospicjum
-    label: Hospicjum Pallmed Dom Sue Ryder
+    label: Hospicjum Domowe dla Dzieci
     type: file
     path: content/hospicjum.json
     format: json
@@ -84,7 +84,7 @@ content:
           values:
             - { name: bzpow, label: BZPOW }
             - { name: szpital, label: Szpital Dziecięcy }
-            - { name: hospicjum, label: Hospicjum Pallmed Dom Sue Ryder }
+            - { name: hospicjum, label: Hospicjum Domowe dla Dzieci }
       - { name: group, label: Grupa lub oddział, type: string, required: true }
       - { name: title, label: Nazwa potrzeby, type: string, required: true }
       - { name: description, label: Opis, type: text, required: true }

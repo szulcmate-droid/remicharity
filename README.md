@@ -4,7 +4,7 @@
 
 Zaloguj się do [Pages CMS](https://app.pagescms.org/), udziel aplikacji GitHub dostępu do repozytorium `szulcmate-droid/remicharity` i wybierz gałąź zawierającą `.pages.yml`. Zapis w CMS tworzy commit na wybranej gałęzi.
 
-- Wybierz **BZPOW**, **Szpital Dziecięcy** lub **Hospicjum Pallmed Dom Sue Ryder**, aby edytować opis i kolejność zdjęć oraz filmów w galerii.
+- Wybierz **BZPOW**, **Szpital Dziecięcy** lub **Hospicjum Domowe dla Dzieci**, aby edytować opis i kolejność zdjęć oraz filmów w galerii.
 - W **Listach potrzeb** zmienisz opisy, statusy i przypisanie do placówki lub oddziału.
 - W **Kampania** wklej **Adres wspólnej zbiórki**. Wszystkie przyciski wpłat prowadzą pod ten adres. Przy pustym polu strona pokazuje „Zbiórka wkrótce”.
 - W **Kampania** edytujesz także hasło i opis pierwszego ekranu, tekst przy kontakcie oraz adres e-mail organizatora.

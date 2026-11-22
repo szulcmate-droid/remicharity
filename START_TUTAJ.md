@@ -4,7 +4,7 @@ Gotowa statyczna strona dla akcji Remi Vision „Bydgoski Biznes Pomaga”.
 
 ## Co jest w tej wersji?
 
-- **Trzy oddzielne sekcje**: BZPOW Traugutta 5, Wojewódzki Szpital Dziecięcy, Hospicjum Pallmed Dom Sue Ryder.
+- **Trzy oddzielne sekcje**: BZPOW Traugutta 5, Wojewódzki Szpital Dziecięcy, Hospicjum Domowe dla Dzieci.
 - W każdej sekcji własny opis placówki, **realne archiwalne zdjęcie budynku** i indywidualna lista potrzeb.
 - Potrzeby szpitala podzielone na oddziały: chirurgia, kardiologia i endokrynologia.
 - Przycisk „Chcę pomóc tej placówce” uzupełnia właściwe pole w formularzu.

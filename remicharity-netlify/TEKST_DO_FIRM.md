@@ -4,7 +4,7 @@
 
 Cześć [imię]!
 
-W Remivision przygotowaliśmy inicjatywę RemiCharity — „Razem dla Bydgoszczy”. Łączymy lokalnych przedsiębiorców, aby wspólnie wesprzeć Bydgoski Zespół Placówek Opiekuńczo-Wychowawczych, Wojewódzki Szpital Dziecięcy i Hospicjum Pallmed Dom Sue Ryder.
+W Remivision przygotowaliśmy inicjatywę RemiCharity — „Razem dla Bydgoszczy”. Łączymy lokalnych przedsiębiorców, aby wspólnie wesprzeć Bydgoski Zespół Placówek Opiekuńczo-Wychowawczych, Wojewódzki Szpital Dziecięcy i Hospicjum Domowe dla Dzieci.
 
 Mamy konkretne listy potrzeb przekazane przez placówki — m.in. wyposażenie pokoi i świetlic, prezenty oraz atrakcje dla dzieci, a także gry i zabawki dla małych pacjentów.
 
