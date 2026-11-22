@@ -1,10 +1,10 @@
 # RemiCharity v2 — rozpocznij tutaj
 
-Gotowa statyczna strona dla akcji Remivision „Razem dla Bydgoszczy”.
+Gotowa statyczna strona dla akcji Remi Vision „Bydgoski Biznes Pomaga”.
 
 ## Co jest w tej wersji?
 
-- **Trzy oddzielne sekcje**: BZPOW Traugutta 5, Wojewódzki Szpital Dziecięcy, Hospicjum Pallmed Dom Sue Ryder.
+- **Trzy oddzielne sekcje**: BZPOW Traugutta 5, Wojewódzki Szpital Dziecięcy, Hospicjum Domowe dla Dzieci.
 - W każdej sekcji własny opis placówki, **realne archiwalne zdjęcie budynku** i indywidualna lista potrzeb.
 - Potrzeby szpitala podzielone na oddziały: chirurgia, kardiologia i endokrynologia.
 - Przycisk „Chcę pomóc tej placówce” uzupełnia właściwe pole w formularzu.
@@ -24,7 +24,7 @@ Gotowa statyczna strona dla akcji Remivision „Razem dla Bydgoszczy”.
 
 - Zgody placówek na udział w akcji i wykorzystanie nazw i materiałów.
 - Formalną nazwę operatora zbiórki, zasady podziału środków oraz oficjalny link wpłat.
-- Dane Remivision i informację o przetwarzaniu danych (RODO).
+- Dane Remi Vision i informację o przetwarzaniu danych (RODO).
 - Konkretne potrzeby hospicjum (jeszcze nie są podane).
 - Ewentualne zdjęcia podopiecznych/pacjentów wyłącznie przy odpowiednich zgodach.
 - W Netlify włączyć Forms, ponownie wdrożyć stronę i wysłać testowe zgłoszenie.

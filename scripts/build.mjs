@@ -66,23 +66,35 @@ function publishSlide(item) {
   };
 }
 
-const { companyContactName, companyContactRole, ...settings } = await readContent('settings');
+const { companyLeadContactName, companyContactName, companyContactRole, ...settings } = await readContent('settings');
 const configuredEmail = settings.contactEmail?.trim() ?? '';
 const contactEmail = /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(configuredEmail)
   ? configuredEmail
-  : 'dokumenty.remivision@gmail.com';
+  : 'bydgoskibiznespomaga@gmail.com';
 const contactEmailHref = 'mailto:' + encodeURIComponent(contactEmail).replace('%40', '@');
 const fundraiserOrganizer = settings.operatorName?.trim();
 const organizerNotice = [
   fundraiserOrganizer && `Zbiórka prowadzona na platformie zrzutka.pl jest zarejestrowana na dane ${fundraiserOrganizer}.`,
-  'Akcja Bydgoski Biznes Pomaga realizowana jest we współpracy z Remivision, które koordynuje organizację pomocy, zakupy oraz przekazanie darów wspieranym placówkom.',
+  'Remi Vision koordynuje organizację pomocy, zakupy oraz przekazanie darów wspieranym placówkom w ramach akcji Bydgoski Biznes Pomaga.',
 ].filter(Boolean).join(' ');
-const contactName = companyContactName?.trim();
+const contactNames = [companyLeadContactName, companyContactName].map(name => name?.trim()).filter(Boolean);
 const contactRole = companyContactRole?.trim();
-const companyContact = contactName ? [
+const contactPeople = contactNames.length ? [
+  ...(contactRole ? [`<p class="contact-people-label">${escapeHtml(contactRole)}</p>`] : []),
+  `<ul class="contact-people">${contactNames.map(name => `<li><strong>${escapeHtml(name)}</strong></li>`).join('')}</ul>`,
+] : [];
+const campaignContactPanel = [
+  '<div class="partner-contact-panel">',
+  ...contactPeople.map(line => '  ' + line),
+  '  <a class="partner-contact-email" data-organizer-contact href="{{contactEmailHref}}">{{contactEmail}}</a>',
+  '  <a class="btn btn-primary partner-contact-write" data-organizer-contact href="{{contactEmailHref}}">Napisz do nas</a>',
+  '</div>',
+].join('\n');
+const companyContact = contactNames.length ? [
   '<section id="kontakt-z-firmami" aria-labelledby="kontakt-z-firmami-title">',
   '  <h2 id="kontakt-z-firmami-title">Kontakt z firmami</h2>',
-  `  <p><strong>${escapeHtml(contactName)}</strong>${contactRole ? `<br />${escapeHtml(contactRole)}` : ''}</p>`,
+  ...contactPeople.map(line => '  ' + line),
+  '  <p><a href="{{contactEmailHref}}"><u>{{contactEmail}}</u></a></p>',
   '</section>',
 ].join('\n    ') : '';
 const needs = await readContent('needs');
@@ -121,6 +133,8 @@ for (const path of files) {
     await writeFile(destination, template
       .replace('<!-- fundraiser-organizer-notice -->', () => escapeHtml(organizerNotice))
       .replace('<!-- company-contact -->', () => companyContact)
+      .replaceAll(/^([ \t]*)<!-- campaign-contact-panel -->/gm, (_marker, indent) =>
+        campaignContactPanel.split('\n').map(line => indent + line).join('\n'))
       .replaceAll('{{contactEmail}}', () => escapeHtml(contactEmail))
       .replaceAll('{{contactEmailHref}}', () => contactEmailHref));
   } else {
@@ -150,8 +164,8 @@ if (partnerPhoto) {
 }
 if (settings.siteUrl?.trim()) {
   const siteUrl = httpsUrl(settings.siteUrl.trim());
-  const socialImageUrl = new URL('/assets/bydgoski-biznes-pomaga-og.jpg?v=serce', siteUrl).href;
-  homepage = homepage.replace('content="/assets/bydgoski-biznes-pomaga-og.jpg?v=serce"', () =>
+  const socialImageUrl = new URL('/assets/bydgoski-biznes-pomaga-og.jpg?v=remi-vision', siteUrl).href;
+  homepage = homepage.replace('content="/assets/bydgoski-biznes-pomaga-og.jpg?v=remi-vision"', () =>
     'content="' + socialImageUrl + '"');
 }
 await writeFile(homepagePath, homepage);

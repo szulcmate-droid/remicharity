@@ -4,19 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0218AA" />
-  <meta name="description" content="Bydgoski Biznes Pomaga - inicjatywa Remivision. Bydgoskie firmy łączą siły, aby wspierać dzieci z placówek opiekuńczo-wychowawczych, szpitala i hospicjum domowego." />
+  <meta name="description" content="Bydgoski Biznes Pomaga - inicjatywa Remi Vision. Bydgoskie firmy łączą siły, aby wspierać dzieci z placówek opiekuńczo-wychowawczych, szpitala i hospicjum domowego." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Bydgoski Biznes Pomaga" />
   <meta property="og:description" content="Razem dla dzieci. Bydgoskie firmy wspierają dzieci z placówek opiekuńczo-wychowawczych, szpitala i hospicjum domowego." />
-  <meta property="og:image" content="/assets/bydgoski-biznes-pomaga-og.jpg?v=serce" />
+  <meta property="og:image" content="/assets/bydgoski-biznes-pomaga-og.jpg?v=remi-vision" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Bydgoski Biznes Pomaga. Łączymy firmy. Zmieniamy życie." />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/favicon-akcji.ico?v=serce" />
-  <link rel="stylesheet" href="assets/style.css?v=fanpage" />
-  <script src="assets/content.js?v=widoczne-sekcje" defer></script>
-  <script src="assets/app.js?v=widoczne-sekcje" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=kontakt-firmy" />
+  <script src="assets/content.js?v=kontakt-firmy" defer></script>
+  <script src="assets/app.js?v=kontakt-firmy" defer></script>
   <title>Bydgoski Biznes Pomaga | Razem dla dzieci</title>
 </head>
 <body>
@@ -67,7 +67,7 @@
           <p class="hero-lede" id="campaign-intro">Bydgoskie firmy łączą siły, aby wspierać dzieci z placówek opiekuńczo-wychowawczych, szpitala i hospicjum domowego.</p>
           <div class="hero-organizer">
             <p class="hero-promise">Ty pomagasz. My zajmujemy się organizacją.</p>
-            <p><strong>Remivision</strong> koordynuje zakupy i przekazanie pomocy.</p>
+            <p><strong>Remi Vision</strong> koordynuje zakupy i przekazanie pomocy.</p>
           </div>
           <div class="hero-actions" id="wesprzyj">
             <span data-donation-action="btn btn-primary" hidden></span>
@@ -138,9 +138,9 @@
               <svg viewBox="0 0 160 100"><rect class="support-icon-fill" x="20" y="20" width="120" height="64" rx="32"/><circle cx="80" cy="32" r="11"/><circle cx="43" cy="43" r="9"/><circle cx="117" cy="43" r="9"/><path d="M61 82V68a19 19 0 0 1 38 0v14M27 82V72a16 16 0 0 1 24-14M133 82V72a16 16 0 0 0-24-14"/><path class="support-icon-heart" d="M80 79s-12-7-12-13a6 6 0 0 1 12-1 6 6 0 0 1 12 1c0 6-12 13-12 13Z"/></svg>
             </div>
             <h3>Zbiórka wśród pracowników</h3>
-            <p id="moneybox-intro">Załóż skarbonkę firmową i udostępnij ją pracownikom.</p>
-            <p class="support-note">Wpłaty ze skarbonki wspierają główną zbiórkę. <a data-organizer-contact data-contact-subject="Chcę zorganizować zbiórkę w firmie - Bydgoski Biznes Pomaga" href="#partner">Zapytaj o organizację zbiórki</a></p>
-            <a class="btn btn-primary" href="https://zrzutka.pl/thac88/add-moneybox" target="_blank" rel="noopener noreferrer">Załóż skarbonkę dla swojej firmy</a>
+            <p id="moneybox-intro">Zorganizuj zbiórkę w swojej firmie. Utwórz firmową skarbonkę na Zrzutka.pl, nadaj jej nazwę swojej firmy i udostępnij link pracownikom. Wszystkie wpłaty zasilają naszą akcję, a na skarbonce widać, ile udało się Wam wspólnie zebrać.</p>
+            <p class="support-note">Skarbonka jest częścią głównej zbiórki. Osoba, która ją tworzy, nie otrzymuje osobnego dostępu do zebranych środków. <a data-organizer-contact data-contact-subject="Chcę zorganizować zbiórkę w firmie - Bydgoski Biznes Pomaga" href="#partner">Zapytaj o organizację zbiórki</a></p>
+            <a class="btn btn-primary" href="https://zrzutka.pl/thac88/add-moneybox" target="_blank" rel="noopener noreferrer">Załóż skarbonkę firmy</a>
           </article>
           <article class="support-card">
             <div class="support-illustration" aria-hidden="true">
@@ -148,12 +148,12 @@
             </div>
             <h3 id="in-kind-support-title">Pomoc rzeczowa lub usługowa</h3>
             <p id="in-kind-support-intro">Przekaż potrzebne produkty lub zaoferuj usługi firmy. Wspólnie ustalimy szczegóły.</p>
-            <details class="partner-contact support-contact">
+            <details class="partner-contact support-contact" data-contact-subject="Chcę zaoferować pomoc rzeczową lub usługową - Bydgoski Biznes Pomaga">
               <summary class="btn btn-outline partner-contact-toggle">
                 <span class="partner-contact-open">Skontaktuj się z nami</span>
                 <span class="partner-contact-close">Ukryj adres e-mail</span>
               </summary>
-              <a class="partner-contact-email" data-organizer-contact data-contact-subject="Chcę zaoferować pomoc rzeczową lub usługową - Bydgoski Biznes Pomaga" href="{{contactEmailHref}}">{{contactEmail}}</a>
+              <!-- campaign-contact-panel -->
             </details>
           </article>
         </div>
@@ -190,11 +190,16 @@
           </article>
           <article class="partner-benefit partner-benefit-leader">
             <span class="partner-benefit-icon" aria-hidden="true"><svg class="icon"><use href="#i-star"/></svg></span>
-            <h3 id="leader-benefit-title">Wyjątkowa niespodzianka dla lidera pomocy</h3>
-            <p id="leader-benefit-intro">Dla firmy, która przekaże największe wsparcie finansowe w ramach naszej akcji, przygotowaliśmy specjalną niespodziankę. To nasz sposób, by dodatkowo podziękować za wyjątkowe zaangażowanie!</p>
+            <h3 id="leader-benefit-title">Zostań Liderem Pomocy 2026</h3>
+            <p id="leader-benefit-intro">Firma, której skarbonka zbierze najwięcej do 4 grudnia, otrzyma wyjątkowe podziękowanie od organizatorów! Liczy się wspólny wynik firmy, pracowników i wszystkich osób, które wesprą jej skarbonkę. Na lidera czeka pamiątkowe wyróżnienie i specjalne podziękowanie.</p>
+            <a class="leader-rules-link" href="regulamin.html#lider-akcji">Poznaj zasady wyróżnienia</a>
           </article>
         </div>
-        <p class="benefit-disclaimer">Nazwę i logo publikujemy za zgodą firmy.</p>
+        <div class="partner-thanks">
+          <strong>Doceniamy każdą pomoc!</strong>
+          <p>W naszych postach nie publikujemy kwot indywidualnych wpłat. Firmom, które wyrażą zgodę na publiczne podziękowanie, przygotujemy specjalną grafikę na naszym <a href="https://www.facebook.com/bydgoskibiznespomaga/" target="_blank" rel="noopener noreferrer">fanpage’u</a>.</p>
+          <p class="benefit-disclaimer">Nazwę i logo publikujemy po uzyskaniu zgody uprawnionego przedstawiciela firmy.</p>
+        </div>
       </div>
       <section id="partner" class="section donation-section donation-final" aria-labelledby="partner-cta-title">
         <div class="container section-heading">
@@ -205,7 +210,7 @@
               <span class="partner-contact-open">Napisz do organizatorów</span>
               <span class="partner-contact-close">Ukryj adres e-mail</span>
             </summary>
-            <a class="partner-contact-email" href="{{contactEmailHref}}">{{contactEmail}}</a>
+            <!-- campaign-contact-panel -->
           </details>
         </div>
         <!-- partner-photo -->
@@ -246,6 +251,10 @@
             <div class="faq-answer"><p>Tak! Firmy mogą przekazywać produkty lub usługi. Wystarczy skontaktować się z organizatorami akcji, aby ustalić szczegóły i aktualne potrzeby placówek.</p></div>
           </details>
           <details>
+            <summary>Czy kwota mojej wpłaty będzie publiczna? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <div class="faq-answer"><p>W serwisie Zrzutka.pl podczas wpłaty możesz ukryć swoją nazwę lub dane oraz kwotę indywidualnej wpłaty na publicznej liście. W mediach społecznościowych akcji nie publikujemy indywidualnych kwot. Łączny wynik skarbonki firmowej to odrębna informacja.</p></div>
+          </details>
+          <details>
             <summary>Na co zostaną przeznaczone wpłaty? <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
             <div class="faq-answer"><p>Zebrane środki przeznaczymy na zakup produktów, wyposażenia i bonów odpowiadających potrzebom trzech wspieranych placówek.</p></div>
           </details>
@@ -275,6 +284,6 @@
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="container"><div class="footer-top"><div><a href="#top" class="brand footer-brand"><img class="campaign-mark" src="assets/logo-akcji.webp?v=serce" width="256" height="256" alt="" /><span class="brand-name">Bydgoski Biznes Pomaga</span></a></div><div class="footer-links"><a href="#o-akcji">O akcji</a><a href="#potrzeby">Potrzeby</a><a href="#korzysci">Dla firm</a><a href="https://www.facebook.com/bydgoskibiznespomaga/" target="_blank" rel="noopener noreferrer">Śledź postępy akcji</a><span class="donation-status footer-donation-status" data-donation-action="">Zbiórka wkrótce</span><a href="regulamin.html">Regulamin</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> Bydgoski Biznes Pomaga · Inicjatywa Remivision</span></div></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-top"><div><a href="#top" class="brand footer-brand"><img class="campaign-mark" src="assets/logo-akcji.webp?v=serce" width="256" height="256" alt="" /><span class="brand-name">Bydgoski Biznes Pomaga</span></a></div><div class="footer-links"><a href="#o-akcji">O akcji</a><a href="#potrzeby">Potrzeby</a><a href="#korzysci">Dla firm</a><a href="https://www.facebook.com/bydgoskibiznespomaga/" target="_blank" rel="noopener noreferrer">Śledź postępy akcji</a><span class="donation-status footer-donation-status" data-donation-action="">Zbiórka wkrótce</span><a href="regulamin.html">Regulamin</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> Bydgoski Biznes Pomaga · Inicjatywa Remi Vision</span></div></div></footer>
 </body>
 </html>

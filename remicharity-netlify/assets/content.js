@@ -53,7 +53,7 @@ window.REMI_DATA = {
     {
       id: 'hospicjum',
       short: 'Hospicjum',
-      full: 'Hospicjum Pallmed Dom Sue Ryder',
+      full: 'Hospicjum Domowe dla Dzieci',
       detail: 'Bydgoszcz',
       eyebrow: 'Troska i obecność',
       description: 'Hospicjum jest trzecią placówką objętą inicjatywą. Konkretne potrzeby zostaną opublikowane po potwierdzeniu z placówką.',

@@ -1,19 +1,21 @@
-# Wiadomość do właścicieli firm — RemiCharity
+# Wiadomość do właścicieli firm — Bydgoski Biznes Pomaga
 
-**Temat e-maila:** Zaproszenie do wspólnej akcji Remivision — Razem dla Bydgoszczy
+**Temat e-maila:** Zaproszenie do akcji Remi Vision „Bydgoski Biznes Pomaga”
 
 Cześć [imię]!
 
-W Remivision przygotowaliśmy inicjatywę RemiCharity — „Razem dla Bydgoszczy”. Łączymy lokalnych przedsiębiorców, aby wspólnie wesprzeć Bydgoski Zespół Placówek Opiekuńczo-Wychowawczych, Wojewódzki Szpital Dziecięcy i Hospicjum Pallmed Dom Sue Ryder.
+W Remi Vision przygotowaliśmy inicjatywę „Bydgoski Biznes Pomaga”. Łączymy lokalnych przedsiębiorców, aby wspólnie wesprzeć Bydgoski Zespół Placówek Opiekuńczo-Wychowawczych, Wojewódzki Szpital Dziecięcy i Hospicjum Domowe dla Dzieci.
 
 Mamy konkretne listy potrzeb przekazane przez placówki — m.in. wyposażenie pokoi i świetlic, prezenty oraz atrakcje dla dzieci, a także gry i zabawki dla małych pacjentów.
 
-Chcielibyśmy zaprosić także Waszą firmę. Możecie wesprzeć zbiórkę dowolną kwotą, przekazać konkretne produkty albo pomóc nam dotrzeć do większej liczby osób. My koordynujemy akcję i przygotowujemy materiały, a po jej zakończeniu planujemy pokazać efekty wspólnej pomocy.
+Chcielibyśmy zaprosić także Waszą firmę. Możecie wesprzeć zbiórkę dowolną kwotą, przekazać produkty, zaoferować usługi albo [założyć skarbonkę firmy](https://zrzutka.pl/thac88/add-moneybox). Wpłaty do skarbonki zasilają główną akcję, a Wasz zespół widzi, ile zebrał. Koordynujemy zakupy i przekazanie pomocy.
 
-Wszystkie informacje znajdziesz tutaj: [LINK DO REMICHARITY.PL LUB NETLIFY.APP]
+Szczegóły znajdziecie na [stronie Bydgoski Biznes Pomaga](https://bydgoskibiznespomaga.pl/).
 
 Czy zechcielibyście dołączyć do inicjatywy?
 
 Pozdrawiam,
 [Imię i nazwisko]
-Remivision
+Remi Vision
+
+[bydgoskibiznespomaga@gmail.com](mailto:bydgoskibiznespomaga@gmail.com)

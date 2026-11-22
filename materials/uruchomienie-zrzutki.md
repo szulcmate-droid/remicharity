@@ -1,4 +1,4 @@
-# Uruchomienie firmowej zbiórki Remivision
+# Uruchomienie firmowej zbiórki Remi Vision
 
 Zmiany przygotowano do przeglądu 19 listopada 2026 r. Wersja produkcyjna wymaga osobnej akceptacji.
 
@@ -36,7 +36,7 @@ Kwotę i pasek postępu renderuje platforma w swoim widżecie. Strona akcji nie 
 
 ## Nazwa prawna i rozliczenie
 
-Aktualny odpis KRS 0000566867 sprawdzony w publicznym API Ministerstwa Sprawiedliwości wskazuje nazwę „REMI VISION SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ EMIL BEŁKA RAFAŁ BEŁKA SPÓŁKA KOMANDYTOWA” i NIP 5542930413. Zachowano tę nazwę w dokumentach formalnych, w zwyczajowym zapisie wielkości liter. Marketingowa nazwa na stronie to „Remivision”.
+Aktualny odpis KRS 0000566867 sprawdzony w publicznym API Ministerstwa Sprawiedliwości wskazuje nazwę „REMI VISION SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ EMIL BEŁKA RAFAŁ BEŁKA SPÓŁKA KOMANDYTOWA” i NIP 5542930413. Zachowano tę nazwę w dokumentach formalnych, w zwyczajowym zapisie wielkości liter. Marketingowa nazwa na stronie to „Remi Vision”.
 
 Przed publikacją trzeba porównać podmiot w regulaminie, dane organizatora na Zrzutka.pl i dokumenty rozliczeniowe. Sam kod strony nie zmienia organizatora zewnętrznej zbiórki ani sposobu księgowania.
 

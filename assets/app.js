@@ -339,7 +339,7 @@ if (D.partners.length) {
   list.setAttribute('role', 'list');
   const isRemiVision = partner => {
     const website = safeUrl(partner.website);
-    return partner.name?.trim().toLowerCase() === 'remivision' ||
+    return partner.name?.replace(/\s+/g, '').toLowerCase() === 'remivision' ||
       (website && new URL(website).hostname.replace(/^www\./, '') === 'remivision.com');
   };
   const orderedPartners = [...D.partners].sort((a, b) => Number(Boolean(isRemiVision(b))) - Number(Boolean(isRemiVision(a))));
@@ -392,9 +392,9 @@ if (allocationText) {
 const configuredEmail = D.contactEmail?.trim();
 if (configuredEmail && /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(configuredEmail)) {
   $$('[data-organizer-contact]').forEach(link => {
-    const subject = link.dataset.contactSubject || 'Chcę dołączyć do akcji Bydgoski Biznes Pomaga';
+    const subject = link.dataset.contactSubject || link.closest('details')?.dataset.contactSubject;
     link.href = 'mailto:' + encodeURIComponent(configuredEmail).replace('%40', '@') +
-      '?subject=' + encodeURIComponent(subject);
+      (subject ? '?subject=' + encodeURIComponent(subject) : '');
   });
 }
 

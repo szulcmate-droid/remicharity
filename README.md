@@ -4,12 +4,12 @@
 
 Zaloguj się do [Pages CMS](https://app.pagescms.org/), udziel aplikacji GitHub dostępu do repozytorium `szulcmate-droid/remicharity` i wybierz gałąź zawierającą `.pages.yml`. Zapis w CMS tworzy commit na wybranej gałęzi.
 
-- Wybierz **BZPOW**, **Szpital Dziecięcy** lub **Hospicjum Pallmed Dom Sue Ryder**, aby edytować opis i kolejność zdjęć oraz filmów w galerii.
+- Wybierz **BZPOW**, **Szpital Dziecięcy** lub **Hospicjum Domowe dla Dzieci**, aby edytować opis i kolejność zdjęć oraz filmów w galerii.
 - W **Listach potrzeb** zmienisz opisy, statusy i przypisanie do placówki lub oddziału.
 - W **Kampania** wklej **Adres wspólnej zbiórki**. Wszystkie przyciski wpłat prowadzą pod ten adres. Przy pustym polu strona pokazuje „Zbiórka wkrótce”.
 - W **Kampania** edytujesz także hasło i opis pierwszego ekranu, tekst przy kontakcie oraz adres e-mail organizatora.
 - W **Partnerzy** dodasz, zmienisz lub usuniesz firmę. Podaj nazwę, prześlij logo i wpisz pełny adres strony. Krótki opis jest opcjonalny. Zapisz zmiany, żeby zaktualizować listę firm.
-- RemiVision pojawia się jako pierwszy partner niezależnie od kolejności w CMS. Dla pozostałych partnerów kolejność odpowiada liście w CMS.
+- Remi Vision pojawia się jako pierwszy partner niezależnie od kolejności w CMS. Dla pozostałych partnerów kolejność odpowiada liście w CMS.
 - Na liście potrzeb pole **Priorytet** wpływa na pierwsze trzy pozycje widoczne bez rozwijania.
 
 ## Przed publicznym startem
@@ -19,6 +19,12 @@ Administrator akcji uzupełnia w **Kampania** adres wspólnej zbiórki, potwierd
 Dodając materiał do galerii, wybierz rodzaj, podaj opis alternatywny zdjęcia lub tytuł filmu i wskaż jedno źródło. Możesz użyć pliku z biblioteki CMS, bezpośredniego adresu HTTPS albo identyfikatora filmu YouTube. Dla filmów z biblioteki używaj MP4 lub WebM. Podpis, miniatura filmu i link do strony źródłowej są opcjonalne.
 
 Repozytorium jest publiczne. Przed wgraniem lub podlinkowaniem materiału z dziećmi albo pacjentami potwierdź zgody na publikację. Pole **Dopuszczony do publikacji** decyduje o obecności materiału na stronie. Plik zapisany przez CMS w repozytorium jest dostępny na GitHubie od chwili zapisu. Starsze pliki z `assets/zdjecia/` pomija pakiet wdrożeniowy.
+
+## Zgoda firmy na podziękowanie
+
+1. Ustal z firmą nazwę do publikacji i poproś uprawnionego przedstawiciela o plik z logo oraz potwierdzenie e-mailem, które materiały i kanały firma akceptuje. Wymień stronę akcji, film podsumowujący i grafikę na fanpage’u. W przypadku Lidera osobno zapytaj o zgodę na podanie łącznego wyniku skarbonki.
+2. Zachowaj odpowiedź razem z datą, imieniem, nazwiskiem i funkcją przedstawiciela, uzgodnioną pisownią nazwy oraz wersją logo. Przykładowa odpowiedź firmy: „Potwierdzam zgodę w imieniu [firma] na publikację nazwy [nazwa] oraz załączonego logo w [wybrane kanały] w ramach akcji Bydgoski Biznes Pomaga”.
+3. Dodaj firmę do Pages CMS i materiałów wyłącznie w zaakceptowanym zakresie. Wpisanie nazwy podczas wpłaty nie zastępuje potwierdzenia. Zgoda na publikację nazwy lub logo nie obejmuje automatycznie wyniku skarbonki.
 
 ## Cloudflare Pages
 
