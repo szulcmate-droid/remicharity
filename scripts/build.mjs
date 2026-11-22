@@ -136,7 +136,7 @@ homepage = homepage.replace(
   '<!-- hero-photo -->',
   heroPhoto
     ? '<img class="hero-photo" src="' + heroPhoto.src + '" width="908" height="1175" alt="Wydarzenie przed udekorowanym budynkiem BZPOW" fetchpriority="high" />'
-    : '<img class="hero-mark" src="assets/logo-akcji.webp" width="160" height="233" alt="" />',
+    : '<img class="hero-mark" src="assets/logo-akcji.webp?v=serce" width="256" height="256" alt="" />',
 );
 const partnerPhoto = bzpowGallery.find(
   item => item.kind === 'image' && item.src === 'assets/media/bzpow-wizyta-w-wolierze.webp',
@@ -149,8 +149,8 @@ if (partnerPhoto) {
 }
 if (settings.siteUrl?.trim()) {
   const siteUrl = httpsUrl(settings.siteUrl.trim());
-  const socialImageUrl = new URL('/assets/bydgoski-biznes-pomaga-og.jpg', siteUrl).href;
-  homepage = homepage.replace('content="/assets/bydgoski-biznes-pomaga-og.jpg"', () =>
+  const socialImageUrl = new URL('/assets/bydgoski-biznes-pomaga-og.jpg?v=serce', siteUrl).href;
+  homepage = homepage.replace('content="/assets/bydgoski-biznes-pomaga-og.jpg?v=serce"', () =>
     'content="' + socialImageUrl + '"');
 }
 await writeFile(homepagePath, homepage);
