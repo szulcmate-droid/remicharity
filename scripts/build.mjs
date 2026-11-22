@@ -66,6 +66,11 @@ function publishSlide(item) {
 }
 
 const { companyContactName, companyContactRole, ...settings } = await readContent('settings');
+const configuredEmail = settings.contactEmail?.trim() ?? '';
+const contactEmail = /^[\w.!+%-]+@[\w.-]+\.[a-z]{2,}$/i.test(configuredEmail)
+  ? configuredEmail
+  : 'dokumenty.remivision@gmail.com';
+const contactEmailHref = 'mailto:' + encodeURIComponent(contactEmail).replace('%40', '@');
 const fundraiserOrganizer = settings.operatorName?.trim();
 const organizerNotice = [
   fundraiserOrganizer && `Zbiórka prowadzona na platformie zrzutka.pl jest zarejestrowana na dane ${fundraiserOrganizer}.`,
@@ -110,11 +115,13 @@ if (previousOutput) {
 for (const path of files) {
   const destination = resolve(output, path);
   await mkdir(dirname(destination), { recursive: true });
-  if (path === 'index.html' || path === 'regulamin.html') {
+  if (path === 'index.html' || path === 'regulamin.html' || path === 'polityka-prywatnosci.html') {
     const template = await readFile(resolve(root, path), 'utf8');
     await writeFile(destination, template
       .replace('<!-- fundraiser-organizer-notice -->', () => escapeHtml(organizerNotice))
-      .replace('<!-- company-contact -->', () => companyContact));
+      .replace('<!-- company-contact -->', () => companyContact)
+      .replaceAll('{{contactEmail}}', () => escapeHtml(contactEmail))
+      .replaceAll('{{contactEmailHref}}', () => contactEmailHref));
   } else {
     await copyFile(resolve(root, path), destination);
   }
@@ -147,6 +154,6 @@ if (settings.siteUrl?.trim()) {
     'content="' + socialImageUrl + '"');
 }
 await writeFile(homepagePath, homepage);
-const data = { ...settings, places, needs, partners };
+const data = { ...settings, contactEmail, places, needs, partners };
 await writeFile(resolve(output, 'assets/content.js'), 'window.REMI_DATA = ' + JSON.stringify(data) + ';\n');
 console.log('Gotowy katalog publikacji: dist/');
