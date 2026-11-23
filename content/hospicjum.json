@@ -16,13 +16,6 @@
     },
     {
       "kind": "image",
-      "image": "/assets/media/sue-ryder-budynek.webp",
-      "alt": "Wejście do budynku placówki",
-      "cardCover": true,
-      "approved": true
-    },
-    {
-      "kind": "image",
       "image": "/assets/media/sue-ryder-kolorowe-ksztalty.webp",
       "alt": "Dziecko ogląda kolorowe kształty na podświetlanym blacie",
       "approved": true
@@ -55,14 +48,6 @@
       "kind": "image",
       "image": "/assets/media/sue-ryder-sala-cwiczen.jpg",
       "alt": "Zajęcia z dzieckiem w sali ćwiczeń",
-      "approved": true
-    },
-    {
-      "kind": "image",
-      "externalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Bdg_DomSueRyder_1_5-2015.jpg",
-      "alt": "Budynek Domu Sue Ryder w Bydgoszczy",
-      "caption": "Dom Sue Ryder, zdjęcie archiwalne (2015)",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Bdg_DomSueRyder_1_5-2015.jpg",
       "approved": true
     }
   ]
