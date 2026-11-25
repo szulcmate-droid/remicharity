@@ -16,18 +16,6 @@
     },
     {
       "kind": "image",
-      "image": "/assets/media/bzpow-wycieczka-na-starowke.webp",
-      "alt": "Grupa przy pomniku osiołka na starówce",
-      "approved": true
-    },
-    {
-      "kind": "image",
-      "image": "/assets/media/bzpow-spotkanie-na-trybunach.jpg",
-      "alt": "Grupa na trybunach hali sportowej",
-      "approved": true
-    },
-    {
-      "kind": "image",
       "image": "/assets/media/bzpow-zajecia-na-stadionie.webp",
       "alt": "Zajęcia na bieżni stadionu",
       "approved": true
@@ -48,18 +36,6 @@
       "kind": "image",
       "image": "/assets/media/bzpow-pokaz-kostiumow.webp",
       "alt": "Pokaz przy wystawie historycznych kostiumów",
-      "approved": true
-    },
-    {
-      "kind": "image",
-      "image": "/assets/media/bzpow-spacer-w-parku.webp",
-      "alt": "Grupa pozuje przy dużym krześle w parku",
-      "approved": true
-    },
-    {
-      "kind": "image",
-      "image": "/assets/media/bzpow-warsztaty-plastyczne.webp",
-      "alt": "Uczestnicy malują podczas warsztatów plastycznych",
       "approved": true
     },
     {
