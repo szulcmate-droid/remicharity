@@ -14,5 +14,10 @@
     "name": "Wydawnictwo Gaj",
     "logo": "/assets/media/wydawnictwo-gaj-logo.png",
     "website": "https://wydawnictwogaj.pl/"
+  },
+  {
+    "name": "ProNatura",
+    "logo": "/assets/media/pronatura-logo.png",
+    "website": "https://www.czystabydgoszcz.pl/odpady-komunalne/deklaracje-harmonogramy-oplaty-obowiazki-pszok-i-odbior-odpadow-komunalnych/pszok"
   }
 ]

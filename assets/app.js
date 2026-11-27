@@ -368,7 +368,7 @@ if (D.partners.length) {
     if (partner.description) card.appendChild(el('small', '', partner.description));
     item.appendChild(card);
     list.appendChild(item);
-    if (filmPartners.children.length < 3) {
+    if (isRemiVision(partner) && filmPartners.children.length === 0) {
       const credit = el('span', 'film-partner', partner.name);
       if (partner.logo?.startsWith('assets/media/')) {
         const mark = el('img');
